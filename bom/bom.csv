@@ -1,21 +1,21 @@
 item,qty,spec,supplier,unit_cost_usd,make_buy,notes
-1 Step-through steel frame,1,"Hi-tensile or chromoly steel, twin down tubes, 31.8 mm outer seat tube and 1 in head tube sleeves for telescoping parts; powder coat, bright color",Self or local frame builder,40.00,make,Tube and consumables for a prototype; indicative
-2 Fork,1,"20 in (ISO 406) steel fork, 1 in threaded steerer, rim brake boss",Bicycle parts wholesaler,14.00,buy,Indicative price
-3 Telescoping seat post,1,"Two stage: 28.6 mm inner sleeve plus 25.4 mm steel seat post, minimum insertion marks, 13 mm clamp bolts",Bicycle parts wholesaler plus self,9.00,buy,Sleeve made from tube; post common to roadsters; indicative
-4 Saddle,1,"Child size, light color vinyl cover, standard rail clamp",Bicycle parts wholesaler,7.00,buy,Indicative price
-5 Telescoping stem,1,"Long 22.2 mm quill with 120 mm travel and two-position head (0 or 60 mm forward), 13 mm expander bolt",Self from standard quill stem,10.00,make,Proposed design; indicative
-6 Handlebar and grips,1,"22.2 mm steel swept-back bar, 520 mm wide, rubber grips with end plugs",Bicycle parts wholesaler,8.00,buy,Indicative price
-7 Front wheel,1,"20 in (ISO 406) steel or alloy rim, 28 spokes, nutted hub, 15 mm axle nuts",Bicycle parts wholesaler,15.00,buy,Indicative price
-8 Rear wheel with coaster brake hub,1,"20 in (ISO 406) rim, 28 or 36 spokes, single-speed coaster brake hub with reaction arm",Bicycle parts wholesaler,28.00,buy,Hub type common on regional roadsters (to confirm); indicative
-9 Puncture-proof tire,2,"20 x 1.95 in solid or airless tire (alternative: thorn-resistant tube with liner)",Specialist tire supplier,16.00,buy,Choice proposed awaiting Amish; indicative
-10 Crankset with pedals,1,"140 mm steel cranks, 32T chainring, 9/16 in pedal threads, reflective pedals",Bicycle parts wholesaler,16.00,buy,9/16 in threads share adult pedals; indicative
-11 Chain and 18T sprocket,1,"1/2 x 1/8 in single-speed chain, about 90 links",Bicycle parts wholesaler,5.00,buy,Same chain as roadsters; sprocket included with hub; indicative
-12 Front rim brake and lever,1,"Side-pull caliper, short-reach child lever with reach adjust, cable and housing",Bicycle parts wholesaler,9.00,buy,Indicative price
-13 Rear rack,1,"Steel tube, about 300 x 120 mm platform, 10 kg rating marked, no footrests",Self or local frame builder,10.00,make,Indicative price
-14 Fenders,1,"Pair, 20 in, steel or plastic, with stays",Bicycle parts wholesaler,7.00,buy,Indicative price
+1 Step-through steel frame,1,"Hi-tensile steel (chromoly optional), 180 mm head tube (34 x 1.5 mm), 280 mm seat tube (31.8 x 1.5 mm) with clamp collar, 31.8 mm down tube and 28.6 mm loop tube (twin down tubes), 19 mm chainstays, 16 mm seat stays, 68 mm BB shell, rack and kickstand bosses; powder coat, bright color",Self or local frame builder (tube from a steel stockholder),40.00,make,Tube and consumables for one prototype; builder labor not included; step-through decided 2026-09-25; indicative
+2 Fork,1,"20 in (ISO 406) steel fork, 30 mm offset, 1 in threaded steerer with 220 mm usable length above the crown, rim brake mounting hole",Bicycle parts wholesaler,14.00,buy,Steerer longer than a stock 20 in fork; cut from a longer fork or made by the frame builder; indicative
+3 Telescoping seat post,1,"Two stages: 28.6 x 1.5 mm steel sleeve, 250 mm long, with its own 13 mm clamp collar; 25.4 x 1.8 mm steel seat post, 280 mm long; minimum insertion marks at 100 mm on both",Bicycle parts wholesaler plus self,9.00,buy,Sleeve made from tube; 25.4 mm post is common to roadsters; indicative
+4 Saddle,1,"Child size, light color vinyl cover, standard rail clamp, about 60 mm stack",Bicycle parts wholesaler,7.00,buy,Indicative price
+5 Telescoping stem,1,"22.2 mm steel quill, 235 mm below the clamp axis, 120 mm travel, minimum insertion mark at 100 mm; two-position head (0 or 60 mm forward); 13 mm expander bolt",Self from a standard long quill stem,10.00,make,Indicative price
+6 Handlebar and grips,1,"22.2 mm steel swept-back bar, 520 mm wide, about 160 mm sweep and 25 mm rise; rubber grips with end plugs",Bicycle parts wholesaler,8.00,buy,Indicative price
+7 Front wheel,1,"20 in (ISO 406) rim, alloy preferred (steel alternative), 28 spokes, nutted hub, 15 mm axle nuts",Bicycle parts wholesaler,15.00,buy,Alloy rim proposed for wet braking (GRR-CAL-001); indicative
+8 Rear wheel with coaster brake hub,1,"20 in (ISO 406) rim, 36 spokes, single-speed coaster brake hub with reaction arm, 18T sprocket",Bicycle parts wholesaler,28.00,buy,Hub type common on regional roadsters (to confirm); indicative
+9 Puncture-proof tire,2,"20 x 1.95 in solid or airless tire, about 1.1 kg each",Specialist tire supplier (online),16.00,buy,Solid or airless decided 2026-09-25; indicative
+10 Crankset with pedals,1,"140 mm steel cranks, 32T chainring, 9/16 in pedal threads, reflective pedals",Bicycle parts wholesaler,16.00,buy,One crank length decided 2026-09-25; adult pedals fit; indicative
+11 Chain,1,"1/2 x 1/8 in single-speed chain, about 86 links",Bicycle parts wholesaler,5.00,buy,Same chain as roadsters; sprocket included with the hub in line 8; indicative
+12 Front rim brake and lever,1,"Side-pull caliper, short-reach child lever with reach adjust, cable and housing with slack for 120 mm of stem travel",Bicycle parts wholesaler,9.00,buy,Coaster plus front rim brake decided 2026-09-25; indicative
+13 Rear rack,1,"12 mm steel tube, 300 x 120 mm platform, 10 kg rating marked, no footrests",Self or local frame builder,10.00,make,Indicative price
+14 Fenders,1,"Pair, 20 in, 64 mm wide, plastic preferred (steel alternative), with stays",Bicycle parts wholesaler,7.00,buy,Indicative price
 15 Chainguard,1,"Full-length plate guard over the upper chain run",Bicycle parts wholesaler,4.00,buy,Protects uniforms and skirts; indicative
 16 Kickstand,1,"Rear-mounted, adjustable length",Bicycle parts wholesaler,5.00,buy,Indicative price
 17 Reflectors and bell,1,"Front white, rear red, two spoke reflectors per wheel, bell",Bicycle parts wholesaler,6.00,buy,Pedal reflectors included in line 10; indicative
-18 Bottom bracket and headset,1,"1 in threaded headset, cup and cone or cartridge bottom bracket",Bicycle parts wholesaler,10.00,buy,Not modeled; indicative
-19 Hardware and consumables,1,"Bolts, grease, paint touch-up, cable ends, warning labels",Self,8.00,buy,Not modeled; indicative
-20 Child helmet,1,"Adjustable, ventilated, sized for about 48 to 58 cm heads",Safety equipment supplier,12.00,buy,Not modeled; provision proposed awaiting Amish; indicative
+18 Bottom bracket and headset,1,"1 in threaded headset (32 mm locknut), cup and cone or cartridge bottom bracket for a 68 mm shell",Bicycle parts wholesaler,10.00,buy,Not modeled in detail; indicative
+19 Hardware and consumables,1,"Bolts, clamp collars, positive stop bolts for the sliding parts, grease, paint touch-up, cable ends, warning labels",Self (hardware store),8.00,buy,Not modeled; indicative
+20 Child helmet,1,"Adjustable, ventilated, sized for about 48 to 58 cm heads",Safety equipment supplier,12.00,buy,Not modeled; funding source still awaiting Amish; indicative

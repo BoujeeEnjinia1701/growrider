@@ -58,3 +58,80 @@ Requirements not met or at risk:
 ### Recommended next step
 
 Review this note and the media, and decide the proposed items above, especially wheel size and brakes. If approved, run `/advance-trl3` to check the fit geometry, braking, frame loads and mass by calculation, and to produce the parametric model and drawing sheet. In parallel, find a partner for co-design so the anthropometric and parts-commonality assumptions can be tested.
+
+## Session 2026-09-25: TRL 3
+
+Amish's instruction for this session (2026-09-25): "proceed with all of your recommendations across all batches. Make sure we don't proceed to TRL 4 on any of them." GrowRider now claims TRL 3 (proof of concept on paper). TRL 4 is on hold by Amish's instruction.
+
+### What was done
+
+- `docs/decisions/0001-trl2-review-decisions.md` (GRR-DDR-001 v0.1): six TRL 2 review items with a recommendation recorded as decided by Amish, 2026-09-25, and four items that stay open.
+- `docs/04-calcs/01-sizing.md` (GRR-CAL-001 v0.1) and `docs/04-calcs/sizing.py`: fit under two saddle-height rules, seat post and quill insertion and bore depth, standover, reach and bar height, trail, crown and fender clearance, toe overlap, pedal clearance, mass from the model's tubes, rider-plus-bike mass center, rack, braking (grip limits, coaster back-pedal force, rim brake lever force dry and wet), service task analysis, BOM total, a strength screen of six sections, drive, power, trip time and the applicable ISO standard. The script imports the model's `PARAMS` and prints every number the note quotes, tagged [A1] to [M1].
+- `cad/src/model.py`: parametric build123d model (frame, fork with long steerer, two-stage seat post, saddle, quill stem with two-position head, handlebar, wheels, solid tires, crankset, chain, front brake, rack, fenders, chainguard, kickstand, reflectors) with rider settings. Exports `cad/step/growrider-small.step`, `growrider-large.step`, `frame.step`, `fork.step`, `seat-post-assembly.step`, `stem-and-bar.step`, `rack.step` and matching STL files in `cad/stl/`.
+- `cad/src/sheets.py` and `cad/drawings/GRR-DWG-001.svg`, `.pdf`, `.png`: general arrangement at Rev P1, scale 1:10, ortho views at the largest setting with overall length and height, wheelbase, BB height, standover, width and bar width drawn from the model; isometric at the smallest setting; a main-dimensions box. The sheet carries "CONCEPT, NOT FOR FABRICATION" and "PRELIMINARY, NOT FOR FABRICATION". The concept sheet remains GRR-DWG-010, so DWG-001 was free for the general arrangement.
+- `bom/bom.csv` and `bom/bom-notes.md`: all 20 lines priced with a supplier type; specs updated to the model.
+- `cad/src/concept_media.py` now builds the media from `model.py` (bike set for a 1.38 m rider beside a 1.35 m child), with key figures from GRR-CAL-001. All media in `media/` were regenerated and checked by eye; the temporary `media/_views*` folders were deleted.
+- GRR-PRB-001, GRR-PRC-001 and GRR-REQ-001 revised to v0.3 (decisions recorded, numbers replaced by GRR-CAL-001, requirement status column); `README.md` updated to TRL 3 with links; `project.yaml` set to `trl: 3`, `trl_target: 3`, with the evidence files listed. PDFs are in `docs/pdf/`.
+
+### Requirements (GRR-CAL-001, Table 6)
+
+5 met, 1 not met, 4 at risk, 2 not verifiable at TRL 3.
+
+| ID | Status | Value against target |
+| --- | --- | --- |
+| R5 | **Not met** | 15.3 kg against 13 kg; 81 % of a 19 kg six-year-old. All five saving options together reach about 13.1 kg |
+| R7 | At risk | Smallest rider, dry: coaster 0.22 g (85 N back-pedal force needed, about 93 N available), front 0.24 g, both 0.46 g. Wet steel rim about 0.05 g |
+| R9 | At risk | Fit change about 10 min with a 13 mm spanner and a screwdriver; headset needs a 32 mm spanner and the BB a lockring spanner |
+| R11 | At risk | $243 for the bike, $255 with the helmet (helmet funding open); production cost not estimated |
+| R12 | At risk | 3 of 6 sections above the 60 MPa fatigue screen at 1 g: sleeve at the seat tube top 74 MPa, quill at full extension 77 MPa, steerer in hard braking 117 MPa; none above yield. Seizing of sliding joints not assessable |
+| R8 | Not verifiable at TRL 3 | Solid tires cannot puncture; tire life needs supplier data |
+| R10 | Not verifiable at TRL 3 | Parts chosen to match roadsters; needs a regional parts list |
+| R1 | Met | 1.10 to 1.65 m; standover 455 mm against 470 mm (40 mm below the smallest inseam) |
+| R2 | Met | Saddle 400 to 670 mm; 100 mm insertion at every sliding joint |
+| R3 | Met | Bar height 113 mm; reach 141 mm |
+| R4 | Met | 20 in (ISO 406) |
+| R6 | Met | 300 x 120 mm platform; 35 MPa at 10 kg and 2.5 g |
+
+Other key numbers: trail 59 mm; fork crown to fender 6 mm; toe overlap up to 19 mm for the largest rider; grips 128 mm above the saddle at the smallest setting; gear 2.79 m per turn (66 rpm at 11 km/h); 34 W on the level and 65 W on a 5 % climb for a 1.38 m rider; about 79 min a day returned on a 5 km trip. The adult fitting rule used at TRL 2 put the smallest saddle 36 mm too high for 140 mm cranks; the design now covers the crank-corrected rule too. Every TRL 2 number in the docs was checked against the script and corrected where it differed (GRR-CAL-001, "Checks against earlier figures").
+
+### Decisions recorded (GRR-DDR-001)
+
+Decided by Amish, 2026-09-25, going with the recommendation: D1 20 in (ISO 406) wheels; D2 coaster brake plus front rim brake; D3 step-through frame with twin down tubes; D4 solid or airless tires for the prototype; D5 one 140 mm crank length for the prototype; D6 production cost target $120 or less at volume. No requirement target was relaxed or redefined; `budget_usd` stays at $250 and the pitch and problem lines are unchanged (no rewording was recommended). The SwapCell decisions do not apply to GrowRider.
+
+D6 was read as carrying a recommendation because the TRL 2 note proposed the $120 figure itself; if Amish did not mean to fix it, it reverts to proposed.
+
+### Proposed, awaiting Amish
+
+Still open from TRL 2 (no recommendation was made):
+
+1. Helmet funding (O1): from the $250 budget ($5 over), funded separately, or a budget of about $275.
+2. First partner (O2) and first region (O3). Per Amish's portfolio instruction, co-design partners are picked per area later (O4).
+
+New from TRL 3:
+
+3. **Mass (R5).** Options: (a) relax R5 to 15.5 kg for the prototype and keep the decided solid tires; (b) adopt chromoly main tubes, an aluminium rack, alloy rims and bar (about 13.6 kg, some added cost), keeping solid tires; (c) all of (b) plus pneumatic tires with liners (about 13.1 kg), which reverses D4. Recommendation: (b), and keep R5 at 13 kg as the production goal.
+4. **Alloy front rim (R7).** Specify an alloy front rim, since a wet steel rim gives a child about 0.05 g. Recommendation: adopt; BOM line 7 already prefers alloy at the same price.
+5. **Coaster hub data (R7).** Get the brake ratio of a regional coaster hub; the smallest rider's margin rests on an assumed ratio of 2.5. Recommendation: do this before any further brake work.
+6. **Strength (R12).** Specify chromoly or thicker-walled sleeve, quill and steerer, or limit the maximum extension. Recommendation: chromoly steerer and quill, and a 1.8 mm wall sleeve; recheck in GRR-CAL-001.
+7. **R2 target.** Widen R2 to 400 to 670 mm to match the crank-corrected fit rule the design already meets. Recommendation: adopt.
+8. **R9 tools.** Either add a 32 mm headset spanner and a BB lockring spanner to R9 for mechanics, or keep R9 for parents' fit changes only. Recommendation: split R9 into a parent tool list (13 mm spanner, screwdriver) and a mechanic tool list.
+9. **Low bar option.** Offer a flat bar for the smallest riders, since the grips sit 128 mm above the saddle at the smallest setting. Recommendation: note as a co-design question.
+
+### Safety concerns
+
+- Child riders on shared roads; nothing built or tested. The applicable standard by saddle height is ISO 4210-2 (city and trekking), whose tests assume adult riders.
+- Braking margins for a 1.10 m rider are small on paper, the coaster brake is lost if the chain comes off, and a wet steel rim barely brakes.
+- Sliding joints at full extension carry the highest stresses; minimum insertion marks and positive stops are required, and clamp slots are pinch points.
+- The bike is about 81 % of a six-year-old's weight; 10 kg on the rack cuts the front wheel load from 40 % to 33 % for the smallest rider.
+- Toe overlap for the largest riders; 6 mm fender-to-crown clearance can pack with mud and lock the front wheel.
+
+### Other notes
+
+- No existing TRL 4 material was found (`build-log/` holds only its README; `electronics/` and `firmware/` are empty). None was created. STANDARDS section 9 asks for a TRL change to be recorded in the build log; no build-log entry was written, since the brief did not name one.
+- Citations: no unchecked citations were listed at TRL 2. The ISO 8098 and ISO 4210-2 saddle height scopes quoted in GRR-CAL-001 and GRR-PRB-001 were checked on the ISO catalog pages; the standards' test loads were not read. BOM prices are indicative estimates by supplier type, not quotes. Rider masses, lever and back-pedal forces, the coaster brake ratio and catalog part masses are assumptions stated in GRR-CAL-001, Table 1.
+
+### Recommended next step
+
+Stay at TRL 3. TRL 4 is on hold by Amish's instruction. Decide items 3 to 8 above, starting with mass and the alloy rim, get coaster hub brake data and catalog masses for the tires, rims and hub, then revise GRR-CAL-001, the model and the BOM on paper. In parallel, a co-design partner is needed to test the fit assumptions and supply a regional parts list.
+
+For reference only, TRL 4 would need: a lab test report (TST, `environment: lab`) on a built frame, fork and seat post (ISO 4210-2 frame and fork fatigue and impact, seat post and stem tests, brake performance with child-level forces, rack static load), weighing, a timed fit change, build-log entries, and the purchasing and build work that goes with them. None of this has been started.

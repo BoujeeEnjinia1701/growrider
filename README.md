@@ -1,14 +1,14 @@
 # GrowRider
 
-![TRL 2](https://img.shields.io/badge/TRL-2%20of%209-0F766E) ![Hardware: CERN-OHL-S-2.0](https://img.shields.io/badge/hardware-CERN--OHL--S--2.0-111827) ![Software: MIT](https://img.shields.io/badge/software-MIT-111827)
+![TRL 3](https://img.shields.io/badge/TRL-3%20of%209-0F766E) ![Hardware: CERN-OHL-S-2.0](https://img.shields.io/badge/hardware-CERN--OHL--S--2.0-111827) ![Software: MIT](https://img.shields.io/badge/software-MIT-111827)
 
-**Area:** Mobility and Logistics · **TRL:** 2 of 9 (concept formulated) · **Prototype budget:** about $250 USD · **Difficulty:** 2 of 5
+**Area:** Mobility and Logistics · **TRL:** 3 of 9 (proof of concept on paper) · **Prototype budget:** about $250 USD · **Difficulty:** 2 of 5
 
 Rugged, repairable children's bicycle with an adjustable frame that fits ages 6 to 14, puncture-proof tires, a coaster brake and a small rated rack, built from parts common to regional adult bicycles.
 
 ![GrowRider concept](media/hero.png)
 
-[Interactive 3D model](media/viewer.html) · [Concept blueprint (PDF)](media/concept-blueprint.pdf) · [Review note](docs/REVIEW.md)
+[Interactive 3D model](media/viewer.html) · [Concept blueprint (PDF)](media/concept-blueprint.pdf) · [General arrangement GRR-DWG-001 (PDF)](cad/drawings/GRR-DWG-001.pdf) · [Sizing calculations](docs/04-calcs/01-sizing.md) · [Review note](docs/REVIEW.md)
 
 ## Problem
 
@@ -18,22 +18,23 @@ Rural children often walk more than an hour each way to school, and adult bicycl
 
 Rugged, repairable children's bicycle with an adjustable frame that fits ages 6 to 14, puncture-proof tires, a coaster brake and a small rated rack, built from parts common to regional adult bicycles.
 
-Full design precis: [docs/02-concept.md](docs/02-concept.md)
+Full design precis: [docs/02-concept.md](docs/02-concept.md). The TRL 3 calculations ([GRR-CAL-001](docs/04-calcs/01-sizing.md)) find the fit range, reach, wheel size and rack meet their requirements on paper; mass (about 15.3 kg against 13 kg) is not met, and braking margins for the smallest rider, service tools, cost and frame life are at risk.
 
 ## Key components
 
-- Steel frame with telescoping seat and head tubes
-- Puncture-proof 20 to 24 in wheels
-- Coaster brake hub
+- Step-through steel frame with a two-stage telescoping seat post (saddle 400 to 670 mm) and a long quill stem
+- 20 in (ISO 406) wheels with solid puncture-proof tires
+- Coaster brake hub plus front rim brake
+- 140 mm cranks
 - Single-speed chain drive
 - Rated rear rack (10 kg)
 - Reflectors and bell
 
-The working bill of materials is in [bom/bom.csv](bom/bom.csv).
+The priced bill of materials is in [bom/bom.csv](bom/bom.csv): $243 for the bike, $255 with a child helmet, against a $250 budget. The parametric model is [cad/src/model.py](cad/src/model.py), with STEP files in `cad/step/`.
 
 ## Safety
 
-> Rack load is limited to 10 kg for child safety. Frames must pass drop and fatigue tests before field use.
+> **Safety:** Nothing has been built or tested. Rack load is limited to 10 kg for child safety. Frame, fork, seat post, stem and brakes must pass the tests of ISO 4210-2 (the standard that applies by saddle height) before anyone rides it.
 
 ## Repository layout
 

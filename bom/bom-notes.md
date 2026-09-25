@@ -1,9 +1,11 @@
 # BOM notes
 
-Prices are indicative concept estimates (TRL 2) for a single prototype and will be confirmed with named suppliers at TRL 3. Item numbers match the callouts in `media/exploded.png`; lines 18 to 20 are not modeled.
+Prices are indicative estimates by supplier type for a single prototype (TRL 3), not quotes. Every line is priced. Item numbers match the callouts in `media/exploded.png` and the parts in `cad/src/model.py`; lines 18 to 20 are not modeled in detail. `docs/04-calcs/sizing.py` reads this file and prints the totals quoted in GRR-CAL-001 [J1].
 
-- The bike itself (lines 1 to 19) comes to about $243, within the $250 concept budget but with little margin.
-- Adding the child helmet (line 20, $12) brings the total to about $255, $5 over budget. Whether the helmet is funded from the prototype budget, funded separately, or the budget rises is proposed, awaiting Amish. The budget in `project.yaml` is unchanged.
-- The two largest cost lines are the puncture-proof tires ($32 for the pair) and the rear wheel with coaster brake hub ($28). Pneumatic tires with thorn-resistant tubes and liners would save about $10 and about 1 kg, at the cost of occasional punctures.
-- Parts commonality: lines 3, 6, 10 (pedals), 11, 12, 16, 17, 18 and the hub internals in line 8 are intended to match parts sold for regional adult roadsters. Lines 7, 8 (rims), 9 and 14 are specific to the 20 in wheel size. This must be checked against a real parts list from the partner.
-- Production cost at volume is not estimated at TRL 2. It will be quite different from these one-off retail prices.
+- The bike itself (lines 1 to 19) comes to $243, within the $250 budget in `project.yaml` with a $7 margin.
+- Adding the child helmet (line 20, $12) brings the total to $255, $5 over budget. Whether the helmet is funded from the prototype budget, funded separately, or the budget rises is still proposed, awaiting Amish (GRR-DDR-001, O1). The budget is unchanged.
+- The line 1 frame price covers tube and consumables only; a frame builder's labor is not included and would push the bike over budget if paid.
+- The two largest cost lines are the solid tires ($32 for the pair, decided 2026-09-25) and the rear wheel with coaster brake hub ($28).
+- TRL 3 changes: the fork needs a steerer with 220 mm usable length (longer than a stock 20 in fork), the stem is a long quill with 235 mm below the clamp, an alloy front rim is preferred for wet braking, plastic fenders are preferred for mass, the chain is 86 links, and line 19 now includes the positive stop bolts for the sliding parts. None changed a price.
+- Parts commonality: lines 3 (post), 6, 10 (pedals), 11, 12, 16, 17, 18 and the hub internals in line 8 are intended to match parts sold for regional adult roadsters. Lines 7, 8 (rims), 9 and 14 are specific to the 20 in wheel size, and lines 2, 3 (sleeve) and 5 are made or modified parts. This must be checked against a real parts list from a partner.
+- Production cost at volume is not estimated. The $120 target (decided 2026-09-25) needs an estimate from a regional assembler.

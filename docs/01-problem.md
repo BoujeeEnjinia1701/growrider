@@ -3,9 +3,9 @@ doc_id: GRR-PRB-001
 title: GrowRider problem statement
 project: GrowRider
 doc_type: Problem statement
-version: "0.2"
+version: "0.3"
 status: Draft
-date: '2026-09-24'
+date: '2026-09-25'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -17,6 +17,10 @@ revisions:
   date: '2026-09-24'
   author: Amish Chadha
   change: Populate to TRL 2 (users, context, constraints, out of scope, prior work)
+- version: "0.3"
+  date: '2026-09-25'
+  author: Amish Chadha
+  change: TRL 3 update (standard classification checked; open partner and region questions kept open per GRR-DDR-001)
 ---
 
 # GrowRider problem statement
@@ -69,12 +73,12 @@ Context that shapes the design:
 - **Buffalo bicycle (World Bicycle Relief).** A rugged adult roadster designed for rural Africa, with a strong steel frame and a regional spare-parts and mechanic network. It is the reference for durability and parts commonality, but it is too large for young children.
 - **Bicycle-for-school programs.** Programs in several African countries give bicycles to students, and a large state program in Bihar, India, that gave girls bicycles for secondary school was found to raise girls' enrollment (Muralidharan and Prakash, "Cycling to School," *American Economic Journal: Applied Economics*, 2017).
 - **Adjustable children's bicycles.** Several commercial children's bikes in high-income markets offer extendable seat posts, stems or frames. They are mostly aluminum, use lightweight components not sold in rural markets, and are priced well above a roadster.
-- **Standards.** ISO 8098 covers safety requirements for bicycles for young children, and ISO 4210 covers city and trekking bicycles for larger riders. GrowRider's fit range spans the boundary between the two, which needs checking at TRL 3.
+- **Standards.** ISO 8098 covers safety requirements for bicycles for young children, and ISO 4210 covers city and trekking bicycles for larger riders. The scopes are set by maximum saddle height: ISO 8098 covers bicycles with a maximum saddle height above 435 mm and below 635 mm, and ISO 4210-2 covers larger ones, with young adult bicycles from 635 to 750 mm ([ISO 8098:2023](https://www.iso.org/standard/78085.html), [ISO 4210-2:2023](https://www.iso.org/standard/78077.html)). GrowRider's maximum saddle height is about 890 mm, so it falls under ISO 4210-2 (GRR-CAL-001, section M).
 
 ## Open questions
 
-- Which partner to work with first (a bicycle distribution NGO, a rural school network, or a regional bicycle assembler)? Proposed, awaiting Amish.
-- Which region to design for first? The Buffalo parts ecosystem suggests Zambia, Kenya or Malawi. Proposed, awaiting Amish.
+- Which partner to work with first (a bicycle distribution NGO, a rural school network, or a regional bicycle assembler)? Proposed, awaiting Amish; community designs pick co-design partners per area later (GRR-DDR-001, O2).
+- Which region to design for first? The Buffalo parts ecosystem suggests Zambia, Kenya or Malawi. Proposed, awaiting Amish (GRR-DDR-001, O3).
 - How common is carrying a sibling on the rack, and what design cues (rack size, marking, no footrests) discourage it best? To learn in co-design.
 
 ## User research and co-design
