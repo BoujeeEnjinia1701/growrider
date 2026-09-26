@@ -177,7 +177,7 @@ Files changed: `cad/src/model.py` (and STEP and STL re-exported), `cad/src/sheet
 1. O1 Helmet funding (no recommendation).
 2. O2 First partner and O4 co-design partner (picked per area later).
 3. O3 First region (no recommendation).
-4. N1 (new) Prototype budget: options are to raise it to $300, to build the first prototype in hi-tensile steel and keep $250, or to keep $250 with R11 not met. Recommendation: raise to $300, which also covers the helmet. Not applied.
+4. ~~N1 (new) Prototype budget~~ **Decided by Amish, 2026-09-26: budget top-up to $300** (see the session below).
 5. N2 (new) Steerer: specify a 25.4 x 2.0 mm butted chromoly steerer (98 MPa, still above the screen) and confirm by the ISO 4210-2 fork tests. Recommendation: adopt, and accept that the fork test decides.
 
 ### Cross-repo actions
@@ -194,3 +194,26 @@ None. No decision for GrowRider needs another repo to change.
 ### TRL 4
 
 TRL 4 remains on hold by Amish's instruction. D9 (hub data) and the tests named above are recorded but not started; no build, test, purchasing or build-log work was done.
+
+## Session 2026-09-26: sources strengthened
+
+Amish asked on 2026-09-26 to fix the weaker sources and approved the budget top-up ("I am ok with the budget top ups").
+
+### Sources
+
+Three rows of "By country or region" in `README.md` had no citation. Each was rewritten to state only what a verified source supports:
+
+| Row | Old source | New source |
+| --- | --- | --- |
+| Andean and rural Latin America (Peru, Bolivia) | None | Replaced by Latin America (Bogotá, Colombia): [Alcaldía de Bogotá](https://bogota.gov.co/mi-ciudad/educacion/movilidad-en-bogota-al-colegio-en-bici-beneficios-para-estudiantes), Al Colegio en Bici and the city's other guided school-travel programs, more than 9,000 students from 147 public schools (2024) |
+| Southeast Asia (Cambodia, Myanmar) | None | Narrowed to Cambodia: [Agence Kampuchea Presse](https://www.akp.gov.kh/post/detail/374647), 200 donated bicycles for pupils of five schools in Banteay Meanchey province who had walked several kilometres a day (July 2026) |
+| Netherlands and other high-income cycling countries | None | [Veldman, Westerbroek and Singh, *Transportation Research Interdisciplinary Perspectives*, 2026](https://doi.org/10.1016/j.trip.2026.101998): 64 % of Dutch primary school children in the study cycled to school at least once a week. The claim "children ride to school daily" was dropped |
+
+The other sources (UNESCO, WHO, Muralidharan and Prakash in the *American Economic Journal: Applied Economics*, NBER) are primary and were kept. The inspiration (Bihar Chief Minister's Bicycle program and its peer-reviewed evaluation) already rests on primary sources and is unchanged.
+
+### Budget
+
+- `project.yaml`: `budget_usd` 250 to 300.
+- `docs/04-calcs/sizing.py` now reads the budget from `project.yaml` and was re-run: [J1] $281 bike, $293 with helmet, against $300; R11 moves from not met to at risk (prototype within budget; the $120 production target is not yet estimated). Totals: 5 met, 1 not met, 4 at risk, 2 not verifiable.
+- GRR-CAL-001 v0.3, GRR-REQ-001 v0.5, GRR-PRC-001 v0.5 and GRR-PRB-001 v0.5 record the new budget and R11 status; GRR-DDR-002 v0.2 records "Budget top-up to $300: decided by Amish, 2026-09-26" against N1 and notes that the $293 total with the helmet now fits (O1's funding question).
+- `README.md`: budget badge line and cost sentences updated to $300.

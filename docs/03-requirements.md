@@ -3,9 +3,9 @@ doc_id: GRR-REQ-001
 title: GrowRider requirements
 project: GrowRider
 doc_type: Requirements
-version: "0.4"
+version: "0.5"
 status: Draft
-date: '2026-09-25'
+date: '2026-09-26'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -25,11 +25,15 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: Recommendations accepted by Amish (DDR-002)
+- version: "0.5"
+  date: '2026-09-26'
+  author: Amish Chadha
+  change: Budget top-up approved by Amish
 ---
 
 # GrowRider requirements
 
-These are the requirements for the concept. They were checked by calculation at TRL 3 in GRR-CAL-001 v0.2: 5 are met on paper, 2 are not met (R5, mass; R11, prototype cost), 3 are at risk and 2 cannot be verified at TRL 3. Amish's acceptance of the TRL 3 recommendations on 2026-09-25 (GRR-DDR-002) widened R2 to the crank-corrected fit range, split R9 into parent and mechanic tool lists, restated R5 as the production goal and named the alloy front rim in R7. All targets must still be revised from co-design findings before the design is frozen (see GRR-PRB-001).
+These are the requirements for the concept. They were checked by calculation at TRL 3 in GRR-CAL-001 v0.3: 5 are met on paper, 1 is not met (R5, mass), 4 are at risk and 2 cannot be verified at TRL 3. Amish's acceptance of the TRL 3 recommendations on 2026-09-25 (GRR-DDR-002) widened R2 to the crank-corrected fit range, split R9 into parent and mechanic tool lists, restated R5 as the production goal and named the alloy front rim in R7. All targets must still be revised from co-design findings before the design is frozen (see GRR-PRB-001).
 
 | ID | Requirement | Target | Verification (TRL 3 or later) | TRL 3 status (GRR-CAL-001) |
 | --- | --- | --- | --- | --- |
@@ -43,7 +47,7 @@ These are the requirements for the concept. They were checked by calculation at 
 | R8 | Puncture resistance | No loss of use from thorn punctures; tire life 2,000 km or more (about one school year of 10 km per day) | Supplier data; later field trial | Not verifiable at TRL 3 (tire life) |
 | R9 | Serviceable with basic tools (split by GRR-DDR-002, D12) | R9a, parent or teacher: every fit adjustment with a 13 mm spanner and a screwdriver, and a fit change in 10 minutes or less. R9b, mechanic: all routine service, including headset and bottom bracket, with 13, 15 and 32 mm spanners, a bottom bracket lockring spanner and a screwdriver | Design review; later timed trial | At risk: both tool lists met; fit change 10 min, at the limit |
 | R10 | Parts commonality with regional adult roadsters | Every wear part except tires and rims interchangeable with regional roadster parts (chain, sprocket, coaster hub internals, bottom bracket, headset, pedals, seat post, handlebar, brake blocks) | BOM review against a regional parts list from the partner | Not verifiable at TRL 3 (no regional parts list) |
-| R11 | Low cost | Prototype parts $250 or less (project budget); production cost target $120 or less per bike at volume (decided 2026-09-25, GRR-DDR-001, D6) | Priced BOM; production estimate with a regional assembler | **Not met: $281 bike, $293 with helmet** ($243 and $255 before GRR-DDR-002); budget change proposed, awaiting Amish |
+| R11 | Low cost | Prototype parts $300 or less (project budget, raised from $250 by Amish on 2026-09-26, GRR-DDR-002, N1); production cost target $120 or less per bike at volume (decided 2026-09-25, GRR-DDR-001, D6) | Priced BOM; production estimate with a regional assembler | At risk: prototype within budget at $281 bike, $293 with helmet (not met against the former $250); $120 production cost not yet estimated |
 | R12 | Lasts across siblings | 10-year service life for at least three successive riders; frame and fork sized for a 60 kg rider plus a 10 kg rack load; sliding joints that do not seize in dust and rain | Fatigue calculation at TRL 3; later frame fatigue tests | At risk: 1 of 6 sections above the fatigue screen (steerer; 3 of 6 before GRR-DDR-002) |
 
 ## Assumptions

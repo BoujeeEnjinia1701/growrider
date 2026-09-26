@@ -3,9 +3,9 @@ doc_id: GRR-DDR-002
 title: GrowRider recommendations accepted
 project: GrowRider
 doc_type: Design decision record
-version: "0.1"
+version: "0.2"
 status: Draft
-date: '2026-09-25'
+date: '2026-09-26'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -13,6 +13,10 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: Recommendations accepted by Amish (DDR-002)
+- version: "0.2"
+  date: '2026-09-26'
+  author: Amish Chadha
+  change: Budget top-up to $300 decided by Amish (N1)
 ---
 
 # 0002: Recommendations accepted
@@ -47,11 +51,11 @@ The options for each item are those listed in `docs/REVIEW.md` (session 2026-09-
 
 | # | Item | Status |
 | --- | --- | --- |
-| O1 | Helmet funding (BOM line 20, $12) | Proposed, awaiting Amish (no recommendation was made) |
+| O1 | Helmet funding (BOM line 20, $12) | Proposed, awaiting Amish (no recommendation was made). Since the 2026-09-26 top-up (N1), the $293 total with the helmet fits the $300 budget |
 | O2 | First partner | Proposed, awaiting Amish; community designs pick co-design partners per area later |
 | O3 | First region (Zambia, Kenya or Malawi suggested) | Proposed, awaiting Amish (no recommendation was made) |
 | O4 | Co-design partner for fit measurements and the regional parts list | Open; picked per area later |
-| N1 | Prototype budget: D7 and D10 raise the bike to $281 ($293 with the helmet) against the $250 in `project.yaml` | New, proposed, awaiting Amish. Options: raise the budget to $300; keep $250 and build the first prototype in hi-tensile steel with the chromoly parts later; or keep $250 and treat R11 as not met. Recommendation: raise to $300, which also settles O1. `budget_usd` is unchanged at $250 |
+| N1 | Prototype budget: D7 and D10 raise the bike to $281 ($293 with the helmet) against the $250 in `project.yaml` | New, proposed, awaiting Amish. Options: raise the budget to $300; keep $250 and build the first prototype in hi-tensile steel with the chromoly parts later; or keep $250 and treat R11 as not met. Recommendation: raise to $300, which also settles O1. Budget top-up to $300: decided by Amish, 2026-09-26. `budget_usd` is now $300; GRR-REQ-001 v0.5 and GRR-CAL-001 v0.3 record R11 as at risk (prototype $281, $293 with the helmet, within budget; production cost not estimated) |
 | N2 | Steerer at the crown still above its screen (117 MPa against 90 MPa; 98 MPa with a 25.4 x 2.0 mm steerer) | New, proposed, awaiting Amish. Recommendation: specify a 25.4 x 2.0 mm butted chromoly steerer and confirm against the ISO 4210-2 fork tests at TRL 4 |
 
 ## Consequences

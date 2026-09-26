@@ -3,9 +3,9 @@ doc_id: GRR-CAL-001
 title: GrowRider sizing calculations
 project: GrowRider
 doc_type: Calculation
-version: "0.2"
+version: "0.3"
 status: Draft
-date: '2026-09-25'
+date: '2026-09-26'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -17,17 +17,21 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: Recommendations accepted by Amish (DDR-002)
+- version: "0.3"
+  date: '2026-09-26'
+  author: Amish Chadha
+  change: Budget top-up approved by Amish
 ---
 
 # GrowRider sizing calculations
 
-On paper, GrowRider meets five of its twelve requirements, misses two and has three at risk; two cannot be verified at TRL 3. This issue applies the decisions of GRR-DDR-002 (chromoly main tubes, steerer, quill and a thicker sleeve; aluminium rack; alloy rims and bar; R2 widened; R9 split). The fit works: the two-stage seat post gives 400 to 670 mm of saddle height with 100 mm of insertion at every sliding joint, which covers the 1.10 to 1.65 m range under both fitting rules used here, and standover is 455 mm against 470 mm. The misses are mass, about 14.4 kg against the 13 kg production goal (R5; 15.3 kg in v0.1), and prototype cost, $281 for the bike against the $250 budget (R11; $243 in v0.1). Braking (R7), the fit-change time (R9) and frame life (R12, now one section above its screen instead of three) are at risk. Every number in this note is printed by `docs/04-calcs/sizing.py`; the tag in brackets, for example [A2], is the line of that script's output that carries it.
+On paper, GrowRider meets five of its twelve requirements, misses one and has four at risk; two cannot be verified at TRL 3. This issue applies the decisions of GRR-DDR-002 (chromoly main tubes, steerer, quill and a thicker sleeve; aluminium rack; alloy rims and bar; R2 widened; R9 split). The fit works: the two-stage seat post gives 400 to 670 mm of saddle height with 100 mm of insertion at every sliding joint, which covers the 1.10 to 1.65 m range under both fitting rules used here, and standover is 455 mm against 470 mm. The miss is mass, about 14.4 kg against the 13 kg production goal (R5; 15.3 kg in v0.1). Prototype cost, $281 for the bike and $293 with the helmet, is within the $300 budget Amish approved on 2026-09-26, but the production cost is not yet estimated, so cost (R11) is at risk. Braking (R7), the fit-change time (R9) and frame life (R12, now one section above its screen instead of three) are at risk. Every number in this note is printed by `docs/04-calcs/sizing.py`; the tag in brackets, for example [A2], is the line of that script's output that carries it.
 
 > **Safety:** These calculations concern a bicycle ridden by children on roads shared with motor traffic. They are first-principles estimates for a paper proof of concept and are not a substitute for the brake, frame, fork, handlebar and seat post tests of ISO 8098 or ISO 4210. Nothing may be ridden on the strength of this note. See GRR-PRC-001, Safety.
 
 ## Scope and method
 
-The note checks every requirement in GRR-REQ-001 v0.4 against the design in GRR-PRC-001 v0.4 and the parametric model `cad/src/model.py`. The script imports the model's `PARAMS`, so the frame, wheel, seat post, stem and rack dimensions used here are the ones in the STEP files and in drawing GRR-DWG-001. Run it from the repo root with `python docs/04-calcs/sizing.py`.
+The note checks every requirement in GRR-REQ-001 v0.5 against the design in GRR-PRC-001 v0.5 and the parametric model `cad/src/model.py`. The script imports the model's `PARAMS`, so the frame, wheel, seat post, stem and rack dimensions used here are the ones in the STEP files and in drawing GRR-DWG-001. Run it from the repo root with `python docs/04-calcs/sizing.py`.
 
 ## Assumptions
 
@@ -138,7 +142,7 @@ Chain, coaster hub internals, 1 in headset, 25.4 mm seat post, 22.2 mm handlebar
 
 ## J. Cost (R11)
 
-The 20-line BOM totals $281 for the bike (lines 1 to 19) and $293 with the $12 helmet, against the $250 budget [J1]; v0.1 had $243 and $255. The chromoly frame tubes (+$18), chromoly steerer, sleeve and quill (+$12), alloy bar and rear rim (+$4) and aluminium rack (+$4) add $38. **R11 is not met** for the prototype. A budget change is proposed, awaiting Amish (GRR-DDR-002, N1); the helmet's funding is still open (O1). The $120 production target at volume (D6) needs an estimate from a regional assembler.
+The 20-line BOM totals $281 for the bike (lines 1 to 19) and $293 with the $12 helmet, against the $300 budget [J1]; v0.1 had $243 and $255. The chromoly frame tubes (+$18), chromoly steerer, sleeve and quill (+$12), alloy bar and rear rim (+$4) and aluminium rack (+$4) add $38. The prototype is within the $300 budget, raised from $250 by Amish on 2026-09-26 (GRR-DDR-002, N1), with the helmet included. **R11 is at risk** until the production cost is estimated. The $120 production target at volume (D6) needs an estimate from a regional assembler.
 
 ## K. Strength screen (R12)
 
@@ -169,14 +173,14 @@ The maximum saddle height is 890 mm above the ground [M1]. ISO 8098:2023 covers 
 
 ## Results against requirements
 
-*Table 6. Requirement status (GRR-REQ-001 v0.4), not met and at risk first.*
+*Table 6. Requirement status (GRR-REQ-001 v0.5), not met and at risk first.*
 
 | ID | Requirement | Value | Target | Status |
 | --- | --- | --- | --- | --- |
 | R5 | Mass | 14.4 kg | 13 kg or less (production goal) | **Not met** |
-| R11 | Cost | $281 bike, $293 with helmet; production not estimated | $250 prototype; $120 at volume | **Not met** |
 | R7 | Two independent brakes | Coaster 0.23 g, front 0.24 g, both 0.47 g (smallest rider, dry); wet alloy rim about 0.15 g | 0.2 g each, 0.35 g together, dry | At risk |
 | R9 | Basic tools, 10 min fit change | Parent and mechanic tool lists met; fit change 10 min | R9a: 13 mm, screwdriver, 10 min; R9b: 13, 15, 32 mm, lockring spanner, screwdriver | At risk |
+| R11 | Cost | $281 bike, $293 with helmet; production not estimated | $300 prototype; $120 at volume | At risk |
 | R12 | Lasts across siblings | 1 of 6 sections above its screen (steerer); seizing not assessable | 10 years, 3 riders, 60 kg plus 10 kg | At risk |
 | R8 | Puncture resistance | Solid tires, no punctures; life unknown | No punctures; 2,000 km | Not verifiable at TRL 3 |
 | R10 | Parts commonality | Chosen to match; no regional list | All wear parts but tires and rims | Not verifiable at TRL 3 |
@@ -186,7 +190,11 @@ The maximum saddle height is 890 mm above the ground [M1]. ISO 8098:2023 covers 
 | R4 | One wheel size | 20 in (ISO 406) | One size | Met |
 | R6 | Rack | 300 x 120 mm; 26 MPa at 2.5 g (aluminium) | 10 kg, marked; 300 x 140 mm or less | Met |
 
-Totals: 5 met, 2 not met, 3 at risk, 2 not verifiable at TRL 3 (v0.1: 5 met, 1 not met, 4 at risk, 2 not verifiable).
+Totals: 5 met, 1 not met, 4 at risk, 2 not verifiable at TRL 3 (v0.2: 5 met, 2 not met, 3 at risk; v0.1: 5 met, 1 not met, 4 at risk, 2 not verifiable).
+
+## Changes in v0.3
+
+Budget top-up approved by Amish on 2026-09-26 (GRR-DDR-002, N1): `budget_usd` in `project.yaml` is $300, and `sizing.py` now reads it from there instead of hard-coding $250. R11 moves from not met to at risk (prototype within budget; production cost not estimated). No other figure changed.
 
 ## Changes in v0.2
 

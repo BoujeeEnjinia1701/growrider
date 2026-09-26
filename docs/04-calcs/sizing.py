@@ -21,6 +21,9 @@ D = derived(P)
 R_TIRE = D["R"] / 1000          # m
 L = P["wheelbase"] / 1000       # m
 STATUS = {}
+# Prototype budget, read from project.yaml (raised from $250 to $300 by Amish, 2026-09-26)
+BUDGET = float(next(l.split(":", 1)[1] for l in (ROOT / "project.yaml").read_text().splitlines()
+                    if l.startswith("budget_usd:")).strip())
 
 
 def out(tag, text):
@@ -317,9 +320,9 @@ tot = sum(float(r["qty"]) * float(r["unit_cost_usd"]) for r in rows)
 helmet = sum(float(r["qty"]) * float(r["unit_cost_usd"]) for r in rows if "helmet" in r["item"].lower())
 bike = tot - helmet
 out("J1", f"BOM lines {len(rows)}; bike (lines 1 to 19) ${bike:.0f}; helmet ${helmet:.0f}; total ${tot:.0f} "
-          f"against the $250 budget (before GRR-DDR-002: ${TRL3_V01['bike_usd']} and ${TRL3_V01['total_usd']})")
+          f"against the ${BUDGET:.0f} budget (before GRR-DDR-002: ${TRL3_V01['bike_usd']} and ${TRL3_V01['total_usd']})")
 status("R11", f"${bike:.0f} bike, ${tot:.0f} with helmet; production cost not estimated",
-       "$250 prototype; $120 at volume", "Not met" if bike > 250 else "At risk")
+       f"${BUDGET:.0f} prototype; $120 at volume", "Not met" if bike > BUDGET else "At risk")
 
 # ------------------------------------------------------------------ K. strength screen (R12)
 print("K. Strength screen, largest rider")

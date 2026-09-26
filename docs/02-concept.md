@@ -3,9 +3,9 @@ doc_id: GRR-PRC-001
 title: GrowRider design precis
 project: GrowRider
 doc_type: Design precis
-version: "0.4"
+version: "0.5"
 status: Draft
-date: '2026-09-25'
+date: '2026-09-26'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -25,11 +25,15 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: Recommendations accepted by Amish (DDR-002)
+- version: "0.5"
+  date: '2026-09-26'
+  author: Amish Chadha
+  change: Budget top-up approved by Amish
 ---
 
 # GrowRider design precis
 
-GrowRider is a step-through chromoly steel children's bicycle on 20 in wheels whose seat post and stem telescope, so one bike fits riders from about 1.10 to 1.65 m (ages about 6 to 14) and can be handed down between siblings. It uses a coaster brake plus a front rim brake, puncture-proof tires, a single-speed chain drive and a small rack rated 10 kg, with wear parts shared with the region's adult roadsters. The calculation note GRR-CAL-001 v0.2 shows on paper that the fit range, reach, wheel size and rack meet their requirements; mass (about 14.4 kg against the 13 kg production goal) and prototype cost ($281 against the $250 budget) are not met, and braking margins for the smallest rider, the fit-change time and steerer strength are at risk. Wheel size, brakes, frame type, tires and crank length were decided by Amish on 2026-09-25 (GRR-DDR-001), and on the same day he accepted the TRL 3 recommendations: chromoly main tubes, steerer, quill and sleeve, an aluminium rack, alloy rims and bar, a wider R2 and a split R9 (GRR-DDR-002).
+GrowRider is a step-through chromoly steel children's bicycle on 20 in wheels whose seat post and stem telescope, so one bike fits riders from about 1.10 to 1.65 m (ages about 6 to 14) and can be handed down between siblings. It uses a coaster brake plus a front rim brake, puncture-proof tires, a single-speed chain drive and a small rack rated 10 kg, with wear parts shared with the region's adult roadsters. The calculation note GRR-CAL-001 v0.3 shows on paper that the fit range, reach, wheel size and rack meet their requirements; mass (about 14.4 kg against the 13 kg production goal) is not met; prototype cost ($281, $293 with helmet) is within the $300 budget approved by Amish on 2026-09-26, but the production cost is not yet estimated; and braking margins for the smallest rider, the fit-change time and steerer strength are at risk. Wheel size, brakes, frame type, tires and crank length were decided by Amish on 2026-09-25 (GRR-DDR-001), and on the same day he accepted the TRL 3 recommendations: chromoly main tubes, steerer, quill and sleeve, an aluminium rack, alloy rims and bar, a wider R2 and a split R9 (GRR-DDR-002).
 
 ![Hero render](../media/hero.png)
 
@@ -77,7 +81,7 @@ Item numbers match the exploded view (Figure 3) and `bom/bom.csv`.
 
 ## Key numbers
 
-All values come from the calculation note GRR-CAL-001 v0.2 and its script `docs/04-calcs/sizing.py`; they are paper estimates. The general arrangement is drawing GRR-DWG-001 (`cad/drawings/GRR-DWG-001.pdf`).
+All values come from the calculation note GRR-CAL-001 v0.3 and its script `docs/04-calcs/sizing.py`; they are paper estimates. The general arrangement is drawing GRR-DWG-001 (`cad/drawings/GRR-DWG-001.pdf`).
 
 **Fit.** Assumptions: inseam is about 0.45 times standing height. Rule A sets saddle height (BB center to saddle top) at 0.88 times inseam; rule B sets saddle top to pedal at the bottom of the stroke at 1.09 times inseam, which accounts for the 140 mm crank. The design covers both.
 
@@ -111,7 +115,7 @@ Table 1. Saddle height across the fit range (GRR-CAL-001, Table 2).
 | Both brakes, dry | 0.47 to 0.58 g | Sum, capped by grip and pitch-over (0.57 to 0.81 g) | R7 target 0.35 g met on paper |
 | Rack | 10 kg; 26 MPa in the aluminium rails at 2.5 g (110 MPa welded 6061-T6) | 300 x 120 mm platform; front wheel load falls from 40 % to 32 % with 10 kg for the smallest rider | R6 met |
 | Strength screen | 1 of 6 sections above its screen: steerer at the crown in hard braking (117 MPa against 90 MPa for chromoly); sleeve 61 MPa, quill 77 MPa and seat tube 72 MPa pass (3 of 6 above before GRR-DDR-002) | Largest rider, largest setting | R12 at risk |
-| Prototype parts cost | $281 for the bike, $293 with helmet ($243 and $255 before GRR-DDR-002) | `bom/bom.csv` | **R11 not met**; budget change proposed, awaiting Amish |
+| Prototype parts cost | $281 for the bike, $293 with helmet ($243 and $255 before GRR-DDR-002) | `bom/bom.csv` | Within the $300 budget (top-up approved 2026-09-26); R11 at risk until production cost is estimated |
 
 **Commute time.** Assumptions: a 5 km trip each way; walking at 4 to 5 km/h; cycling at 10 to 12 km/h on dirt roads.
 

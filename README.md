@@ -2,7 +2,7 @@
 
 ![TRL 3](https://img.shields.io/badge/TRL-3%20of%209-0F766E) ![Hardware: CERN-OHL-S-2.0](https://img.shields.io/badge/hardware-CERN--OHL--S--2.0-111827) ![Software: MIT](https://img.shields.io/badge/software-MIT-111827)
 
-**Area:** Mobility and Logistics · **TRL:** 3 of 9 (proof of concept on paper) · **Prototype budget:** about $250 USD · **Difficulty:** 2 of 5
+**Area:** Mobility and Logistics · **TRL:** 3 of 9 (proof of concept on paper) · **Prototype budget:** about $300 USD · **Difficulty:** 2 of 5
 
 Rugged, repairable children's bicycle with an adjustable frame that fits ages 6 to 14, puncture-proof tires, a coaster brake and a small rated rack, built from parts common to regional adult bicycles.
 
@@ -40,9 +40,9 @@ The journey itself is dangerous. The World Health Organization reports that [roa
 | --- | --- |
 | Sub-Saharan Africa (for example Zambia, Kenya, Malawi) | More than half of the world's out-of-school children live in the region ([UNESCO](https://www.unesco.org/en/articles/251m-children-and-youth-still-out-school-despite-decades-progress-unesco-report)), and rugged adult roadsters and their spare-parts networks are already established |
 | India (for example Bihar) | State bicycle programs for schoolgirls have measurably raised enrollment ([Muralidharan and Prakash, 2017](https://www.aeaweb.org/articles?id=10.1257/app.20160004)); younger pupils are not served by adult bicycles |
-| Andean and rural Latin America (for example Peru, Bolivia) | Dispersed rural settlements and long walks to school on unpaved roads |
-| Southeast Asia (for example Cambodia, Myanmar) | Bicycles are a common way to reach rural schools, and children often ride adult frames |
-| Netherlands and other high-income cycling countries | Children ride to school daily; an adjustable frame that is handed down suits families and school loan fleets and cuts the number of outgrown bikes |
+| Latin America (for example Bogotá, Colombia) | Bogotá's mobility and education departments run Al Colegio en Bici, which takes public-school pupils to school on guided cycle routes; in 2024 more than 9,000 students from 147 public schools used it and the city's other guided cycling and walking programs ([Alcaldía de Bogotá](https://bogota.gov.co/mi-ciudad/educacion/movilidad-en-bogota-al-colegio-en-bici-beneficios-para-estudiantes)). One adjustable frame could serve pupils of many sizes in such programs |
+| Southeast Asia (for example Cambodia) | In July 2026, 200 donated bicycles went to pupils of five schools in Banteay Meanchey province, where many had walked several kilometres a day to class ([Agence Kampuchea Presse](https://www.akp.gov.kh/post/detail/374647)); a bicycle that grows with the child lasts longer in such donations |
+| Netherlands and other high-income cycling countries | In a 2026 study of Dutch primary school children, 64 % cycled to school at least once a week ([Veldman, Westerbroek and Singh, *Transportation Research Interdisciplinary Perspectives*, 2026](https://doi.org/10.1016/j.trip.2026.101998)); an adjustable frame that is handed down suits families and school loan fleets and cuts the number of outgrown bikes |
 
 ## What sparked the idea
 
@@ -56,7 +56,7 @@ Rural children often walk more than an hour each way to school, and adult bicycl
 
 Rugged, repairable children's bicycle with an adjustable frame that fits ages 6 to 14, puncture-proof tires, a coaster brake and a small rated rack, built from parts common to regional adult bicycles.
 
-Full design precis: [docs/02-concept.md](docs/02-concept.md). The TRL 3 calculations ([GRR-CAL-001](docs/04-calcs/01-sizing.md)) find the fit range, reach, wheel size and rack meet their requirements on paper. With the recommendations Amish accepted on 2026-09-25 ([GRR-DDR-002](docs/decisions/0002-recommendations-accepted.md)), mass falls from 15.3 to 14.4 kg against the 13 kg production goal and is still not met, the prototype cost rises to $281 against the $250 budget (not met; a budget change is proposed), and braking margins for the smallest rider, the fit-change time and steerer strength are at risk.
+Full design precis: [docs/02-concept.md](docs/02-concept.md). The TRL 3 calculations ([GRR-CAL-001](docs/04-calcs/01-sizing.md)) find the fit range, reach, wheel size and rack meet their requirements on paper. With the recommendations Amish accepted on 2026-09-25 ([GRR-DDR-002](docs/decisions/0002-recommendations-accepted.md)), mass falls from 15.3 to 14.4 kg against the 13 kg production goal and is still not met, the prototype cost rises to $281, within the $300 budget Amish approved on 2026-09-26, and braking margins for the smallest rider, the fit-change time and steerer strength are at risk.
 
 ## Key components
 
@@ -68,7 +68,7 @@ Full design precis: [docs/02-concept.md](docs/02-concept.md). The TRL 3 calculat
 - Aluminium rear rack, rated 10 kg
 - Reflectors and bell
 
-The priced bill of materials is in [bom/bom.csv](bom/bom.csv): $281 for the bike, $293 with a child helmet, against a $250 budget (a budget change is proposed, awaiting Amish). The parametric model is [cad/src/model.py](cad/src/model.py), with STEP files in `cad/step/`.
+The priced bill of materials is in [bom/bom.csv](bom/bom.csv): $281 for the bike, $293 with a child helmet, within the $300 budget (top-up approved by Amish, 2026-09-26). The parametric model is [cad/src/model.py](cad/src/model.py), with STEP files in `cad/step/`.
 
 ## Safety
 
@@ -91,6 +91,12 @@ The priced bill of materials is in [bom/bom.csv](bom/bom.csv): $281 for the bike
 ## Documentation
 
 Controlled documents follow the portfolio [documentation standard](.kit/STANDARDS.md). Each carries a document ID (GRR-PRC-001 for the precis), a version and a revision history. Branded PDFs are built with `python .kit/render.py` and attached to GitHub Releases when a document is tagged, for example `GRR-PRC-001/v1.0`.
+
+## Credits
+
+Designed by Amish Chadha. See [CONTRIBUTORS.md](CONTRIBUTORS.md) for roles. To cite this design, use [CITATION.cff](CITATION.cff) (GitHub shows it as "Cite this repository").
+
+AI assistance (Claude) was used to accelerate concept renders, prototype documentation and first-pass sizing calculations. Design direction and all decisions are Amish Chadha's, recorded in this repository's decision records (`docs/decisions/`).
 
 ## Licenses
 
