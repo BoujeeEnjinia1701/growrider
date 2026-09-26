@@ -1,4 +1,4 @@
-"""GrowRider general arrangement sheet GRR-DWG-001, Rev P1 (TRL 3).
+"""GrowRider general arrangement sheet GRR-DWG-001, Rev P2 (TRL 3).
 
 Run from the repo root:  python cad/src/sheets.py
 Writes cad/drawings/GRR-DWG-001.svg, .pdf and .png from the parametric model in
@@ -62,10 +62,11 @@ def main():
     views = project_views(large, work / "large")
     views["iso"] = project_views(small, work / "small")["iso"]
     bb = large.bounding_box()
-    s = Sheet(project="GrowRider", title="General arrangement", dwg_no="GRR-DWG-001", rev="P1",
+    s = Sheet(project="GrowRider", title="General arrangement", dwg_no="GRR-DWG-001", rev="P2",
               author="Amish Chadha", date=DATE, scale=None, theme="technical",
-              material="Steel frame and fork; bought-in parts per bom/bom.csv. PRELIMINARY, NOT FOR FABRICATION",
-              revisions=[("P1", "Preliminary GA for TRL 3 (from cad/src/model.py)", DATE, "AC")])
+              material="Chromoly 4130 main tubes, steerer, quill and sleeve; aluminium rack; bought-in parts per bom/bom.csv. PRELIMINARY, NOT FOR FABRICATION",
+              revisions=[("P1", "Preliminary GA for TRL 3 (from cad/src/model.py)", DATE, "AC"),
+                         ("P2", "GRR-DDR-002: chromoly tubes, 29.2 sleeve, aluminium rack", DATE, "AC")])
     s.add_ortho(views)
     k = s.scale
     c = ortho_cells(s, views)
@@ -101,7 +102,8 @@ def main():
         f"Stem head 0 or 60 forward; bar {P['bar_width']:.0f} wide, {P['bar_sweep']:.0f} sweep",
         f"Cranks {P['crank']:.0f}, {P['ring_t']}/{P['cog_t']}; coaster hub plus front rim brake",
         f"Rack {P['rack_len']:.0f} x {P['rack_w']:.0f} at Z {P['rack_z']:.0f}, rated 10 kg",
-        "Mass about 15.3 kg (GRR-CAL-001); third-angle, front view from -Y",
+        f"Rims alloy; rack aluminium 6061-T6, {P['rack_tube']:.0f} x {P['rack_wall']}",
+        "Mass about 14.4 kg (GRR-CAL-001 v0.2); third-angle, front view from -Y",
     ], x=276, y=158, width=146)
     out = s.save(ROOT / "cad" / "drawings" / "GRR-DWG-001")
     shutil.rmtree(work, ignore_errors=True)

@@ -34,13 +34,13 @@ Requirements not met or at risk:
 
 ### Proposed, awaiting Amish
 
-1. Wheel size: 20 in (ISO 406), recommended, or 24 in (ISO 507), which fails standover for 1.10 m riders.
-2. Brakes: coaster brake plus front rim brake, recommended; alternatives are coaster only or two hand brakes.
-3. Frame: step-through with twin down tubes, recommended, or a small diamond frame.
-4. Tires: solid or airless, recommended for the prototype, or thorn-resistant tubes with liners (about 1 kg lighter and $10 cheaper).
-5. Helmet: supply one with each bike (BOM line 20). Either fund it from the $250 budget ($5 over), fund it separately, or raise the budget to about $275. The budget in `project.yaml` is unchanged at $250.
-6. Crank length: one 140 mm length for the prototype, with a possible 127 mm swap for the smallest riders later.
-7. Production cost target of $120 or less at volume (R11), and first partner and region (a distribution NGO or school network, in Zambia, Kenya or Malawi).
+1. Wheel size: 20 in (ISO 406), recommended, or 24 in (ISO 507), which fails standover for 1.10 m riders. **Decided by Amish, 2026-09-25: go with recommendation.** (GRR-DDR-001)
+2. Brakes: coaster brake plus front rim brake, recommended; alternatives are coaster only or two hand brakes. **Decided by Amish, 2026-09-25: go with recommendation.** (GRR-DDR-001)
+3. Frame: step-through with twin down tubes, recommended, or a small diamond frame. **Decided by Amish, 2026-09-25: go with recommendation.** (GRR-DDR-001)
+4. Tires: solid or airless, recommended for the prototype, or thorn-resistant tubes with liners (about 1 kg lighter and $10 cheaper). **Decided by Amish, 2026-09-25: go with recommendation.** (GRR-DDR-001)
+5. Helmet (still proposed, awaiting Amish; no recommendation): supply one with each bike (BOM line 20). Either fund it from the $250 budget ($5 over), fund it separately, or raise the budget to about $275. The budget in `project.yaml` is unchanged at $250.
+6. Crank length: one 140 mm length for the prototype, with a possible 127 mm swap for the smallest riders later. **Decided by Amish, 2026-09-25: go with recommendation.** (GRR-DDR-001)
+7. Production cost target of $120 or less at volume (R11): **decided by Amish, 2026-09-25: go with recommendation** (GRR-DDR-001, D6). First partner and region (a distribution NGO or school network, in Zambia, Kenya or Malawi): still proposed, awaiting Amish.
 
 ### Safety concerns
 
@@ -100,7 +100,7 @@ Decided by Amish, 2026-09-25, going with the recommendation: D1 20 in (ISO 406) 
 
 D6 was read as carrying a recommendation because the TRL 2 note proposed the $120 figure itself; if Amish did not mean to fix it, it reverts to proposed.
 
-### Proposed, awaiting Amish
+### Proposed, awaiting Amish (items 3 to 9 decided on 2026-09-25, see GRR-DDR-002)
 
 Still open from TRL 2 (no recommendation was made):
 
@@ -109,13 +109,13 @@ Still open from TRL 2 (no recommendation was made):
 
 New from TRL 3:
 
-3. **Mass (R5).** Options: (a) relax R5 to 15.5 kg for the prototype and keep the decided solid tires; (b) adopt chromoly main tubes, an aluminium rack, alloy rims and bar (about 13.6 kg, some added cost), keeping solid tires; (c) all of (b) plus pneumatic tires with liners (about 13.1 kg), which reverses D4. Recommendation: (b), and keep R5 at 13 kg as the production goal.
-4. **Alloy front rim (R7).** Specify an alloy front rim, since a wet steel rim gives a child about 0.05 g. Recommendation: adopt; BOM line 7 already prefers alloy at the same price.
-5. **Coaster hub data (R7).** Get the brake ratio of a regional coaster hub; the smallest rider's margin rests on an assumed ratio of 2.5. Recommendation: do this before any further brake work.
-6. **Strength (R12).** Specify chromoly or thicker-walled sleeve, quill and steerer, or limit the maximum extension. Recommendation: chromoly steerer and quill, and a 1.8 mm wall sleeve; recheck in GRR-CAL-001.
-7. **R2 target.** Widen R2 to 400 to 670 mm to match the crank-corrected fit rule the design already meets. Recommendation: adopt.
-8. **R9 tools.** Either add a 32 mm headset spanner and a BB lockring spanner to R9 for mechanics, or keep R9 for parents' fit changes only. Recommendation: split R9 into a parent tool list (13 mm spanner, screwdriver) and a mechanic tool list.
-9. **Low bar option.** Offer a flat bar for the smallest riders, since the grips sit 128 mm above the saddle at the smallest setting. Recommendation: note as a co-design question.
+3. **Mass (R5).** Options: (a) relax R5 to 15.5 kg for the prototype and keep the decided solid tires; (b) adopt chromoly main tubes, an aluminium rack, alloy rims and bar (about 13.6 kg, some added cost), keeping solid tires; (c) all of (b) plus pneumatic tires with liners (about 13.1 kg), which reverses D4. Recommendation: (b), and keep R5 at 13 kg as the production goal. **Decided by Amish, 2026-09-25: go with recommendation.** (GRR-DDR-002)
+4. **Alloy front rim (R7).** Specify an alloy front rim, since a wet steel rim gives a child about 0.05 g. Recommendation: adopt; BOM line 7 already prefers alloy at the same price. **Decided by Amish, 2026-09-25: go with recommendation.** (GRR-DDR-002)
+5. **Coaster hub data (R7).** Get the brake ratio of a regional coaster hub; the smallest rider's margin rests on an assumed ratio of 2.5. Recommendation: do this before any further brake work. **Decided by Amish, 2026-09-25: go with recommendation.** (GRR-DDR-002)
+6. **Strength (R12).** Specify chromoly or thicker-walled sleeve, quill and steerer, or limit the maximum extension. Recommendation: chromoly steerer and quill, and a 1.8 mm wall sleeve; recheck in GRR-CAL-001. **Decided by Amish, 2026-09-25: go with recommendation.** (GRR-DDR-002)
+7. **R2 target.** Widen R2 to 400 to 670 mm to match the crank-corrected fit rule the design already meets. Recommendation: adopt. **Decided by Amish, 2026-09-25: go with recommendation.** (GRR-DDR-002)
+8. **R9 tools.** Either add a 32 mm headset spanner and a BB lockring spanner to R9 for mechanics, or keep R9 for parents' fit changes only. Recommendation: split R9 into a parent tool list (13 mm spanner, screwdriver) and a mechanic tool list. **Decided by Amish, 2026-09-25: go with recommendation.** (GRR-DDR-002)
+9. **Low bar option.** Offer a flat bar for the smallest riders, since the grips sit 128 mm above the saddle at the smallest setting. Recommendation: note as a co-design question. **Decided by Amish, 2026-09-25: go with recommendation.** (GRR-DDR-002)
 
 ### Safety concerns
 
@@ -135,3 +135,62 @@ New from TRL 3:
 Stay at TRL 3. TRL 4 is on hold by Amish's instruction. Decide items 3 to 8 above, starting with mass and the alloy rim, get coaster hub brake data and catalog masses for the tires, rims and hub, then revise GRR-CAL-001, the model and the BOM on paper. In parallel, a co-design partner is needed to test the fit assumptions and supply a regional parts list.
 
 For reference only, TRL 4 would need: a lab test report (TST, `environment: lab`) on a built frame, fork and seat post (ISO 4210-2 frame and fork fatigue and impact, seat post and stem tests, brake performance with child-level forces, rack static load), weighing, a timed fit change, build-log entries, and the purchasing and build work that goes with them. None of this has been started.
+
+## Session 2026-09-25: recommendations accepted
+
+Amish wrote on 2026-09-25: "i accept all your recommendations, go with them across all repos." Every item above with a recommendation is now **Decided by Amish, 2026-09-25: go with recommendation**, recorded in `docs/decisions/0002-recommendations-accepted.md` (GRR-DDR-002 v0.1). Items without a recommendation stay proposed. `trl` and `trl_target` stay at 3.
+
+### Decisions applied and what changed
+
+| # | Decision | Change in the repo | Before | After |
+| --- | --- | --- | --- | --- |
+| D1 to D6 | Wheel, brakes, frame, tires, crank, $120 production target (GRR-DDR-001) | Confirmed; no further change | | |
+| D7 | Mass option (b): chromoly main tubes, aluminium rack, alloy rims and bar; solid tires kept; R5 kept at 13 kg as the production goal | `model.py` walls and rack; BOM lines 1, 6, 8, 13; R5 restated | 15.3 kg | 14.4 kg (the TRL 3 note had estimated 13.6 kg) |
+| D8 | Alloy front rim | BOM line 7; R7 text | Wet front braking, smallest rider, 0.05 g (steel) | 0.15 g (alloy) |
+| D9 | Get the coaster hub brake ratio first | Open action; needs hub maker or partner data. Any purchase or bench test is TRL 4, on hold | Assumed ratio 2.5 | Unchanged until data arrives |
+| D10 | Chromoly steerer and quill, 1.8 mm sleeve wall | Sleeve 28.6 x 1.5 to 29.2 x 1.8 mm chromoly; seat tube 1.5 to 1.2 mm wall for a 29.4 mm bore; chromoly screen 90 MPa added to GRR-CAL-001 | 3 of 6 sections above screen (sleeve 74, quill 77, steerer 117 MPa) | 1 of 6 (steerer 117 MPa against 90 MPa); sleeve 61, quill 77, seat tube 72 MPa pass |
+| D11 | Widen R2 | GRR-REQ-001 | 436 to 654 mm | 400 to 670 mm (met) |
+| D12 | Split R9 | GRR-REQ-001 (R9a parent, R9b mechanic) | Tools at risk | Both tool lists met; 10 min fit change at the limit |
+| D13 | Low bar as a co-design question | GRR-PRB-001 and GRR-PRC-001 open questions | | |
+
+Cost: the BOM rose from $243 to $281 for the bike and from $255 to $293 with the helmet (+$38: frame +$18, steerer, sleeve and quill +$12, bar and rear rim +$4, rack +$4). `budget_usd` stays at $250, since no budget recommendation existed; a change is proposed below.
+
+Files changed: `cad/src/model.py` (and STEP and STL re-exported), `cad/src/sheets.py` and GRR-DWG-001 at Rev P2, `cad/src/concept_media.py` and all of `media/`, `docs/04-calcs/sizing.py`, GRR-CAL-001 v0.2, GRR-REQ-001 v0.4, GRR-PRC-001 v0.4, GRR-PRB-001 v0.4, `bom/bom.csv`, `bom/bom-notes.md`, `project.yaml` (evidence list), `README.md`, and GRR-DDR-002 v0.1 (new). The README gained the sections Concept rationale, Burning platform, Where it could be used and What sparked the idea; the inspiration point is the Bihar Chief Minister's Bicycle program (2006) and its evaluation by Muralidharan and Prakash (2017). All PDFs, drawings and media were regenerated so none shows the old domain.
+
+### Requirement status (GRR-CAL-001 v0.2)
+
+5 met, 2 not met, 3 at risk, 2 not verifiable at TRL 3 (was 5, 1, 4, 2).
+
+| ID | Status | Value against target |
+| --- | --- | --- |
+| R5 | **Not met** | 14.4 kg against the 13 kg production goal (was 15.3 kg); pneumatic tires would reach about 13.9 kg but reverse D4 |
+| R11 | **Not met** | $281 bike, $293 with helmet, against $250 (was $243 and $255, at risk) |
+| R7 | At risk | Smallest rider, dry: coaster 0.23 g, front 0.24 g, both 0.47 g; hub ratio still assumed |
+| R9 | At risk | Tool lists met; fit change 10 min, at the limit |
+| R12 | At risk | Steerer 117 MPa against the 90 MPa chromoly screen; seizing not assessable |
+| R8 | Not verifiable at TRL 3 | Tire life needs supplier data |
+| R10 | Not verifiable at TRL 3 | Needs a regional parts list |
+| R1, R2, R3, R4, R6 | Met | Standover 455 mm; saddle 400 to 670 mm; bar 113 mm and reach 141 mm; 20 in; rack 26 MPa in aluminium |
+
+### Still awaiting Amish
+
+1. O1 Helmet funding (no recommendation).
+2. O2 First partner and O4 co-design partner (picked per area later).
+3. O3 First region (no recommendation).
+4. N1 (new) Prototype budget: options are to raise it to $300, to build the first prototype in hi-tensile steel and keep $250, or to keep $250 with R11 not met. Recommendation: raise to $300, which also covers the helmet. Not applied.
+5. N2 (new) Steerer: specify a 25.4 x 2.0 mm butted chromoly steerer (98 MPa, still above the screen) and confirm by the ISO 4210-2 fork tests. Recommendation: adopt, and accept that the fork test decides.
+
+### Cross-repo actions
+
+None. No decision for GrowRider needs another repo to change.
+
+### Safety
+
+- The aluminium rack is new: welded aluminium has low fatigue strength, so the rack needs static and fatigue tests before any use.
+- The thinner chromoly tubes depend on competent brazing or TIG welding; a local builder used to hi-tensile steel may not have it.
+- Wet braking with the alloy rim (about 0.15 g for the smallest rider) is still well below dry braking.
+- Nothing has been built or tested; nothing may be ridden.
+
+### TRL 4
+
+TRL 4 remains on hold by Amish's instruction. D9 (hub data) and the tests named above are recorded but not started; no build, test, purchasing or build-log work was done.

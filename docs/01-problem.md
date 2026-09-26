@@ -3,7 +3,7 @@ doc_id: GRR-PRB-001
 title: GrowRider problem statement
 project: GrowRider
 doc_type: Problem statement
-version: "0.3"
+version: "0.4"
 status: Draft
 date: '2026-09-25'
 author: Amish Chadha
@@ -21,6 +21,10 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: TRL 3 update (standard classification checked; open partner and region questions kept open per GRR-DDR-001)
+- version: "0.4"
+  date: '2026-09-25'
+  author: Amish Chadha
+  change: Recommendations accepted by Amish (DDR-002)
 ---
 
 # GrowRider problem statement
@@ -55,7 +59,7 @@ Context that shapes the design:
 
 ## Constraints
 
-- Garage-buildable prototype, about $250 USD (`project.yaml` budget), using a steel frame and bought-in bicycle components.
+- Garage-buildable prototype, about $250 USD (`project.yaml` budget; the decided chromoly and alloy parts bring the priced BOM to $281, and a budget change is proposed, awaiting Amish), using a steel frame and bought-in bicycle components.
 - Wear parts should be the same as those used on the region's adult roadsters, so local mechanics can repair it with parts already on sale.
 - Adjustment and routine service with basic hand tools (open-ended spanners and a screwdriver).
 - Child safety comes before carrying capacity: two independent brakes, reflectors, a chainguard and a low rack rating.
@@ -80,6 +84,8 @@ Context that shapes the design:
 - Which partner to work with first (a bicycle distribution NGO, a rural school network, or a regional bicycle assembler)? Proposed, awaiting Amish; community designs pick co-design partners per area later (GRR-DDR-001, O2).
 - Which region to design for first? The Buffalo parts ecosystem suggests Zambia, Kenya or Malawi. Proposed, awaiting Amish (GRR-DDR-001, O3).
 - How common is carrying a sibling on the rack, and what design cues (rack size, marking, no footrests) discourage it best? To learn in co-design.
+- Would the smallest riders prefer a flat, low handlebar to the swept-back bar, whose grips sit 128 mm above the saddle at the smallest setting? A co-design question, decided by Amish on 2026-09-25 (GRR-DDR-002, D13).
+- Can local frame builders work chromoly tube and weld aluminium, as the decided materials require (GRR-DDR-002, D7)? To learn with the partner.
 
 ## User research and co-design
 

@@ -52,8 +52,12 @@ PAD_MU = {"dry": 0.5, "wet alloy": 0.3, "wet steel": 0.1}
 R_BRAKE = 0.200          # rim braking radius, m
 HAND_F = {"small": 40.0, "mid": 70.0, "large": 150.0}   # sustained lever force, N (assumed)
 STEEL_RHO = 7850.0
+ALU_RHO = 2700.0
 YIELD = 250.0            # MPa, hi-tensile bicycle tube (conservative)
-FATIGUE_ALLOW = 60.0     # MPa at 1 g for a brazed, welded or clamped joint (screening value)
+FATIGUE_ALLOW = 60.0     # MPa at 1 g for a brazed, welded or clamped joint in hi-tensile steel (screening value)
+CRMO_YIELD = 435.0       # MPa, chromoly 4130, normalized (typical)
+CRMO_FATIGUE = 90.0      # MPa at 1 g, chromoly sections (screen scaled by tensile strength, about 670 vs 430 MPa; assumed)
+ALU_WELD_YIELD = 110.0   # MPa, 6061-T6 in the heat-affected zone of a weld (typical design value)
 PEAK_G = 2.5             # bump factor for the static strength check
 
 # ------------------------------------------------------------------ A. fit (R1, R2)
@@ -73,10 +77,10 @@ out("A3", f"minimum insertion: sleeve {D['sleeve_insert_min']:.0f} mm, post {D['
           f"quill {D['quill_insert_min']:.0f} mm (target 100 mm)")
 out("A4", f"bore depth: sleeve bottom at most {D['sleeve_depth_max']:.0f} mm and post bottom at most "
           f"{D['post_depth_max']:.0f} mm below the seat tube top; clear bore {D['st_depth']:.0f} mm")
-r2_ok = (D["saddle_min"] <= 436 and D["saddle_max"] >= 654 and min(D["sleeve_insert_min"], D["post_insert_min"]) >= 100
+r2_ok = (D["saddle_min"] <= 400 and D["saddle_max"] >= 670 and min(D["sleeve_insert_min"], D["post_insert_min"]) >= 100
          and D["sleeve_depth_max"] <= D["st_depth"] and D["post_depth_max"] <= D["st_depth"])
 status("R2", f"{D['saddle_min']:.0f} to {D['saddle_max']:.0f} mm; 100 mm insertion at both stages",
-       "436 to 654 mm; 100 mm insertion", "Met" if r2_ok else "Not met")
+       "400 to 670 mm; 100 mm insertion", "Met" if r2_ok else "Not met")
 so = D["standover"]
 out("A5", f"standover at the stepping point ({P['stand_ahead']:.0f} mm ahead of the loop tube joint): {so:.0f} mm; "
           f"smallest rider inseam {need['small'][0]:.0f} mm, clearance {need['small'][0] - so:.0f} mm")
@@ -152,25 +156,28 @@ frame_tubes = {
     "BB shell": tube_kg(P["bb_shell"][0], P["bb_shell"][1], P["bb_shell"][2]),
 }
 frame_kg = sum(frame_tubes.values()) + 0.45   # dropouts, collar, bosses, bridges, filler, paint
-out("D1", "frame tubes " + ", ".join(f"{k} {v:.2f}" for k, v in frame_tubes.items())
+out("D1", "frame tubes (chromoly head, seat, down and loop tubes; steel stays) " + ", ".join(f"{k} {v:.2f}" for k, v in frame_tubes.items())
     + f" kg; plus 0.45 kg of dropouts, collar, bosses, bridges, filler and paint = {frame_kg:.2f} kg")
 sleeve_kg = tube_kg(P["sleeve_od"], P["sleeve_wall"], P["sleeve_len"])
+rt_ = P["rack_tube"]
+rack_len_tube = 3 * P["rack_len"] + 3 * P["rack_w"] + 2 * 330 + 2 * 300   # rails, cross bars, struts, stays (mm)
+rack_kg = tube_kg(rt_, P["rack_wall"], rack_len_tube) * ALU_RHO / STEEL_RHO + 0.10   # plus plates and fixings
 post_kg = tube_kg(P["post_od"], P["post_wall"], P["post_len"]) + 0.08
 quill_kg = tube_kg(P["quill_d"], P["quill_wall"], D["quill_len"]) + 0.30
 MASS = {  # kg; tubes computed, bought parts estimated from typical catalog values
     "1 frame": frame_kg,
-    "2 fork (1 in steel, long steerer)": 0.95,
+    "2 fork (chromoly 1 in steerer, long)": 0.95,
     "3 sleeve and seat post": sleeve_kg + post_kg,
     "4 saddle": 0.45,
     "5 quill stem and head": quill_kg,
-    "6 handlebar and grips": 0.65,
+    "6 handlebar and grips (alloy bar)": 0.45,
     "7 front wheel (alloy rim)": 0.95,
-    "8 rear wheel with coaster hub": 2.00,
+    "8 rear wheel with coaster hub (alloy rim)": 1.80,
     "9 solid tires (2)": 2.20,
     "10 crankset and pedals": 1.15,
     "11 chain": 0.30,
     "12 front brake, lever, cable": 0.35,
-    "13 rack": 0.70,
+    "13 rack (aluminium)": rack_kg,
     "14 fenders (plastic)": 0.40,
     "15 chainguard": 0.25,
     "16 kickstand": 0.30,
@@ -183,14 +190,13 @@ for k, v in MASS.items():
     out("D2", f"{k}: {v:.2f} kg")
 out("D3", f"complete bike {m_bike:.1f} kg against 13 kg (R5), over by {m_bike - 13:.1f} kg; "
           f"{m_bike / RIDERS['small'][1] * 100:.0f} % of a 19 kg six-year-old")
-SAVE = {"pneumatic tires with thorn-resistant tubes and liners (0.85 kg each)": 2.20 - 1.70,
-        "chromoly main tubes with 0.9 mm walls (about 45 % less tube mass)": 0.45 * (sum(frame_tubes.values()) - frame_tubes["BB shell"]),
-        "aluminium rack of the same size": 0.35,
-        "alloy rear rim instead of steel": 0.20,
-        "steel handlebar to alloy": 0.20}
+# TRL 3 values before GRR-DDR-002 (hi-tensile main tubes, steel rack, steel rear rim and bar), for the before and after table
+TRL3_V01 = {"mass": 15.3, "bike_usd": 243, "total_usd": 255}
+SAVE = {"pneumatic tires with thorn-resistant tubes and liners (0.85 kg each); reverses D4": 2.20 - 1.70}
 for k, v in SAVE.items():
     out("D4", f"saving option: {k}: {v:.2f} kg")
-out("D5", f"with every option: {m_bike - sum(SAVE.values()):.1f} kg")
+out("D5", f"with the remaining option: {m_bike - sum(SAVE.values()):.1f} kg; before GRR-DDR-002 the bike was "
+          f"{TRL3_V01['mass']:.1f} kg, so the adopted changes save {TRL3_V01['mass'] - m_bike:.1f} kg")
 status("R5", f"{m_bike:.1f} kg", "13 kg or less", "Not met")
 
 # ------------------------------------------------------------------ E. rider plus bike mass center, rack (R6)
@@ -226,10 +232,11 @@ for k in ("small", "large"):
     out("E2", f"{k} with 10 kg on the rack: front wheel carries {x / L * 100:.0f} %, mass center {z * 1000:.0f} mm high")
 rack_w = 10 * g * PEAK_G
 rt = P["rack_tube"]
-z_rail = pi * (rt ** 4 - (rt - 2) ** 4) / (32 * rt)
+z_rail = pi * (rt ** 4 - (rt - 2 * P["rack_wall"]) ** 4) / (32 * rt)
 m_rail = rack_w / 3 * P["rack_len"] / 1000 / 8 * 1000   # N mm, three rails, uniform load, simply supported
 out("E3", f"rack platform {P['rack_len']:.0f} x {P['rack_w']:.0f} mm; rail bending at 10 kg x {PEAK_G} g: "
-          f"{m_rail / z_rail:.0f} MPa in 12 x 1 mm tube (yield {YIELD:.0f} MPa)")
+          f"{m_rail / z_rail:.0f} MPa in {rt:.0f} x {P['rack_wall']} mm aluminium tube (welded 6061-T6 {ALU_WELD_YIELD:.0f} MPa); "
+          f"rack {rack_kg:.2f} kg")
 status("R6", f"{P['rack_len']:.0f} x {P['rack_w']:.0f} mm platform, rail stress {m_rail / z_rail:.0f} MPa at {PEAK_G} g",
        "10 kg rated, marked; 300 x 140 mm or less", "Met")
 
@@ -294,8 +301,10 @@ t_fit = sum(tasks.values())
 out("H1", f"fit change by task analysis: {t_fit:.0f} min (target 10 min or less)")
 out("H2", "fit adjustments use 13 mm and a screwdriver; wheels 15 mm; pedals 15 mm; "
           "headset locknut needs a 32 mm spanner and the bottom bracket a lockring spanner")
-status("R9", f"fit change {t_fit:.0f} min, 13 mm and screwdriver; headset and BB need two more tools",
-       "13 and 15 mm spanners, screwdriver; 10 min", "At risk")
+out("H3", "parent tool list (R9a): 13 mm spanner and screwdriver, met; mechanic tool list (R9b): 13, 15 and 32 mm "
+          "spanners, BB lockring spanner, screwdriver, met")
+status("R9", f"fit change {t_fit:.0f} min (at the limit); parent and mechanic tool lists met",
+       "parent: 13 mm, screwdriver, 10 min; mechanic: 13, 15, 32 mm, lockring", "At risk")
 
 # ------------------------------------------------------------------ I. parts commonality (R10)
 status("R10", "chain, hub internals, 1 in headset, 25.4 mm post, 22.2 mm bar, 9/16 in pedals chosen to match",
@@ -308,9 +317,9 @@ tot = sum(float(r["qty"]) * float(r["unit_cost_usd"]) for r in rows)
 helmet = sum(float(r["qty"]) * float(r["unit_cost_usd"]) for r in rows if "helmet" in r["item"].lower())
 bike = tot - helmet
 out("J1", f"BOM lines {len(rows)}; bike (lines 1 to 19) ${bike:.0f}; helmet ${helmet:.0f}; total ${tot:.0f} "
-          f"against the $250 budget")
+          f"against the $250 budget (before GRR-DDR-002: ${TRL3_V01['bike_usd']} and ${TRL3_V01['total_usd']})")
 status("R11", f"${bike:.0f} bike, ${tot:.0f} with helmet; production cost not estimated",
-       "$250 prototype; $120 at volume", "At risk")
+       "$250 prototype; $120 at volume", "Not met" if bike > 250 else "At risk")
 
 # ------------------------------------------------------------------ K. strength screen (R12)
 print("K. Strength screen, largest rider")
@@ -327,19 +336,22 @@ sin_s = cos(radians(P["seat_ang"]))       # lever per unit of length along a 70 
 sl_e, po_e = split_saddle(SETTINGS["large"]["saddle_h"])
 arm_post = (po_e + P["saddle_stack"]) * sin_s + P["saddle_rail"]
 arm_st = (sl_e + po_e + P["saddle_stack"]) * sin_s + P["saddle_rail"]
-checks = []
-for name, arm, od, wall in (("seat post at the sleeve top", arm_post, P["post_od"], P["post_wall"]),
-                            ("sleeve at the seat tube top", arm_st, P["sleeve_od"], P["sleeve_wall"]),
-                            ("seat tube at its clamp", arm_st, P["st_od"], P["st_wall"])):
+checks = []   # (name, stress at 1 g or at the load case, fatigue screen, yield, peak factor)
+for name, arm, od, wall, crmo in (("seat post at the sleeve top", arm_post, P["post_od"], P["post_wall"], False),
+                                  ("sleeve at the seat tube top", arm_st, P["sleeve_od"], P["sleeve_wall"], True),
+                                  ("seat tube at its clamp", arm_st, P["st_od"], P["st_wall"], True)):
     s1 = w_saddle * arm / zmod(od, wall)
-    checks.append((name, s1))
-    out("K1", f"{name}: lever {arm:.0f} mm, {s1:.0f} MPa at 1 g, {s1 * PEAK_G:.0f} MPa at {PEAK_G} g")
+    scr, yl = (CRMO_FATIGUE, CRMO_YIELD) if crmo else (FATIGUE_ALLOW, YIELD)
+    checks.append((name, s1, scr, yl, PEAK_G))
+    out("K1", f"{name} ({od} x {wall} mm, {'chromoly' if crmo else 'hi-tensile'}): lever {arm:.0f} mm, {s1:.0f} MPa at 1 g, "
+              f"{s1 * PEAK_G:.0f} MPa at {PEAK_G} g; screen {scr:.0f} MPa")
 # quill at full extension: 300 N up or down at the grips plus 200 N fore-aft pull
 qe = SETTINGS["large"]["stem_exp"] + P["stem_rise"] + P["bar_rise"]
 m_q = sqrt((300 * abs(P["stem_ext"][1] - P["bar_sweep"])) ** 2 + (200 * qe) ** 2)
 s_q = m_q / zmod(P["quill_d"], P["quill_wall"])
-checks.append(("quill at the steerer top", s_q))
-out("K2", f"quill at the steerer top, full extension: {m_q / 1000:.0f} N m, {s_q:.0f} MPa (300 N vertical, 200 N pull at the grips)")
+checks.append(("quill at the steerer top", s_q, CRMO_FATIGUE, CRMO_YIELD, 1.0))
+out("K2", f"quill at the steerer top, full extension (chromoly): {m_q / 1000:.0f} N m, {s_q:.0f} MPa "
+          f"(300 N vertical, 200 N pull at the grips); screen {CRMO_FATIGUE:.0f} MPa")
 # steerer at the crown under hard front braking, largest rider
 mt, x, z = CG["large"]
 a = brake["large"]["a_front"]["dry"]
@@ -348,9 +360,10 @@ f_b = mt * a * g
 cx, cz = D["crown_pt"]
 m_st = abs((P["wheelbase"] - cx) / 1000 * n_f - cz / 1000 * f_b) * 1000
 s_st = m_st / zmod(25.4, 1.6)
-checks.append(("steerer at the crown, braking", s_st))
+checks.append(("steerer at the crown, braking", s_st, CRMO_FATIGUE, CRMO_YIELD, 1.0))
 out("K3", f"steerer at the crown, {a:.2f} g front braking: N {n_f:.0f} N, brake force {f_b:.0f} N, "
-          f"{m_st / 1000:.0f} N m, {s_st:.0f} MPa in 25.4 x 1.6 mm")
+          f"{m_st / 1000:.0f} N m, {s_st:.0f} MPa in 25.4 x 1.6 mm chromoly; screen {CRMO_FATIGUE:.0f} MPa; "
+          f"a 25.4 x 2.0 mm steerer would give {m_st / zmod(25.4, 2.0):.0f} MPa")
 # fork blades at the crown, bump
 f_bump = mt * g * x / L * PEAK_G
 blade_l = sqrt((P["wheelbase"] - cx) ** 2 + (cz - D["R"]) ** 2)
@@ -358,12 +371,13 @@ m_bl = f_bump * cos(radians(P["head_ang"])) * blade_l / 2
 s_bl = m_bl / zmod(25.4, 1.2)
 out("K4", f"fork blades at the crown, {PEAK_G} g bump: {m_bl / 1000:.0f} N m per blade, {s_bl:.0f} MPa in 25.4 x 1.2 mm "
           f"({s_bl / PEAK_G:.0f} MPa at 1 g)")
-checks.append(("fork blade at the crown, 1 g", s_bl / PEAK_G))
-over_f = [n for n, s in checks if s > FATIGUE_ALLOW]
-over_y = [n for n, s in checks if s * (PEAK_G if "braking" not in n and "quill" not in n else 1) > YIELD]
-out("K5", f"above the {FATIGUE_ALLOW:.0f} MPa fatigue screen: {', '.join(over_f) or 'none'}; "
-          f"above {YIELD:.0f} MPa yield at peak: {', '.join(over_y) or 'none'}")
-status("R12", f"{len(over_f)} of {len(checks)} sections above the fatigue screen; joint seizing not assessable",
+checks.append(("fork blade at the crown, 1 g", s_bl / PEAK_G, FATIGUE_ALLOW, YIELD, PEAK_G))
+over_f = [n for n, s, scr, yl, pk in checks if s > scr]
+over_y = [n for n, s, scr, yl, pk in checks if s * pk > yl]
+out("K5", f"above the fatigue screen for their material: {', '.join(over_f) or 'none'}; "
+          f"above yield at peak: {', '.join(over_y) or 'none'}")
+status("R12", f"{len(over_f)} of {len(checks)} sections above the fatigue screen ({', '.join(over_f) or 'none'}); "
+       f"joint seizing not assessable",
        "10 years, 3 riders, 60 kg + 10 kg", "At risk")
 
 # ------------------------------------------------------------------ L. drive, power and trip time

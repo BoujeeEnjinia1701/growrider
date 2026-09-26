@@ -30,12 +30,13 @@ PARAMS = {
     "ht_bot": 285.0, "ht_len": 180.0,
     "headset_top_stack": 30.0,   # upper cup, washer and locknut above the head tube
     "ht_od": 34.0, "ht_wall": 1.5,
+    # main tubes (head, seat, down, loop), steerer, quill and sleeve in chromoly 4130 (GRR-DDR-002, D7 and D10)
     # seat tube and two-stage telescoping seat post
     "seat_ang": 70.0,
     "st_len": 280.0,             # bottom bracket center to top of seat tube, along the seat axis
-    "st_od": 31.8, "st_wall": 1.5,
+    "st_od": 31.8, "st_wall": 1.2,            # 29.4 mm bore for the 29.2 mm sleeve
     "st_blocked": 40.0,          # bottom of the seat tube bore lost to the BB shell
-    "sleeve_od": 28.6, "sleeve_wall": 1.5, "sleeve_len": 250.0,
+    "sleeve_od": 29.2, "sleeve_wall": 1.8, "sleeve_len": 250.0,   # 25.6 mm bore for the 25.4 mm post
     "sleeve_exp_min": 20.0, "sleeve_exp_max": 150.0,
     "post_od": 25.4, "post_wall": 1.8, "post_len": 280.0,
     "post_exp_min": 40.0, "post_exp_max": 180.0,
@@ -48,7 +49,7 @@ PARAMS = {
     # swept-back handlebar
     "bar_d": 22.2, "bar_width": 520.0, "bar_sweep": 160.0, "bar_rise": 25.0,
     # other frame tubes (OD, wall)
-    "down": (31.8, 1.4), "loop": (28.6, 1.4), "chainstay_tube": (19.0, 1.2), "seatstay_tube": (16.0, 1.2),
+    "down": (31.8, 0.9), "loop": (28.6, 0.9), "chainstay_tube": (19.0, 1.2), "seatstay_tube": (16.0, 1.2),
     "loop_t": 380.0, "loop_s": 120.0,    # loop tube ends: on the steering axis and on the seat axis
     "down_t": 300.0,                     # down tube top end on the steering axis
     "ss_s": 260.0,                       # seat stay top on the seat axis
@@ -56,8 +57,8 @@ PARAMS = {
     "stand_ahead": 100.0,                # stepping point: this far ahead of the loop tube's seat-tube joint
     # drive
     "crank": 140.0, "ring_t": 32, "cog_t": 18, "chain_pitch": 12.7, "chain_y": -48.0,
-    # rack: platform over the rear wheel, rated 10 kg
-    "rack_len": 300.0, "rack_w": 120.0, "rack_z": 575.0, "rack_x0": -85.0, "rack_tube": 12.0,
+    # rack: aluminium (6061-T6) platform over the rear wheel, rated 10 kg (GRR-DDR-002, D7)
+    "rack_len": 300.0, "rack_w": 120.0, "rack_z": 575.0, "rack_x0": -85.0, "rack_tube": 12.0, "rack_wall": 1.5,
     # fenders
     "fender_gap": 16.0,
 }
@@ -313,19 +314,19 @@ def build_parts(P=PARAMS, setting="large"):
     reflectors = _comp(*refl)
 
     return [
-        ("frame", "Step-through steel frame", frame, 1),
+        ("frame", "Step-through chromoly frame", frame, 1),
         ("fork", "Fork, 1 in steerer", fork, 2),
         ("seatpost", "Telescoping seat post (sleeve and post)", seatpost, 3),
         ("saddle", "Saddle", saddle, 4),
         ("stem", "Telescoping quill stem", stem, 5),
         ("handlebar", "Handlebar and grips", handlebar, 6),
-        ("front_wheel", "Front wheel, 20 in", front_wheel, 7),
-        ("rear_wheel", "Rear wheel, coaster brake hub", rear_wheel, 8),
+        ("front_wheel", "Front wheel, 20 in, alloy rim", front_wheel, 7),
+        ("rear_wheel", "Rear wheel, alloy rim, coaster hub", rear_wheel, 8),
         ("tires", "Solid tires, 20 x 1.95 in (2)", tires, 9),
         ("crankset", "Crankset, 32T, 140 mm", crankset, 10),
         ("chain", "Chain and 18T sprocket", chain, 11),
         ("front_brake", "Front rim brake and lever", front_brake, 12),
-        ("rack", "Rear rack, 10 kg rated", rack, 13),
+        ("rack", "Aluminium rear rack, 10 kg rated", rack, 13),
         ("fenders", "Fenders", fenders, 14),
         ("chainguard", "Chainguard", chainguard, 15),
         ("kickstand", "Kickstand", kickstand, 16),

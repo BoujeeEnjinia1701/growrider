@@ -44,7 +44,7 @@ if __name__ == "__main__":
                      "Saddle 400 to 670 mm from BB; 100 mm min. insertion",
                      "20 in wheels, 860 mm wheelbase, 455 mm standover",
                      "Coaster brake plus front rim brake",
-                     "Rack rated 10 kg; bike about 15.3 kg (target 13 kg)",
+                     "Rack rated 10 kg; bike about 14.4 kg (target 13 kg)",
                      "5 km school trip: 25 to 30 min vs 60 to 75 min walking"],
         scale_figure=False, context=context, cut=False,
         flow={"title": "growth and hand-down cycle (estimates)", "unit": "",
