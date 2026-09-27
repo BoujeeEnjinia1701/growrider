@@ -217,3 +217,37 @@ The other sources (UNESCO, WHO, Muralidharan and Prakash in the *American Econom
 - `docs/04-calcs/sizing.py` now reads the budget from `project.yaml` and was re-run: [J1] $281 bike, $293 with helmet, against $300; R11 moves from not met to at risk (prototype within budget; the $120 production target is not yet estimated). Totals: 5 met, 1 not met, 4 at risk, 2 not verifiable.
 - GRR-CAL-001 v0.3, GRR-REQ-001 v0.5, GRR-PRC-001 v0.5 and GRR-PRB-001 v0.5 record the new budget and R11 status; GRR-DDR-002 v0.2 records "Budget top-up to $300: decided by Amish, 2026-09-26" against N1 and notes that the $293 total with the helmet now fits (O1's funding question).
 - `README.md`: budget badge line and cost sentences updated to $300.
+
+## Session 2026-09-26: product appearance model and photoreal renders
+
+Amish chose this repo on 2026-09-26 for the first batch of product renders. This session adds an appearance model for photoreal renders; it does not change the design, the calculations or the BOM.
+
+### What was done
+
+- `cad/src/product_model.py` (new): `product_parts()` returns 75 parts (74 bike parts in the "shell" and "internal" groups and one "context" part), with `TITLE` and three `RENDER_VIEWS`: "hero" (front right, about 22 deg elevation, with the rider), "exploded" (front right, about 28 deg) and "detail" (bike alone, front right, about 14 deg, framing the adjustable frame). Every main dimension and interface comes from `PARAMS`, `derived()` and the point helpers in `cad/src/model.py`, which is unchanged.
+- The appearance model adds:
+  - a painted frame (kit accent #0F766E) with rear dropouts, a kickstand plate and a head badge;
+  - the two-stage seat post (graphite sleeve, chrome post) and the chrome quill with split clamp collars, 13 mm bolts and painted height scales on the exposed sleeve and quill;
+  - a shaped vinyl saddle with base, rails and clamp;
+  - alloy rims with brake tracks, laced spokes (28 front, 36 rear, as in the BOM) with nipples, hubs, axle nuts and the coaster brake arm; solid tires with a cut tread;
+  - a toothed 32T chainring and 18T sprocket, an 86-link chain, shaped cranks, platform pedals with reflectors;
+  - a side-pull caliper with pads, the short-reach lever and a cable housing;
+  - the aluminium rack with a raised "MAX 10 kg" rating plate, fenders with side lips, stays and a mud flap, the chainguard with the name raised on it, kickstand, reflectors and bell;
+  - a clay mannequin of a 1.30 m child (about age 8), group "context", riding the bike set for that height (saddle 505 mm from the BB, stem raised 45 mm), fitted so the seat meets the saddle, the hands meet the grips and the feet meet the pedals.
+- `README.md`: the hero image now points to `media/render-hero.png`, and the links line starts with the exploded render. The render files are produced later by the orchestrator.
+- Self-check previews (matplotlib, not committed): `/tmp/growrider-prod/prev-hero.png`, `prev-exploded.png`, `prev-detail.png`.
+
+### Differences from model.py (appearance only)
+
+1. Spoke count: the massing model draws 18 spokes per wheel; the appearance model uses the BOM counts (28 front, 36 rear). No decision needed.
+2. Rider setting shown: the renders show the bike set for a 1.30 m rider; the concept media show 1.38 m. Proposed, awaiting Amish. Recommendation: keep 1.30 m for the product renders (the child mannequin reads as a younger rider) and 1.38 m for the concept sheet.
+3. Frame colour: kit accent teal (#0F766E) instead of the blue (#2E5E8C) of the concept media. The precis proposes a bright frame for road visibility. Proposed, awaiting Amish. Recommendation: use teal for the portfolio renders and settle the production colour in co-design, with a high-visibility option.
+4. Painted height scales on the exposed sleeve and quill (a band every 20 mm, a longer band every 60 mm): not in the model or the BOM. Proposed, awaiting Amish. Recommendation: adopt; a teacher or mechanic can note a child's setting and reset it quickly, which helps the at-risk fit-change time.
+5. Rear dropouts drawn as rear-facing track ends for chain tension on the single-speed coaster hub; the massing model has plain blocks. Proposed, awaiting Amish. Recommendation: adopt, as on regional roadsters.
+6. Markings: the name "GrowRider" on the chainguard and a head badge are not in the BOM. Proposed, awaiting Amish (naming and branding are his decision). Recommendation: keep the chainguard name, which costs nothing if screen printed.
+7. Small placements: the brake lever sits in front of the right grip (the massing model's lever line runs back from the grip), the pedal bodies sit about 8 mm further out, and the chainguard gains a rolled top edge. No decision needed.
+8. The mannequin's feet sit at hip width, so they rest on the inner half of the pedals. A render limitation only.
+
+### TRL
+
+This is an appearance model only: no tolerances, no fabrication detail and nothing past TRL 3. `trl` stays 3 in `project.yaml`, and TRL 4 remains on hold by Amish's instruction.
