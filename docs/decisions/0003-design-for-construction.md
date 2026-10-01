@@ -3,7 +3,7 @@ doc_id: GRR-DDR-003
 title: GrowRider design for construction
 project: GrowRider
 doc_type: Design decision record
-version: "0.1"
+version: "0.2"
 status: Draft
 date: '2026-10-01'
 author: Amish Chadha
@@ -13,12 +13,16 @@ revisions:
   date: '2026-10-01'
   author: Amish Chadha
   change: Changes that make the concept physically buildable, with the reason for each; made under Amish's 2026-09-30 instruction to make the design physically buildable; open for his review
+- version: "0.2"
+  date: '2026-10-01'
+  author: Amish Chadha
+  change: Accepted by Amish, including the recommendations for A1 to A3
 ---
 
 # 0003: Design for construction
 
 - **Date:** 2026-10-01
-- **Status:** Draft. The changes in Tables 1 and 2 were made under Amish's 2026-09-30 instruction to make the design physically buildable; open for his review. The items in Table 3 change what the bike does or its safety case, so they are proposed, awaiting Amish, and are carried in the design decisions register (GRR-DEC-001).
+- **Status:** accepted. Amish, 2026-10-01: "i agree with your recommendations for both GrowRider and GravitySort". This covers every change in Tables 1 and 2 and the recommendations in Table 3 (A1 to A3), which are now decided as recommended and recorded in the design decisions register (GRR-DEC-001).
 
 ## Context
 
@@ -61,7 +65,7 @@ The changes keep what the bike does: the same wheels, frame geometry, fit range 
 | Documents | GRR-CAL-001 v0.4, GRR-PRC-001 v0.6, GRR-REQ-001 v0.6: mass, cost, crown clearance, quill and stem figures updated. No requirement changed status. | Follows the model. |
 | Media | Concept media regenerated from the model. The photoreal renders (`media/render-*.png`), `media/card.png` and `media/social-preview.png` still show the concept stem head, dropouts and fittings and need regenerating on Amish's Mac; `cad/src/product_model.py` reads the changed parameters but has not been re-run. | Blender is on the Mac. |
 
-*Table 3. Proposed, awaiting Amish.*
+*Table 3. Items that change what the bike does or its safety case: proposed, then accepted by Amish as recommended on 2026-10-01.*
 
 | # | Question | Options | Recommendation |
 | --- | --- | --- | --- |
@@ -72,6 +76,7 @@ The changes keep what the bike does: the same wheels, frame geometry, fit range 
 ## Consequences
 
 - `design_state: constructable` in `project.yaml`. The build plan GRR-BLD-001 shows every component and step in pictures generated from the model (`cad/src/build_plan_media.py`), and the design decisions register GRR-DEC-001 carries the open items.
+- With A1 accepted, the quill's limit for the prototype is its minimum insertion mark with a bright painted band above it (build plan GRR-BLD-001, section 3.6 and safety stop S4); the stop collar of option (b) is to be decided after the fit trials. With A2 and A3 accepted, the prototype is weighed at TRL 4 and the ISO 4210-2 fork test decides the steerer.
 - Requirement status is unchanged: 1 not met (R5), 4 at risk (R7, R9, R11, R12), 2 not verifiable at TRL 3, 5 met (GRR-CAL-001 v0.4).
 - Several bought parts set dimensions in the model and must be checked when bought: the coaster hub (110 mm over the locknuts, 42 mm chain line), the caliper reach, the fork's crown depth, steerer length and fork ends, the tire's real width and the 29.8 mm collar closing on the 29.2 mm sleeve. They are listed in the register.
 - Nothing has been built or tested; TRL 4 remains on hold by Amish's instruction.

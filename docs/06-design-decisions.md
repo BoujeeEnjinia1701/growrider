@@ -3,7 +3,7 @@ doc_id: GRR-DEC-001
 title: GrowRider design decisions register
 project: GrowRider
 doc_type: Design decisions register
-version: "0.1"
+version: "0.2"
 status: Draft
 date: '2026-10-01'
 author: Amish Chadha
@@ -13,6 +13,10 @@ revisions:
   date: '2026-10-01'
   author: Amish Chadha
   change: Register opened with the open decisions from REVIEW.md, GRR-DDR-001 to 003 and the build plan work
+- version: "0.2"
+  date: '2026-10-01'
+  author: Amish Chadha
+  change: Amish accepted the recommendations of open items 1 to 4 and 8 to 11 (GRR-DDR-003 accepted); moved to decisions made; open items renumbered 1 to 3
 ---
 
 # GrowRider design decisions register
@@ -23,17 +27,9 @@ Every design decision still to be made, and every decision made, in one place. E
 
 | # | Decision needed | Options | Recommendation | Affects in the build | Source |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Accept the design-for-construction changes P1 to P17 (dropouts, fork ends, arm clip, head tube bore, 22.0 mm quill, head plate and clamp block, seat stay cross bar, stop screws and slots, rack and fender fixings, lower rack, kickstand plate, crown depth and front fender gap, caliper reach, down tube position, chain line, chainguard mounts) | Accept all; accept some; revert some and redesign | Accept all: none changes what the bike does, and each is needed to build it | The whole build plan | GRR-DDR-003, Tables 1 and 2 |
-| 2 | Positive stop for the quill stem: none of the seat post kind can be fitted inside a threaded steerer, although the concept's safety section promises one on every sliding part | (a) minimum insertion mark only, checked at every fit change; (b) a steerer 15 mm longer with a clamp-on stop collar above the locknut and a slot in the quill (bar 14 mm higher at every setting); (c) a stop cable inside the steerer | (a) for the prototype, with a bright painted band above the mark; decide (b) after the fit trials | Quill and steerer (build plan sections 3.6 and step 5); safety stop S4 | GRR-DDR-003, A1 |
-| 3 | Mass: the parts added for construction bring the bike to 15.1 kg against the 13 kg production goal (R5) | (a) accept for the prototype and weigh it at TRL 4; (b) look for savings now | (a) | None in the build | GRR-DDR-003, A2; GRR-CAL-001 [D3] |
-| 4 | Steerer strength: 117 MPa at the crown in hard braking against the 90 MPa screen. A 2.0 mm wall leaves a 21.4 mm bore that no quill fits, and at the lowest setting the quill reaches the crown | (a) keep the 25.4 x 1.6 mm steerer and let the ISO 4210-2 fork test decide; (b) a butted steerer thick only inside the crown, with the quill's lowest position raised 20 mm; (c) a 1 1/8 in steerer with a 25.4 mm quill | (a) | Fork specification (BOM line 2) | GRR-DDR-002, N2; GRR-DDR-003, A3 |
-| 5 | Helmet: whether one is supplied with each bike (BOM line 20) | Supply with each bike; leave to families or schools; supply through the partner program | None made; a co-design question | Not part of the bike build | GRR-DDR-001, O1 |
-| 6 | First partner (a distribution NGO, a rural school network or a regional assembler) and co-design partner for fit measurements and the regional parts list | To be picked per area, as Amish directed for community designs | None yet | Parts confirmation (items 1 to 12 below) and fit trials | GRR-DDR-001, O2 and O4 |
-| 7 | First region | Zambia, Kenya or Malawi were suggested | None made | Which regional parts are stocked | GRR-DDR-001, O3 |
-| 8 | Rider setting shown in the photoreal renders | (a) 1.30 m rider in the product renders, 1.38 m in the concept sheet; (b) one setting in both | (a) | None in the build | REVIEW.md, 2026-09-26, item 2 |
-| 9 | Frame color | (a) kit teal for portfolio renders, production color settled in co-design with a high-visibility option; (b) a bright color now | (a) | Powder coat color (BOM line 1) | REVIEW.md, 2026-09-26, item 3 |
-| 10 | Painted height scales on the exposed sleeve and quill (a band every 20 mm, a longer band every 60 mm) | Adopt; leave off | Adopt: a teacher or mechanic can note and reset a child's setting quickly | Finishing of the sleeve and quill | REVIEW.md, 2026-09-26, item 4 |
-| 11 | Markings: "GrowRider" on the chainguard and a head badge (naming and branding are Amish's decision) | Keep both; chainguard name only; none | Keep the chainguard name, screen printed | Chainguard finish | REVIEW.md, 2026-09-26, item 6 |
+| 1 | Helmet: whether one is supplied with each bike (BOM line 20) | Supply with each bike; leave to families or schools; supply through the partner program | None made; a co-design question | Not part of the bike build | GRR-DDR-001, O1 |
+| 2 | First partner (a distribution NGO, a rural school network or a regional assembler) and co-design partner for fit measurements and the regional parts list | To be picked per area, as Amish directed for community designs | None yet | Parts confirmation (items 1 to 12 below) and fit trials | GRR-DDR-001, O2 and O4 |
+| 3 | First region | Zambia, Kenya or Malawi were suggested | None made | Which regional parts are stocked | GRR-DDR-001, O3 |
 
 ## To confirm when parts are bought
 
@@ -79,5 +75,13 @@ Savings worth trying:
 | 2026-09-25 | D1 to D6: 20 in (ISO 406) wheels; coaster brake plus front rim brake; step-through frame with twin down tubes; solid or airless tires for the prototype; one 140 mm crank length; USD 120 production cost target at volume | Amish: "proceed with all of your recommendations across all batches. Make sure we don't proceed to TRL 4 on any of them." | GRR-DDR-001 |
 | 2026-09-25 | D7 to D13: chromoly main tubes, aluminium rack, alloy rims and bar (R5 kept as the production goal); alloy front rim; obtain the coaster hub brake ratio; chromoly steerer and quill, 1.8 mm sleeve; R2 widened to 400 to 670 mm; R9 split into parent and mechanic tool lists; low bar as a co-design question | Amish: "i accept all your recommendations, go with them across all repos." | GRR-DDR-002 |
 | 2026-09-26 | N1: prototype budget raised from USD 250 to USD 300 | Amish: "I am ok with the budget top ups" | GRR-DDR-002 |
-| 2026-09-30 | Make the design physically buildable while drawing the build plan; keep open decisions out of the build plan and in this register | Amish: "If you are realising that the design cannot be built as per concept - fix the design assumptions to match and be physically feasible as you draw the illustrations." The changes themselves are open item 1 | GRR-DDR-003 |
+| 2026-09-30 | Make the design physically buildable while drawing the build plan; keep open decisions out of the build plan and in this register | Amish: "If you are realising that the design cannot be built as per concept - fix the design assumptions to match and be physically feasible as you draw the illustrations." The changes themselves were accepted on 2026-10-01 (below) | GRR-DDR-003 |
 | 2026-10-01 | `budget_usd` is a value-engineering target, not a limit; cost is reported over or under it | Amish: "the budgets are a hypothethical control target to ensure we are thinking along a value engineering lens. its ok to ensure wording reflects that the hypothesis budget was x - the real cost being accrued is y" | This register, Value engineering |
+| 2026-10-01 | Design for construction accepted: the changes P1 to P17 and their knock-on changes, as made | Amish: "i agree with your recommendations for both GrowRider and GravitySort" | GRR-DDR-003, Tables 1 and 2 |
+| 2026-10-01 | Quill stem: no positive stop for the prototype; the minimum insertion mark, checked at every fit change, with a bright painted band above it. Follow-up: decide on the stop collar of option (b) after the fit trials | Amish: "i agree with your recommendations for both GrowRider and GravitySort" | GRR-DDR-003, A1 |
+| 2026-10-01 | Mass of 15.1 kg accepted for the prototype (R5 production goal of 13 kg still not met); the prototype is weighed at TRL 4 | Amish: "i agree with your recommendations for both GrowRider and GravitySort" | GRR-DDR-003, A2 |
+| 2026-10-01 | Steerer: keep the 25.4 x 1.6 mm steerer and let the ISO 4210-2 fork test decide | Amish: "i agree with your recommendations for both GrowRider and GravitySort" | GRR-DDR-002, N2; GRR-DDR-003, A3 |
+| 2026-10-01 | Renders: 1.30 m rider setting in the product renders, 1.38 m in the concept sheet | Amish: "i agree with your recommendations for both GrowRider and GravitySort" | `docs/REVIEW.md`, 2026-09-26, item 2 |
+| 2026-10-01 | Frame color: kit teal for the portfolio renders; the production color is settled in co-design, with a high-visibility option | Amish: "i agree with your recommendations for both GrowRider and GravitySort" | `docs/REVIEW.md`, 2026-09-26, item 3 |
+| 2026-10-01 | Painted height scales on the exposed sleeve and quill: a band every 20 mm, a longer band every 60 mm | Amish: "i agree with your recommendations for both GrowRider and GravitySort" | `docs/REVIEW.md`, 2026-09-26, item 4 |
+| 2026-10-01 | Markings: the name "GrowRider" screen printed on the chainguard; no head badge | Amish: "i agree with your recommendations for both GrowRider and GravitySort" | `docs/REVIEW.md`, 2026-09-26, item 6 |

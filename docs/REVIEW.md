@@ -319,3 +319,47 @@ The photoreal renders (`media/render-*.png`), `media/card.png` and `media/social
 ### Recommended next step
 
 Amish reviews GRR-DDR-003 and the register. TRL 4 (building and testing to GRR-BLD-001) remains on hold by his instruction.
+
+## Session 2026-10-01: recommendations accepted
+
+Amish, 2026-10-01: "i agree with your recommendations for both GrowRider and GravitySort". This answers the recommendations in the design decisions register (GRR-DEC-001 v0.1), including GRR-DDR-003. Items whose recommendation was "None made" or "None yet" were not decided and stay open. trl stays 3; no build or test work was done.
+
+### Accepted, as recommended
+
+| Register item (v0.1) | Decision |
+| --- | --- |
+| 1 | GRR-DDR-003 accepted: design-for-construction changes P1 to P17 and their knock-on changes |
+| 2 | Quill stem: minimum insertion mark with a bright painted band above it for the prototype; the stop collar of option (b) to be decided after the fit trials |
+| 3 | 15.1 kg accepted for the prototype; weigh it at TRL 4 (R5 still not met against the 13 kg production goal) |
+| 4 | Keep the 25.4 x 1.6 mm steerer; the ISO 4210-2 fork test decides |
+| 8 | Renders: 1.30 m rider in the product renders, 1.38 m in the concept sheet |
+| 9 | Frame color: kit teal for portfolio renders; production color in co-design, with a high-visibility option |
+| 10 | Painted height scales on the exposed sleeve and quill (a band every 20 mm, a longer band every 60 mm) |
+| 11 | "GrowRider" screen printed on the chainguard; no head badge |
+
+### What changed
+
+- `docs/06-design-decisions.md` (GRR-DEC-001 v0.2): the eight items moved to Decisions made, dated 2026-10-01, with Amish's words and the record; open items renumbered 1 to 3.
+- `docs/decisions/0003-design-for-construction.md` (GRR-DDR-003 v0.2, status Draft as for the pilot repos): status line now "accepted" with Amish's words; Table 3 marked as accepted as recommended; a consequence added for A1 to A3.
+- `docs/05-build-plan.md` (GRR-BLD-001 v0.2): section 2 says GRR-DDR-003 is accepted; height scale painting added to the sleeve (section 3.3, step 6) and the quill (section 3.6, step 7), with the bright band above the quill's insertion mark; the joint text of section 3.6 and safety stop S4 refer to the band; the chainguard (section 3.9, bought components) carries the screen-printed name. No open decisions were added.
+- `docs/02-concept.md` (GRR-PRC-001 v0.7): summary says GRR-DDR-003 is accepted; the safety section states the quill's limit for the prototype (insertion mark with a bright painted band, stop collar to be considered after the fit trials) and the height scales, and the frame color as decided.
+- `bom/bom-notes.md`: GRR-DDR-003 noted as accepted.
+- PDFs regenerated for GRR-DEC-001 v0.2, GRR-DDR-003 v0.2, GRR-BLD-001 v0.2 and GRR-PRC-001 v0.7; the superseded PDFs removed.
+
+Requirement status is unchanged: 1 not met (R5), 4 at risk (R7, R9, R11, R12), 2 not verifiable at TRL 3, 5 met. No price change: paint and screen printing are within the frame and chainguard lines.
+
+### Still open (GRR-DEC-001)
+
+1. Helmet supply (no recommendation; a co-design question).
+2. First partner and co-design partner.
+3. First region.
+
+The 12 items to confirm when parts are bought are unchanged.
+
+### Safety
+
+The quill still has no positive stop. For the prototype its limit is the minimum insertion mark, now with a bright painted band above it, checked at every stem setting (safety stop S4). This departs from the concept's original promise of a positive stop on every sliding part, and Amish has accepted it for the prototype; the stop collar is to be revisited after the fit trials.
+
+### Recommended next step
+
+Regenerate the photoreal renders on Amish's Mac (the constructable stem head, dropouts and fittings, at the decided 1.30 m setting, in teal with the height scales and chainguard name). TRL 4 remains on hold by Amish's instruction.

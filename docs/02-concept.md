@@ -3,7 +3,7 @@ doc_id: GRR-PRC-001
 title: GrowRider design precis
 project: GrowRider
 doc_type: Design precis
-version: "0.6"
+version: "0.7"
 status: Draft
 date: '2026-10-01'
 author: Amish Chadha
@@ -33,11 +33,15 @@ revisions:
   date: '2026-10-01'
   author: Amish Chadha
   change: Constructable design (GRR-DDR-003); cost stated against the value-engineering target
+- version: "0.7"
+  date: '2026-10-01'
+  author: Amish Chadha
+  change: GRR-DDR-003 accepted by Amish; quill insertion mark with a bright painted band, painted height scales, frame color and chainguard name as decided
 ---
 
 # GrowRider design precis
 
-GrowRider is a step-through chromoly steel children's bicycle on 20 in wheels whose seat post and stem telescope, so one bike fits riders from about 1.10 to 1.65 m (ages about 6 to 14) and can be handed down between siblings. It uses a coaster brake plus a front rim brake, puncture-proof tires, a single-speed chain drive and a small rack rated 10 kg, with wear parts shared with the region's adult roadsters. The calculation note GRR-CAL-001 v0.4 shows on paper that the fit range, reach, wheel size and rack meet their requirements; mass (about 15.1 kg against the 13 kg production goal) is not met; against the USD 300 value-engineering target, the constructable design is estimated at USD 299 for the bike (USD 1 under) and USD 311 with the helmet (USD 11 over), and the production cost is not yet estimated; and braking margins for the smallest rider, the fit-change time and steerer strength are at risk. Wheel size, brakes, frame type, tires and crank length were decided by Amish on 2026-09-25 (GRR-DDR-001), and on the same day he accepted the TRL 3 recommendations: chromoly main tubes, steerer, quill and sleeve, an aluminium rack, alloy rims and bar, a wider R2 and a split R9 (GRR-DDR-002). The design was made constructable on 2026-10-01 (GRR-DDR-003, open for Amish's review), and the prototype build plan is GRR-BLD-001 (`docs/05-build-plan.md`).
+GrowRider is a step-through chromoly steel children's bicycle on 20 in wheels whose seat post and stem telescope, so one bike fits riders from about 1.10 to 1.65 m (ages about 6 to 14) and can be handed down between siblings. It uses a coaster brake plus a front rim brake, puncture-proof tires, a single-speed chain drive and a small rack rated 10 kg, with wear parts shared with the region's adult roadsters. The calculation note GRR-CAL-001 v0.4 shows on paper that the fit range, reach, wheel size and rack meet their requirements; mass (about 15.1 kg against the 13 kg production goal) is not met; against the USD 300 value-engineering target, the constructable design is estimated at USD 299 for the bike (USD 1 under) and USD 311 with the helmet (USD 11 over), and the production cost is not yet estimated; and braking margins for the smallest rider, the fit-change time and steerer strength are at risk. Wheel size, brakes, frame type, tires and crank length were decided by Amish on 2026-09-25 (GRR-DDR-001), and on the same day he accepted the TRL 3 recommendations: chromoly main tubes, steerer, quill and sleeve, an aluminium rack, alloy rims and bar, a wider R2 and a split R9 (GRR-DDR-002). The design was made constructable on 2026-10-01 (GRR-DDR-003, accepted by Amish on 2026-10-01), and the prototype build plan is GRR-BLD-001 (`docs/05-build-plan.md`).
 
 ![Hero render](../media/hero.png)
 
@@ -148,9 +152,9 @@ Table 2. School trip time, walking and cycling (estimates).
 > **Safety:** GrowRider is ridden by children on roads shared with trucks and motorbikes. It is a concept. No part of it has been built or tested, and it must not be ridden until the frame, fork, sliding joints, rack and brakes have passed the tests of the applicable standard (ISO 8098 or ISO 4210) at a later TRL.
 
 - **Brakes.** Two independent brakes are required (R7). The coaster brake stops working if the chain comes off, so the front brake is not optional. Small hands need a short-reach lever. Riders need to be shown that a hard front brake on loose gravel can skid the front wheel. A wet steel rim gives a child almost no front braking (about 0.05 g), so an alloy rim is specified (about 0.14 g wet).
-- **Telescoping parts.** A seat post or stem raised past its minimum insertion can break or pull out. Every sliding part carries a permanent minimum insertion mark at 100 mm. On the sleeve and the seat post a stop screw in the clamp collar, riding in a slot, stops the part at that point (GRR-DDR-003, P8). The quill cannot take a stop of this kind inside a threaded steerer, so for now its mark is its only limit; how to stop it is proposed, awaiting Amish (GRR-DEC-001). At full extension the sleeve and quill are the most stressed sections (GRR-CAL-001, section K). Clamp slots are pinch points for fingers.
+- **Telescoping parts.** A seat post or stem raised past its minimum insertion can break or pull out. Every sliding part carries a permanent minimum insertion mark at 100 mm. On the sleeve and the seat post a stop screw in the clamp collar, riding in a slot, stops the part at that point (GRR-DDR-003, P8). The quill cannot take a stop of this kind inside a threaded steerer, so for the prototype its minimum insertion mark, with a bright painted band above it, is its only limit, checked at every fit change; a clamp-on stop collar is to be considered after the fit trials (decided by Amish, 2026-10-01, GRR-DEC-001). Painted height scales on the exposed sleeve and quill let a setting be noted and reset. At full extension the sleeve and quill are the most stressed sections (GRR-CAL-001, section K). Clamp slots are pinch points for fingers.
 - **Rack limit.** The rack is rated 10 kg and marked. It must not carry passengers, water containers or goods above the rating: a heavy load high over the rear wheel makes a light bike hard for a child to steer and can lift the front wheel. The rack is sized for a school bag, with no footrests.
-- **Road visibility.** School trips often start and end near dawn or dusk. Front white, rear red, spoke and pedal reflectors are fitted, and a bright frame color is proposed. A light (for example a hub dynamo) is suggested for a later version.
+- **Road visibility.** School trips often start and end near dawn or dusk. Front white, rear red, spoke and pedal reflectors are fitted. The portfolio renders use the kit teal; the production frame color is settled in co-design, with a high-visibility option (decided by Amish, 2026-10-01). A light (for example a hub dynamo) is suggested for a later version.
 - **Helmet.** An adjustable, ventilated child helmet is proposed with each bike (BOM line 20). Hot-climate comfort will decide whether it is worn, so it needs to be discussed in co-design. Funding is proposed, awaiting Amish.
 - **Aluminium rack.** Welded aluminium has a low fatigue strength and cracks without warning; the rack must pass static and fatigue tests before use, and the 10 kg rating marking matters more than before.
 - **Clothing and hot surfaces.** The chainguard keeps skirts and trousers out of the chain. A light saddle cover limits heating in the sun.

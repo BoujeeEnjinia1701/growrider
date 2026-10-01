@@ -3,7 +3,7 @@ doc_id: GRR-BLD-001
 title: GrowRider prototype build plan
 project: GrowRider
 doc_type: Build plan
-version: "0.1"
+version: "0.2"
 status: Draft
 date: '2026-10-01'
 author: Amish Chadha
@@ -13,6 +13,10 @@ revisions:
     date: '2026-10-01'
     author: Amish Chadha
     change: First build plan, with pictures by component and step; design made constructable (GRR-DDR-003)
+  - version: "0.2"
+    date: '2026-10-01'
+    author: Amish Chadha
+    change: GRR-DDR-003 accepted by Amish; painted height scales on the sleeve and quill, a bright painted band above the quill's insertion mark, and the name screen printed on the chainguard
 ---
 
 # GrowRider prototype build plan
@@ -31,7 +35,7 @@ The prototype is one GrowRider: a step-through children's bicycle on 20 in wheel
 
 ## 2. What changed to make it buildable
 
-The concept showed what the bike does; some of its parts could not be made, fitted or fixed as drawn. Each change below keeps what the bike does (the same wheels, frame geometry, fit range, bar heights, reach, brakes and rack), and all of them are recorded in decision record GRR-DDR-003, open for Amish's review.
+The concept showed what the bike does; some of its parts could not be made, fitted or fixed as drawn. Each change below keeps what the bike does (the same wheels, frame geometry, fit range, bar heights, reach, brakes and rack), and all of them are recorded in decision record GRR-DDR-003, accepted by Amish on 2026-10-01.
 
 *Table 1. Changes from the concept.*
 
@@ -133,6 +137,7 @@ The sleeve slides in the reamed seat tube with 0.2 clearance on the diameter. Th
 3. Chain drill 6 holes along the line and file the slot's sides straight. File its two ends square: they are the stops.
 4. At the top end, saw a 2 wide, 26 long slit at the back, and drill a 5.5 hole on the right side, 7 below the top, for the post's stop screw.
 5. Scribe the minimum insertion mark all the way round, 100 up from the bottom end.
+6. Paint a height scale on the part that shows above the seat tube: a band every 20 mm and a longer band every 60 mm, so a setting can be noted and reset.
 
 **How it fits the parts next to it.** It slides in the seat tube, slot to the left, and the seat tube collar's stop screw rides in the slot (Figure 10). The seat post slides inside it (Figure 12).
 
@@ -204,6 +209,7 @@ The post slides in the sleeve, slot to the right, with 0.2 clearance on the diam
 4. Drill 6.8 and tap M8, eight holes: at 27, 63, 87 and 123 ahead of the quill's center line, each 13 each side of the plate's center line. The first four are the back bar position, the last four the front.
 5. Hold the quill leaning back 20° from upright (a 70° block on the welding table) and the plate level across its front, the plate's top flush with the quill's top. TIG weld both sides of the joint.
 6. Fit the wedge and expander bolt. Scribe the minimum insertion mark all the way round, 100 up from the quill's bottom.
+7. Paint a bright band all the way round just above the mark, so a quill set close to its limit is easy to see. Above the band, paint a height scale like the sleeve's: a band every 20 mm and a longer band every 60 mm.
 
 **How it fits the parts next to it.**
 
@@ -211,7 +217,7 @@ The post slides in the sleeve, slot to the right, with 0.2 clearance on the diam
 
 *Figure 14. Cut open on the center plane: the quill slides in the steerer's 22.2 bore; the expander bolt pulls the wedge up to lock it.*
 
-The quill slides in the steerer with 0.2 clearance on the diameter. At the lowest setting the quill top stands 20 above the headset locknut and the plate clears the locknut by 2. The quill has no stop screw: the minimum insertion mark is the only limit, so it must always be inside the steerer (safety stop S4).
+The quill slides in the steerer with 0.2 clearance on the diameter. At the lowest setting the quill top stands 20 above the headset locknut and the plate clears the locknut by 2. The quill has no stop screw: the minimum insertion mark is the only limit, so it must always be inside the steerer; the bright band above it catches the eye when the quill is near its limit (safety stop S4).
 
 **Check before moving on.** The quill slides the full 120 of travel; the plate is level when the quill is in the steerer.
 
@@ -285,7 +291,7 @@ Buy to specification, not brand. Line numbers are those of the bill of materials
 
 - **Saddle (line 4), handlebar and grips (line 6).** Child-size saddle with a standard rail clamp. 22.2 alloy roadster-style bar, 520 wide, about 205 sweep and 15 rise; rubber grips.
 - **Fenders (line 14).** Plastic, 20 in, 64 wide, with wire stays and L brackets. Trim the rear fender's front end to start 10° above the axle line.
-- **Chainguard (line 15).** Plate guard for the upper chain run, with a seat tube clip and a tab for the chainstay boss.
+- **Chainguard (line 15).** Plate guard for the upper chain run, with a seat tube clip and a tab for the chainstay boss. The name "GrowRider" is screen printed on its outer face.
 - **Kickstand (line 16).** Centre-mount kickstand with its clamp plate and an M10 bolt.
 - **Reflectors and bell (line 17).** Front white, rear red, two spoke reflectors per wheel, bell.
 - **Fixings (line 19).** M8 collar bolts; M5 bolts with nyloc nuts for the rack, fender stays and chainguard; grease; warning labels for the minimum insertion marks.
@@ -424,7 +430,7 @@ Stop at each point. Carry on only when everything listed is true.
 - **S1. Before brazing or welding.** The person brazing chromoly or TIG welding aluminium is trained for it; fume extraction is on; no galvanised or plated parts are being heated; a fire extinguisher and a metal bin for hot offcuts are at hand.
 - **S2. Before the frame comes off the jig.** The frame and dropout checks of section 3.2 pass. A frame that is out of line is corrected on the jig, never by bending a brazed joint cold.
 - **S3. Before any sliding part is set for a rider.** Both stop screws are in, and each stage stops with its minimum insertion mark still inside the tube below. The warning labels for the marks are on.
-- **S4. At every stem setting.** The quill has no stop screw: its minimum insertion mark must be inside the steerer, below the locknut, every time the stem is set, and the expander bolt is tight.
+- **S4. At every stem setting.** The quill has no stop screw: its minimum insertion mark must be inside the steerer, below the locknut, every time the stem is set (if the bright band shows in full above the locknut, check the mark), and the expander bolt is tight.
 - **S5. Before any load on the rack or the saddle.** Every bolt is tight with its nyloc nut or collar; the rack is marked "MAX 10 kg"; nothing heavier goes on it, and never a passenger.
 - **S6. Before anyone rides it.** Nobody rides the prototype. The frame, fork, seat post, stem, rack and brakes must first pass the tests of ISO 4210-2, which is TRL 4 work and outside this plan.
 - **S7. When fitting solid tires.** Hot water can scald and a tire lever can spring back: wear gloves and eye protection.
