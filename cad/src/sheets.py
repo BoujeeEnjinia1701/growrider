@@ -62,11 +62,12 @@ def main():
     views = project_views(large, work / "large")
     views["iso"] = project_views(small, work / "small")["iso"]
     bb = large.bounding_box()
-    s = Sheet(project="GrowRider", title="General arrangement", dwg_no="GRR-DWG-001", rev="P2",
+    s = Sheet(project="GrowRider", title="General arrangement", dwg_no="GRR-DWG-001", rev="P3",
               author="Amish Chadha", date=DATE, scale=None, theme="technical",
               material="Chromoly 4130 main tubes, steerer, quill and sleeve; aluminium rack; bought-in parts per bom/bom.csv. PRELIMINARY, NOT FOR FABRICATION",
               revisions=[("P1", "Preliminary GA for TRL 3 (from cad/src/model.py)", DATE, "AC"),
-                         ("P2", "GRR-DDR-002: chromoly tubes, 29.2 sleeve, aluminium rack", DATE, "AC")])
+                         ("P2", "GRR-DDR-002: chromoly tubes, 29.2 sleeve, aluminium rack", DATE, "AC"),
+                         ("P3", "Layout and labels tidied", DATE, "AC")])
     s.add_ortho(views)
     k = s.scale
     c = ortho_cells(s, views)
@@ -76,17 +77,15 @@ def main():
     X = lambda mx: x + (mx - bb.min.X) * k
     Z = lambda mz: y + h - (mz - bb.min.Z) * k
     zg = Z(0)
-    L += dim_h(X(bb.min.X), X(bb.max.X), y - 10, f"{bb.size.X:,.0f} overall")
     L += [ext(X(0), y - 6, X(0), Z(D["R"])), ext(X(P["wheelbase"]), y - 6, X(P["wheelbase"]), Z(D["R"]))]
     L += dim_h(X(0), X(P["wheelbase"]), y - 4, f"{P['wheelbase']:.0f} wheelbase")
-    L += dim_v(x - 4, Z(bb.max.Z), zg, f"{bb.size.Z:,.0f}")
     L += [ext(x - 11, Z(P['bb_z']), X(D['bb_x']), Z(P['bb_z']))]
     L += dim_v(x - 10, Z(P["bb_z"]), zg, f"{P['bb_z']:.0f} BB")
-    L += [ext(X(D['stand_x']), Z(D['standover']), X(bb.max.X) + 8, Z(D['standover']))]
-    L += dim_v(X(bb.max.X) + 6, Z(D["standover"]), zg, f"{D['standover']:.0f} standover")
+    L += [ext(X(D['stand_x']), Z(D['standover']), X(bb.max.X) + 9, Z(D['standover']))]
+    L += dim_v(X(bb.max.X) + 8, Z(D["standover"]), zg, f"{D['standover']:.0f} standover")
     # top view: overall width
     x, y, w, h = c["top"]
-    L += dim_v(x - 4, y, y + h, f"{bb.size.Y:.0f}")
+    pass  # overall width is already dimensioned by the kit
     # right view: handlebar width
     x, y, w, h = c["right"]
     L += dim_h(x, x + w, y - 4, f"{P['bar_width']:.0f} bar")

@@ -27,7 +27,7 @@ COLORS = {"frame": "#2E5E8C", "fork": "#2E5E8C", "seatpost": "#9CA3AF", "saddle"
 EXPLODE = {"fork": (260, 0, 0), "seatpost": (-80, -220, 240), "saddle": (-40, 0, 640), "stem": (150, 0, 260),
            "handlebar": (250, 0, 450), "front_wheel": (560, 0, 0), "rear_wheel": (-560, 0, -520),
            "tires": (0, 0, -420), "crankset": (0, -260, -300), "chain": (0, -420, -150),
-           "front_brake": (400, 0, 180), "rack": (160, 0, 400), "fenders": (320, 0, 800),
+           "front_brake": (0, 0, 0), "rack": (160, 0, 400), "fenders": (320, 0, 800),
            "chainguard": (0, -300, 120), "kickstand": (0, 220, -220), "reflectors": (260, 0, 980)}
 parts = [Part(name, shape, COLORS[key], bom, EXPLODE.get(key, (0, 0, 0)))
          for key, name, shape, bom in build_parts(PARAMS, MID)]
