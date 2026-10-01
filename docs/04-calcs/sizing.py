@@ -14,14 +14,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "cad" / "src"))
-from model import PARAMS as P, SETTINGS, derived, grip_pt, saddle_pt, split_saddle, tube_lengths  # noqa: E402
+from model import PARAMS as P, SETTINGS, derived, fitting_masses, grip_pt, saddle_pt, split_saddle, tube_lengths  # noqa: E402
 
 g = 9.81
 D = derived(P)
 R_TIRE = D["R"] / 1000          # m
 L = P["wheelbase"] / 1000       # m
 STATUS = {}
-# Prototype budget, read from project.yaml (raised from $250 to $300 by Amish, 2026-09-26)
+# Value-engineering target, read from project.yaml (raised from $250 to $300 by Amish, 2026-09-26). It is a
+# hypothetical control target, not a spending limit (Amish, 2026-10-01).
 BUDGET = float(next(l.split(":", 1)[1] for l in (ROOT / "project.yaml").read_text().splitlines()
                     if l.startswith("budget_usd:")).strip())
 
@@ -124,8 +125,9 @@ print("C. Wheel size and steering")
 circ = pi * P["tire_od"] / 1000
 out("C1", f"one wheel size, 20 in (ISO 406); tire outside diameter {P['tire_od']:.0f} mm; rolling circumference {circ:.2f} m")
 out("C2", f"trail {D['trail']:.0f} mm with {P['head_ang']:.0f} deg head angle and {P['fork_offset']:.0f} mm offset")
-out("C3", f"fork crown to tire {D['crown_clear']:.0f} mm; tire to fender {P['fender_gap']:.0f} mm; "
-          f"fender to crown {D['crown_clear'] - P['fender_gap'] - 4:.0f} mm")
+out("C3", f"fork crown underside to tire {D['crown_clear']:.0f} mm; tire to front fender {P['ffender_gap']:.0f} mm "
+          f"(rear {P['fender_gap']:.0f} mm); front fender to crown {D['crown_clear'] - P['ffender_gap'] - 3:.0f} mm; "
+          f"front caliper reach {D['brake_reach']:.0f} mm")
 fc = P["wheelbase"] - D["bb_x"]
 tire_back = fc - (D["R"] + P["fender_gap"] + 4)
 for k, (h, _) in RIDERS.items():
@@ -151,6 +153,7 @@ def tube_kg(od, wall, length_mm):
 
 frame_tubes = {
     "head": tube_kg(P["ht_od"], P["ht_wall"], tl["head"]),
+    "stay cross bar and bridge": tube_kg(P["seatstay_tube"][0], 1.2, tl["cross bar"]) + tube_kg(12.0, 1.0, tl["bridge"]),
     "seat": tube_kg(P["st_od"], P["st_wall"], tl["seat"]),
     "down": tube_kg(*P["down"], tl["down"]),
     "loop": tube_kg(*P["loop"], tl["loop"]),
@@ -158,15 +161,20 @@ frame_tubes = {
     "seat stays": tube_kg(*P["seatstay_tube"], tl["seatstay"]),
     "BB shell": tube_kg(P["bb_shell"][0], P["bb_shell"][1], P["bb_shell"][2]),
 }
-frame_kg = sum(frame_tubes.values()) + 0.45   # dropouts, collar, bosses, bridges, filler, paint
+FIT = fitting_masses(P)
+frame_fit = FIT["track-end dropouts (2)"] + FIT["kickstand plate and bosses"]
+frame_kg = sum(frame_tubes.values()) + frame_fit + 0.25   # plus filler, paint and cable guides
 out("D1", "frame tubes (chromoly head, seat, down and loop tubes; steel stays) " + ", ".join(f"{k} {v:.2f}" for k, v in frame_tubes.items())
-    + f" kg; plus 0.45 kg of dropouts, collar, bosses, bridges, filler and paint = {frame_kg:.2f} kg")
+    + f" kg; dropouts {FIT['track-end dropouts (2)']:.2f} kg, kickstand plate and bosses {FIT['kickstand plate and bosses']:.2f} kg, "
+    f"filler, paint and cable guides 0.25 kg = {frame_kg:.2f} kg")
 sleeve_kg = tube_kg(P["sleeve_od"], P["sleeve_wall"], P["sleeve_len"])
 rt_ = P["rack_tube"]
 rack_len_tube = 3 * P["rack_len"] + 3 * P["rack_w"] + 2 * 330 + 2 * 300   # rails, cross bars, struts, stays (mm)
 rack_kg = tube_kg(rt_, P["rack_wall"], rack_len_tube) * ALU_RHO / STEEL_RHO + 0.10   # plus plates and fixings
-post_kg = tube_kg(P["post_od"], P["post_wall"], P["post_len"]) + 0.08
-quill_kg = tube_kg(P["quill_d"], P["quill_wall"], D["quill_len"]) + 0.30
+post_kg = tube_kg(P["post_od"], P["post_wall"], P["post_len"]) + 0.08 + FIT["clamp collars (2)"] + 0.02   # collars, stop screws
+quill_kg = tube_kg(P["quill_d"], P["quill_wall"], D["quill_len"]) + FIT["head plate"] + FIT["bar clamp block (aluminium)"] + 0.12
+out("D1b", f"made fittings from the model: " + ", ".join(f"{k} {v:.2f} kg" for k, v in FIT.items())
+    + f"; quill stem with head plate, clamp block and bolts {quill_kg:.2f} kg")
 MASS = {  # kg; tubes computed, bought parts estimated from typical catalog values
     "1 frame": frame_kg,
     "2 fork (chromoly 1 in steerer, long)": 0.95,
@@ -195,11 +203,13 @@ out("D3", f"complete bike {m_bike:.1f} kg against 13 kg (R5), over by {m_bike - 
           f"{m_bike / RIDERS['small'][1] * 100:.0f} % of a 19 kg six-year-old")
 # TRL 3 values before GRR-DDR-002 (hi-tensile main tubes, steel rack, steel rear rim and bar), for the before and after table
 TRL3_V01 = {"mass": 15.3, "bike_usd": 243, "total_usd": 255}
+CONCEPT_V02 = {"mass": 14.4, "bike_usd": 281, "total_usd": 293}   # GRR-CAL-001 v0.3, before GRR-DDR-003
 SAVE = {"pneumatic tires with thorn-resistant tubes and liners (0.85 kg each); reverses D4": 2.20 - 1.70}
 for k, v in SAVE.items():
     out("D4", f"saving option: {k}: {v:.2f} kg")
-out("D5", f"with the remaining option: {m_bike - sum(SAVE.values()):.1f} kg; before GRR-DDR-002 the bike was "
-          f"{TRL3_V01['mass']:.1f} kg, so the adopted changes save {TRL3_V01['mass'] - m_bike:.1f} kg")
+out("D5", f"with the remaining option: {m_bike - sum(SAVE.values()):.1f} kg; the concept was {CONCEPT_V02['mass']:.1f} kg "
+          f"(GRR-DDR-002) and {TRL3_V01['mass']:.1f} kg before that; the parts added for construction (GRR-DDR-003) add "
+          f"{m_bike - CONCEPT_V02['mass']:.1f} kg")
 status("R5", f"{m_bike:.1f} kg", "13 kg or less", "Not met")
 
 # ------------------------------------------------------------------ E. rider plus bike mass center, rack (R6)
@@ -319,10 +329,13 @@ rows = list(csv.DictReader((ROOT / "bom" / "bom.csv").open()))
 tot = sum(float(r["qty"]) * float(r["unit_cost_usd"]) for r in rows)
 helmet = sum(float(r["qty"]) * float(r["unit_cost_usd"]) for r in rows if "helmet" in r["item"].lower())
 bike = tot - helmet
-out("J1", f"BOM lines {len(rows)}; bike (lines 1 to 19) ${bike:.0f}; helmet ${helmet:.0f}; total ${tot:.0f} "
-          f"against the ${BUDGET:.0f} budget (before GRR-DDR-002: ${TRL3_V01['bike_usd']} and ${TRL3_V01['total_usd']})")
-status("R11", f"${bike:.0f} bike, ${tot:.0f} with helmet; production cost not estimated",
-       f"${BUDGET:.0f} prototype; $120 at volume", "Not met" if bike > BUDGET else "At risk")
+ou = lambda v: f"USD {abs(v):.0f} {'over' if v > 0 else 'under'}"   # noqa: E731
+out("J1", f"BOM lines {len(rows)}; bike (lines 1 to 19) USD {bike:.0f}; helmet USD {helmet:.0f}; total USD {tot:.0f}. "
+          f"Value-engineering target USD {BUDGET:.0f}: bike {ou(bike - BUDGET)}, with helmet {ou(tot - BUDGET)} the target "
+          f"(concept before GRR-DDR-003: USD {CONCEPT_V02['bike_usd']} and {CONCEPT_V02['total_usd']})")
+status("R11", f"USD {bike:.0f} bike ({ou(bike - BUDGET)} the value-engineering target), USD {tot:.0f} with helmet "
+       f"({ou(tot - BUDGET)}); production cost not estimated",
+       f"value-engineering target USD {BUDGET:.0f} prototype; USD 120 at volume", "At risk")
 
 # ------------------------------------------------------------------ K. strength screen (R12)
 print("K. Strength screen, largest rider")
@@ -353,8 +366,28 @@ qe = SETTINGS["large"]["stem_exp"] + P["stem_rise"] + P["bar_rise"]
 m_q = sqrt((300 * abs(P["stem_ext"][1] - P["bar_sweep"])) ** 2 + (200 * qe) ** 2)
 s_q = m_q / zmod(P["quill_d"], P["quill_wall"])
 checks.append(("quill at the steerer top", s_q, CRMO_FATIGUE, CRMO_YIELD, 1.0))
-out("K2", f"quill at the steerer top, full extension (chromoly): {m_q / 1000:.0f} N m, {s_q:.0f} MPa "
+out("K2", f"quill at the steerer top, full extension ({P['quill_d']} x {P['quill_wall']} mm chromoly): {m_q / 1000:.0f} N m, {s_q:.0f} MPa "
           f"(300 N vertical, 200 N pull at the grips); screen {CRMO_FATIGUE:.0f} MPa")
+# head plate where it is welded to the quill: 300 N at the grips with the clamp block in its back position
+hp_L, hp_W, hp_T = P["head_plate"]
+root_x = P["quill_d"] / 2 / cos(radians(90 - P["head_ang"])) + 3.0
+lever_hp = abs(P["stem_ext"][0] - P["bar_sweep"]) + root_x
+s_hp = 300 * lever_hp / (hp_W * hp_T ** 2 / 6)
+checks.append(("head plate at its weld to the quill", s_hp, CRMO_FATIGUE, CRMO_YIELD, 1.0))
+out("K6", f"head plate at its weld to the quill ({hp_W:.0f} x {hp_T:.0f} mm chromoly): 300 N at the grips {lever_hp:.0f} mm "
+          f"behind the weld, {s_hp:.0f} MPa; screen {CRMO_FATIGUE:.0f} MPa")
+# stop slots on the sides of the sleeve and post lie on the neutral axis of fore-and-aft bending
+import numpy as np  # noqa: E402
+for nm, od, wall in (("sleeve", P["sleeve_od"], P["sleeve_wall"]), ("post", P["post_od"], P["post_wall"])):
+    th = np.linspace(0, 2 * pi, 7201)[:-1]
+    ro, ri = od / 2, od / 2 - wall
+    half = np.degrees(np.arcsin(P["slot_w"] / 2 / ro))
+    keep = np.abs(np.degrees(np.angle(np.exp(1j * (th - pi / 2))))) > half
+    da = 2 * pi / len(th)
+    I_full = np.sum((np.sin(th) * 0 + np.cos(th)) ** 2 * (ro ** 4 - ri ** 4) / 4 * da)
+    I_slot = np.sum(((np.cos(th)) ** 2 * (ro ** 4 - ri ** 4) / 4 * da)[keep])
+    out("K7", f"{nm} with its {P['slot_w']:.0f} mm stop slot on the side: fore-and-aft bending stiffness "
+              f"{I_slot / I_full * 100:.1f} % of the plain tube, so the stresses above rise by {(I_full / I_slot - 1) * 100:.1f} %")
 # steerer at the crown under hard front braking, largest rider
 mt, x, z = CG["large"]
 a = brake["large"]["a_front"]["dry"]

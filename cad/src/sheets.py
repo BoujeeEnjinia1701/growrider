@@ -1,4 +1,4 @@
-"""GrowRider general arrangement sheet GRR-DWG-001, Rev P2 (TRL 3).
+"""GrowRider general arrangement sheet GRR-DWG-001, Rev P4 (TRL 3, constructable design, GRR-DDR-003).
 
 Run from the repo root:  python cad/src/sheets.py
 Writes cad/drawings/GRR-DWG-001.svg, .pdf and .png from the parametric model in
@@ -15,7 +15,8 @@ sys.path[:0] = [str(ROOT / ".kit"), str(ROOT / "cad" / "src")]
 from drawing import Sheet, project_views, _viewbox, _t, M, TB_Y, INK, MUTED  # noqa: E402
 from model import PARAMS as P, SETTINGS, build, derived, grip_pt, saddle_pt  # noqa: E402
 
-DATE = "2026-09-25"
+DATE = "2026-10-01"
+DATE_P1 = "2026-09-25"
 
 
 def ortho_cells(sheet, views, names=("front", "top", "right")):
@@ -62,12 +63,13 @@ def main():
     views = project_views(large, work / "large")
     views["iso"] = project_views(small, work / "small")["iso"]
     bb = large.bounding_box()
-    s = Sheet(project="GrowRider", title="General arrangement", dwg_no="GRR-DWG-001", rev="P3",
+    s = Sheet(project="GrowRider", title="General arrangement", dwg_no="GRR-DWG-001", rev="P4",
               author="Amish Chadha", date=DATE, scale=None, theme="technical",
               material="Chromoly 4130 main tubes, steerer, quill and sleeve; aluminium rack; bought-in parts per bom/bom.csv. PRELIMINARY, NOT FOR FABRICATION",
-              revisions=[("P1", "Preliminary GA for TRL 3 (from cad/src/model.py)", DATE, "AC"),
-                         ("P2", "GRR-DDR-002: chromoly tubes, 29.2 sleeve, aluminium rack", DATE, "AC"),
-                         ("P3", "Layout and labels tidied", DATE, "AC")])
+              revisions=[("P1", "Preliminary GA for TRL 3 (from cad/src/model.py)", DATE_P1, "AC"),
+                         ("P2", "GRR-DDR-002: chromoly tubes, 29.2 sleeve, aluminium rack", DATE_P1, "AC"),
+                         ("P3", "Layout and labels tidied", DATE_P1, "AC"),
+                         ("P4", "GRR-DDR-003: design for construction", DATE, "AC")])
     s.add_ortho(views)
     k = s.scale
     c = ortho_cells(s, views)
@@ -90,19 +92,19 @@ def main():
     x, y, w, h = c["right"]
     L += dim_h(x, x + w, y - 4, f"{P['bar_width']:.0f} bar")
     s._layers += L
-    s.add_svg(views["iso"], 276, 32, 140, 100, label="Isometric view, smallest rider setting", sublabel="Not to scale")
+    s.add_svg(views["iso"], 276, 42, 140, 92, label="Isometric view, smallest rider setting", sublabel="Not to scale")
     sp_s, sp_l = saddle_pt(SETTINGS["small"]["saddle_h"]), saddle_pt(SETTINGS["large"]["saddle_h"])
     s.add_notes("Main dimensions and interfaces (mm)", [
-        "Ortho views at the largest rider setting (1.65 m)",
+        "Ortho views at the largest rider setting (1.65 m); third-angle",
         f"Wheels 20 in (ISO 406), tire OD {P['tire_od']:.0f}; trail {D['trail']:.0f}; axes {P['head_ang']:.0f} deg",
         f"Saddle {D['saddle_min']:.0f} to {D['saddle_max']:.0f} from BB; {sp_s[1]:.0f} to {sp_l[1]:.0f} above ground",
         f"Seat post: {P['sleeve_od']} sleeve in {P['st_od']} seat tube, {P['post_od']} post; 100 min. insertion",
         f"Quill {P['quill_d']} in 1 in steerer, {P['quill_travel']:.0f} travel; head {P['ht_len']:.0f}",
-        f"Stem head 0 or 60 forward; bar {P['bar_width']:.0f} wide, {P['bar_sweep']:.0f} sweep",
-        f"Cranks {P['crank']:.0f}, {P['ring_t']}/{P['cog_t']}; coaster hub plus front rim brake",
-        f"Rack {P['rack_len']:.0f} x {P['rack_w']:.0f} at Z {P['rack_z']:.0f}, rated 10 kg",
-        f"Rims alloy; rack aluminium 6061-T6, {P['rack_tube']:.0f} x {P['rack_wall']}",
-        "Mass about 14.4 kg (GRR-CAL-001 v0.2); third-angle, front view from -Y",
+        f"Bar clamp {P['stem_ext'][0]:.0f} or {P['stem_ext'][1]:.0f} ahead of the axis; bar {P['bar_sweep']:.0f} sweep",
+        f"Dropouts {P['rear_old']:.0f} apart, fork ends {P['front_old']:.0f}; cranks {P['crank']:.0f}, {P['ring_t']}/{P['cog_t']}",
+        "Coaster hub plus front rim brake; stop screws in both collars",
+        f"Rack {P['rack_len']:.0f} x {P['rack_w']:.0f} at Z {P['rack_z']:.0f}, 10 kg; 6061-T6, {P['rack_tube']:.0f} x {P['rack_wall']}",
+        "Rims alloy; mass about 15.1 kg (GRR-CAL-001 v0.4)",
     ], x=276, y=158, width=146)
     out = s.save(ROOT / "cad" / "drawings" / "GRR-DWG-001")
     shutil.rmtree(work, ignore_errors=True)

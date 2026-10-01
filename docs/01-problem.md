@@ -3,9 +3,9 @@ doc_id: GRR-PRB-001
 title: GrowRider problem statement
 project: GrowRider
 doc_type: Problem statement
-version: "0.5"
+version: "0.6"
 status: Draft
-date: '2026-09-26'
+date: '2026-10-01'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -29,6 +29,10 @@ revisions:
   date: '2026-09-26'
   author: Amish Chadha
   change: Budget top-up approved by Amish
+- version: "0.6"
+  date: '2026-10-01'
+  author: Amish Chadha
+  change: Budget stated as a value-engineering target (Amish, 2026-10-01)
 ---
 
 # GrowRider problem statement
@@ -63,7 +67,7 @@ Context that shapes the design:
 
 ## Constraints
 
-- Garage-buildable prototype, about $300 USD (`project.yaml` budget, raised from $250 by Amish on 2026-09-26 after the decided chromoly and alloy parts brought the priced BOM to $281), using a steel frame and bought-in bicycle components.
+- Garage-buildable prototype, using a steel frame and bought-in bicycle components. Value-engineering target: USD 300 (`budget_usd` in `project.yaml`, raised from USD 250 on 2026-09-26; a hypothetical control target, not a limit, Amish, 2026-10-01). Estimated cost of the constructable design: USD 299 for the bike (USD 1 under the target), USD 311 with a helmet (USD 11 over).
 - Wear parts should be the same as those used on the region's adult roadsters, so local mechanics can repair it with parts already on sale.
 - Adjustment and routine service with basic hand tools (open-ended spanners and a screwdriver).
 - Child safety comes before carrying capacity: two independent brakes, reflectors, a chainguard and a low rack rating.

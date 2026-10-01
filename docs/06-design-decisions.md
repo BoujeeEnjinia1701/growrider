@@ -1,0 +1,83 @@
+---
+doc_id: GRR-DEC-001
+title: GrowRider design decisions register
+project: GrowRider
+doc_type: Design decisions register
+version: "0.1"
+status: Draft
+date: '2026-10-01'
+author: Amish Chadha
+license: CERN-OHL-S-2.0
+revisions:
+- version: "0.1"
+  date: '2026-10-01'
+  author: Amish Chadha
+  change: Register opened with the open decisions from REVIEW.md, GRR-DDR-001 to 003 and the build plan work
+---
+
+# GrowRider design decisions register
+
+Every design decision still to be made, and every decision made, in one place. Each decision is argued in full in its decision record under `docs/decisions/`; this register is the index Amish works from. The build plan (`docs/05-build-plan.md`, GRR-BLD-001) describes the design as it stands and does not list open decisions.
+
+## Open decisions
+
+| # | Decision needed | Options | Recommendation | Affects in the build | Source |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Accept the design-for-construction changes P1 to P17 (dropouts, fork ends, arm clip, head tube bore, 22.0 mm quill, head plate and clamp block, seat stay cross bar, stop screws and slots, rack and fender fixings, lower rack, kickstand plate, crown depth and front fender gap, caliper reach, down tube position, chain line, chainguard mounts) | Accept all; accept some; revert some and redesign | Accept all: none changes what the bike does, and each is needed to build it | The whole build plan | GRR-DDR-003, Tables 1 and 2 |
+| 2 | Positive stop for the quill stem: none of the seat post kind can be fitted inside a threaded steerer, although the concept's safety section promises one on every sliding part | (a) minimum insertion mark only, checked at every fit change; (b) a steerer 15 mm longer with a clamp-on stop collar above the locknut and a slot in the quill (bar 14 mm higher at every setting); (c) a stop cable inside the steerer | (a) for the prototype, with a bright painted band above the mark; decide (b) after the fit trials | Quill and steerer (build plan sections 3.6 and step 5); safety stop S4 | GRR-DDR-003, A1 |
+| 3 | Mass: the parts added for construction bring the bike to 15.1 kg against the 13 kg production goal (R5) | (a) accept for the prototype and weigh it at TRL 4; (b) look for savings now | (a) | None in the build | GRR-DDR-003, A2; GRR-CAL-001 [D3] |
+| 4 | Steerer strength: 117 MPa at the crown in hard braking against the 90 MPa screen. A 2.0 mm wall leaves a 21.4 mm bore that no quill fits, and at the lowest setting the quill reaches the crown | (a) keep the 25.4 x 1.6 mm steerer and let the ISO 4210-2 fork test decide; (b) a butted steerer thick only inside the crown, with the quill's lowest position raised 20 mm; (c) a 1 1/8 in steerer with a 25.4 mm quill | (a) | Fork specification (BOM line 2) | GRR-DDR-002, N2; GRR-DDR-003, A3 |
+| 5 | Helmet: whether one is supplied with each bike (BOM line 20) | Supply with each bike; leave to families or schools; supply through the partner program | None made; a co-design question | Not part of the bike build | GRR-DDR-001, O1 |
+| 6 | First partner (a distribution NGO, a rural school network or a regional assembler) and co-design partner for fit measurements and the regional parts list | To be picked per area, as Amish directed for community designs | None yet | Parts confirmation (items 1 to 12 below) and fit trials | GRR-DDR-001, O2 and O4 |
+| 7 | First region | Zambia, Kenya or Malawi were suggested | None made | Which regional parts are stocked | GRR-DDR-001, O3 |
+| 8 | Rider setting shown in the photoreal renders | (a) 1.30 m rider in the product renders, 1.38 m in the concept sheet; (b) one setting in both | (a) | None in the build | REVIEW.md, 2026-09-26, item 2 |
+| 9 | Frame color | (a) kit teal for portfolio renders, production color settled in co-design with a high-visibility option; (b) a bright color now | (a) | Powder coat color (BOM line 1) | REVIEW.md, 2026-09-26, item 3 |
+| 10 | Painted height scales on the exposed sleeve and quill (a band every 20 mm, a longer band every 60 mm) | Adopt; leave off | Adopt: a teacher or mechanic can note and reset a child's setting quickly | Finishing of the sleeve and quill | REVIEW.md, 2026-09-26, item 4 |
+| 11 | Markings: "GrowRider" on the chainguard and a head badge (naming and branding are Amish's decision) | Keep both; chainguard name only; none | Keep the chainguard name, screen printed | Chainguard finish | REVIEW.md, 2026-09-26, item 6 |
+
+## To confirm when parts are bought
+
+| # | What to confirm | Why it matters | Source |
+| --- | --- | --- | --- |
+| 1 | The coaster brake hub is 110 mm over the locknuts with its sprocket on a 42 mm chain line, and its brake ratio (hub torque to sprocket torque) | The dropouts are 110 mm apart and the chainstays are placed for a 42 mm chain line; braking for the smallest rider rests on an assumed ratio of 2.5 | GRR-DDR-003, P1 and P16; GRR-DDR-002, D9 |
+| 2 | A long-reach side-pull caliper whose reach covers about 84 mm is stocked. If none is, the fallback is a fork with brake bosses and a short-pull V-brake for children's levers, which is a design decision | The crown height and tire size set the reach | GRR-DDR-003, P14 |
+| 3 | The fork: crown no deeper than 16 mm, 1 in threaded steerer 25.4 x 1.6 mm with 220 mm usable above the crown, slotted fork ends 100 mm apart with eyelets, crown hole for the caliper bolt | The front fender passes 7 mm under the crown; the quill needs the full steerer length | GRR-DDR-003, P2 and P13 |
+| 4 | The solid tire's real width is 50 mm or less on the rim | The rear tire clears the chainstays by 4 mm at a 48 mm width | GRR-DDR-003, P16 |
+| 5 | A 29.8 mm clamp collar closes firmly on the 29.2 mm sleeve, or one is turned to 29.2 mm | Sleeve collars are not a stock size | GRR-DDR-003, P8 |
+| 6 | The 22.0 x 2.0 mm chromoly tube slides in the steerer bore with about 0.2 mm clearance | Steerer bores vary by maker | GRR-DDR-003, P5 |
+| 7 | The 29.2 mm sleeve slides in the seat tube after reaming to 29.4 mm, and the 25.4 mm post in the sleeve | Drawn tube bores vary by about 0.1 mm | GRR-CAL-001, A |
+| 8 | A 22.2 mm roadster-style bar of about 205 mm sweep and 15 mm rise is stocked | The grips sit where the fit calculation puts them only with this sweep and rise | GRR-DDR-003, P6 |
+| 9 | 1 in JIS press-in headset (30.0 mm cups) and a 68 mm BSA bottom bracket are the regional standard | The head tube bore and BB shell are made to them | GRR-DDR-003, P4 |
+| 10 | A builder who can TIG weld 6061 aluminium for the rack, or a bought rack of the same size and rating | Welded aluminium needs skill and has low fatigue strength | GRR-DDR-002, D7 |
+| 11 | Masses of the tires, rims, hub and bought fittings | The mass estimate uses catalog values | GRR-CAL-001, D |
+| 12 | Which parts are actually stocked in the first region, including coaster hubs and 20 in solid tires | Parts commonality (R10) | GRR-REQ-001, R10 |
+
+## Value engineering
+
+Value-engineering target: USD 300 (a hypothetical control target, not a limit; Amish, 2026-10-01: "the budgets are a hypothethical control target to ensure we are thinking along a value engineering lens"). Estimated cost of the constructable design: USD 299 for the bike, BOM lines 1 to 19 (USD 1 under the target), and USD 311 with the helmet (USD 11 over the target). The concept was USD 281 and 293; the parts added for construction account for the USD 18 difference. Frame builder labor is not included.
+
+Main cost drivers:
+
+- Frame tube, plate and consumables, USD 64 (line 1).
+- Solid tires, USD 32 for the pair (line 9).
+- Rear wheel with coaster hub, USD 30 (line 8).
+- Quill stem with its head plate and clamp block, USD 20 (line 5).
+- Fork with a long steerer, USD 18 (line 2).
+
+Savings worth trying:
+
+- Thorn-resistant tubes with liners instead of solid tires: about USD 10 and 0.5 kg less, but it reverses D4 (GRR-DDR-001), so it needs Amish's decision.
+- A bought steel rack of the right size and rating instead of the welded aluminium one: no aluminium welding skill needed; check mass and price.
+- One collar size: a 30.0 mm sleeve would take a stock collar, but the sleeve size was decided (GRR-DDR-002, D10), so only worth revisiting with the strength screen.
+- A bought long quill stem cut and fitted with the head plate, if a 22.0 mm chromoly quill of 240 mm is stocked.
+- Price the frame kit (tubes, dropouts, BB shell) as one order from a frame-building supplier.
+
+## Decisions made
+
+| Date | Decision | Decided by | Record |
+| --- | --- | --- | --- |
+| 2026-09-25 | D1 to D6: 20 in (ISO 406) wheels; coaster brake plus front rim brake; step-through frame with twin down tubes; solid or airless tires for the prototype; one 140 mm crank length; USD 120 production cost target at volume | Amish: "proceed with all of your recommendations across all batches. Make sure we don't proceed to TRL 4 on any of them." | GRR-DDR-001 |
+| 2026-09-25 | D7 to D13: chromoly main tubes, aluminium rack, alloy rims and bar (R5 kept as the production goal); alloy front rim; obtain the coaster hub brake ratio; chromoly steerer and quill, 1.8 mm sleeve; R2 widened to 400 to 670 mm; R9 split into parent and mechanic tool lists; low bar as a co-design question | Amish: "i accept all your recommendations, go with them across all repos." | GRR-DDR-002 |
+| 2026-09-26 | N1: prototype budget raised from USD 250 to USD 300 | Amish: "I am ok with the budget top ups" | GRR-DDR-002 |
+| 2026-09-30 | Make the design physically buildable while drawing the build plan; keep open decisions out of the build plan and in this register | Amish: "If you are realising that the design cannot be built as per concept - fix the design assumptions to match and be physically feasible as you draw the illustrations." The changes themselves are open item 1 | GRR-DDR-003 |
+| 2026-10-01 | `budget_usd` is a value-engineering target, not a limit; cost is reported over or under it | Amish: "the budgets are a hypothethical control target to ensure we are thinking along a value engineering lens. its ok to ensure wording reflects that the hypothesis budget was x - the real cost being accrued is y" | This register, Value engineering |

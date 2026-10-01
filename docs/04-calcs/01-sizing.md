@@ -3,9 +3,9 @@ doc_id: GRR-CAL-001
 title: GrowRider sizing calculations
 project: GrowRider
 doc_type: Calculation
-version: "0.3"
+version: "0.4"
 status: Draft
-date: '2026-09-26'
+date: '2026-10-01'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -21,11 +21,15 @@ revisions:
   date: '2026-09-26'
   author: Amish Chadha
   change: Budget top-up approved by Amish
+- version: "0.4"
+  date: '2026-10-01'
+  author: Amish Chadha
+  change: Constructable design (GRR-DDR-003); crown clearance corrected; budget stated as a value-engineering target
 ---
 
 # GrowRider sizing calculations
 
-On paper, GrowRider meets five of its twelve requirements, misses one and has four at risk; two cannot be verified at TRL 3. This issue applies the decisions of GRR-DDR-002 (chromoly main tubes, steerer, quill and a thicker sleeve; aluminium rack; alloy rims and bar; R2 widened; R9 split). The fit works: the two-stage seat post gives 400 to 670 mm of saddle height with 100 mm of insertion at every sliding joint, which covers the 1.10 to 1.65 m range under both fitting rules used here, and standover is 455 mm against 470 mm. The miss is mass, about 14.4 kg against the 13 kg production goal (R5; 15.3 kg in v0.1). Prototype cost, $281 for the bike and $293 with the helmet, is within the $300 budget Amish approved on 2026-09-26, but the production cost is not yet estimated, so cost (R11) is at risk. Braking (R7), the fit-change time (R9) and frame life (R12, now one section above its screen instead of three) are at risk. Every number in this note is printed by `docs/04-calcs/sizing.py`; the tag in brackets, for example [A2], is the line of that script's output that carries it.
+On paper, GrowRider meets five of its twelve requirements, misses one and has four at risk; two cannot be verified at TRL 3. This issue applies the decisions of GRR-DDR-002 (chromoly main tubes, steerer, quill and a thicker sleeve; aluminium rack; alloy rims and bar; R2 widened; R9 split) and the constructable design of GRR-DDR-003 (dropouts, stem head, stop screws and the other parts that make the bike buildable). The fit works: the two-stage seat post gives 400 to 670 mm of saddle height with 100 mm of insertion at every sliding joint, which covers the 1.10 to 1.65 m range under both fitting rules used here, and standover is 455 mm against 470 mm. The miss is mass, about 15.1 kg against the 13 kg production goal (R5; 14.4 kg in v0.3 before the parts added for construction, 15.3 kg in v0.1). Value-engineering target: USD 300. Estimated cost of the constructable design: USD 299 for the bike (USD 1 under the target) and USD 311 with the helmet (USD 11 over the target); the production cost is not yet estimated, so cost (R11) is at risk. Braking (R7), the fit-change time (R9) and frame life (R12, now one section above its screen instead of three) are at risk. Every number in this note is printed by `docs/04-calcs/sizing.py`; the tag in brackets, for example [A2], is the line of that script's output that carries it.
 
 > **Safety:** These calculations concern a bicycle ridden by children on roads shared with motor traffic. They are first-principles estimates for a paper proof of concept and are not a substitute for the brake, frame, fork, handlebar and seat post tests of ISO 8098 or ISO 4210. Nothing may be ridden on the strength of this note. See GRR-PRC-001, Safety.
 
@@ -79,34 +83,34 @@ Rule A, used at TRL 2, sets the smallest saddle 36 mm too high for a 1.10 m ride
 
 - One wheel size, 20 in (ISO 406), for every rider; tire outside diameter 500 mm and rolling circumference 1.57 m [C1]. R4 is met.
 - Trail is 59 mm with a 70° head angle and 30 mm fork offset [C2], in the usual range for small wheels.
-- The fork crown clears the tire by 26 mm; with a 16 mm tire-to-fender gap, the fender clears the crown by 6 mm [C3]. Mud clearance is tight in the rainy season.
+- The fork crown's underside clears the tire by 22 mm; the front fender sits 12 mm off the tire (the rear 16 mm) and clears the crown by 7 mm [C3]. Mud clearance is tight in the rainy season. Earlier issues measured the crown from its top face and gave 26 mm; with the crown's depth taken into account, a 16 mm front fender gap would not have fitted under it (GRR-DDR-003, P13). The front caliper needs about 84 mm of reach [C3].
 - Toe overlap: none for the smallest rider; about 19 mm for the largest when the bar is turned [C4]. This is normal on small-wheeled bikes but should be shown to riders.
 - Pedal clearance is 109 mm; a pedal strikes at about 32° of lean [C5].
 
 ## D. Mass (R5)
 
-The frame, from the model's tube lengths and walls, is about 2.41 kg with chromoly head, seat, down and loop tubes (seat tube 31.8 x 1.2 mm, down tube 31.8 x 0.9 mm, loop tube 28.6 x 0.9 mm) and steel stays [D1].
+The frame, from the model's tube lengths and walls, is about 2.67 kg with chromoly head, seat, down and loop tubes (head tube now 34 x 2.0 mm, seat tube 31.8 x 1.2 mm, down tube 31.8 x 0.9 mm, loop tube 28.6 x 0.9 mm), steel stays, the stay cross bar and fender bridge, 0.31 kg of track-end dropouts and 0.10 kg of kickstand plate and bosses [D1]. The quill stem with its head plate (0.41 kg), aluminium clamp block (0.13 kg) and bolts is 0.90 kg, and the two clamp collars add 0.12 kg to the seat post [D1b].
 
 *Table 3. Mass estimate [D2].*
 
 | # | Part | kg | # | Part | kg |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Frame, chromoly main tubes | 2.41 | 11 | Chain | 0.30 |
+| 1 | Frame, chromoly main tubes | 2.67 | 11 | Chain | 0.30 |
 | 2 | Fork, chromoly long steerer | 0.95 | 12 | Front brake, lever, cable | 0.35 |
-| 3 | Sleeve (29.2 x 1.8 mm) and seat post | 0.68 | 13 | Rack (aluminium) | 0.44 |
+| 3 | Sleeve (29.2 x 1.8 mm), seat post, collars | 0.81 | 13 | Rack (aluminium) | 0.44 |
 | 4 | Saddle | 0.45 | 14 | Fenders (plastic) | 0.40 |
-| 5 | Quill stem and head | 0.53 | 15 | Chainguard | 0.25 |
+| 5 | Quill stem, head plate, clamp block | 0.90 | 15 | Chainguard | 0.25 |
 | 6 | Handlebar (alloy) and grips | 0.45 | 16 | Kickstand | 0.30 |
 | 7 | Front wheel (alloy rim) | 0.95 | 17 | Reflectors and bell | 0.15 |
 | 8 | Rear wheel (alloy rim), coaster hub | 1.80 | 18 | Bottom bracket and headset | 0.45 |
 | 9 | Solid tires (2) | 2.20 | 19 | Hardware | 0.15 |
-| 10 | Crankset and pedals | 1.15 | | **Total** | **14.4** |
+| 10 | Crankset and pedals | 1.15 | | **Total** | **15.1** |
 
-The complete bike is about 14.4 kg, 1.4 kg over the 13 kg production goal and 76 % of a 19 kg six-year-old's weight [D3]. **R5 is not met.** The GRR-DDR-002 changes save 0.9 kg against v0.1 (15.3 kg) [D5]. The TRL 3 review estimated about 13.6 kg for the same changes using a flat 45 % saving on all frame tubes; the model gives less because the head tube keeps its 1.5 mm wall for the headset cups, the seat tube keeps 1.2 mm to take the thicker sleeve, the stays stay in steel, and the 1.8 mm sleeve adds 0.06 kg. The one remaining option, pneumatic tires with thorn-resistant tubes and liners, saves 0.50 kg [D4] and would reach about 13.9 kg, but reverses decision D4.
+The complete bike is about 15.1 kg, 2.1 kg over the 13 kg production goal and 80 % of a 19 kg six-year-old's weight [D3]. **R5 is not met.** The GRR-DDR-002 changes saved 0.9 kg against v0.1 (15.3 kg); the parts added to make the design buildable (GRR-DDR-003) add 0.7 kg back, mostly the stem's head plate and clamp block (0.37 kg more than the concept's head), the dropouts and the heavier head tube [D5]. The TRL 3 review estimated about 13.6 kg for the same changes using a flat 45 % saving on all frame tubes; the model gives less because the head tube keeps its 1.5 mm wall for the headset cups, the seat tube keeps 1.2 mm to take the thicker sleeve, the stays stay in steel, and the 1.8 mm sleeve adds 0.06 kg. The one remaining option, pneumatic tires with thorn-resistant tubes and liners, saves 0.50 kg [D4] and would reach about 13.9 kg, but reverses decision D4.
 
 ## E. Mass center and rack (R6)
 
-- With rider, the combined mass center is 341 mm ahead of the rear axle and 647 mm high for the 1.10 m rider, 304 and 823 mm for the 1.38 m rider, and 269 and 1,035 mm for the 1.65 m rider. The front wheel carries 40, 35 and 31 % of the weight [E1].
+- With rider, the combined mass center is 341 mm ahead of the rear axle and 642 mm high for the 1.10 m rider, 298 and 816 mm for the 1.38 m rider, and 270 and 1,028 mm for the 1.65 m rider. The front wheel carries 40, 35 and 31 % of the weight [E1].
 - With 10 kg on the rack, the front wheel share falls to 32 % for the smallest rider and 29 % for the largest [E2]. A heavier load would make steering light and unsafe for a small child; this supports the 10 kg rating.
 - The 300 x 120 mm platform meets the size limit. The rack is now 12 x 1.5 mm aluminium 6061-T6 tube (GRR-DDR-002, D7), 0.44 kg. Rail bending at 10 kg and 2.5 g is 26 MPa against 110 MPa for welded 6061-T6 [E3]. Welded aluminium has a low fatigue strength, so the rack joints need the static and fatigue tests of ISO 4210-2 at TRL 4. R6 is met by design; the static load test is later work.
 
@@ -116,14 +120,14 @@ The complete bike is about 14.4 kg, 1.4 kg over the 13 kg production goal and 76
 
 | Rider | Rear (coaster) grip limit | Back-pedal force for 0.2 g, available | Coaster, achieved | Front lever force for 0.2 g, assumed | Front, achieved | Both |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1.10 m | 0.28 g | 83 N, 93 N | 0.23 g | 33 N, 40 N | 0.24 g | 0.47 g |
-| 1.38 m | 0.27 g | 115 N, 157 N | 0.27 g | 45 N, 70 N | 0.31 g | 0.58 g |
-| 1.65 m | 0.26 g | 185 N, 294 N | 0.26 g | 73 N, 150 N | 0.41 g | 0.57 g |
+| 1.10 m | 0.28 g | 85 N, 93 N | 0.22 g | 33 N, 40 N | 0.24 g | 0.46 g |
+| 1.38 m | 0.27 g | 117 N, 157 N | 0.27 g | 46 N, 70 N | 0.30 g | 0.57 g |
+| 1.65 m | 0.26 g | 186 N, 294 N | 0.26 g | 74 N, 150 N | 0.41 g | 0.57 g |
 
-- On paper each brake alone reaches 0.2 g and both together at least 0.47 g, so the R7 targets are met. For the smallest rider the margins are small: 12 % on back-pedal force and 21 % on lever force (slightly better than v0.1 because the bike is lighter). **R7 is at risk** until the coaster hub's brake ratio (GRR-DDR-002, D9) and children's lever and back-pedal forces are known.
+- On paper each brake alone reaches 0.2 g and both together at least 0.46 g, so the R7 targets are met. For the smallest rider the margins are small: 9 % on back-pedal force and 21 % on lever force (12 % on back-pedal force in v0.3, before the parts added for construction made the bike 0.7 kg heavier). **R7 is at risk** until the coaster hub's brake ratio (GRR-DDR-002, D9) and children's lever and back-pedal forces are known.
 - On loose gravel the coaster alone is limited to 0.19 g by rear-wheel grip for every rider [F1], so the front brake is needed.
 - Pitch-over limits the largest rider to 0.57 g with the front brake [F1].
-- **Wet rims.** A wet steel rim would need 164 N at the lever for 0.2 g with the smallest rider, giving a child about 0.05 g. The decided alloy front rim (GRR-DDR-002, D8) needs 55 N and gives about 0.15 g [F3]. Wet braking stays well below the dry figures, which riders need to be taught.
+- **Wet rims.** A wet steel rim would need 167 N at the lever for 0.2 g with the smallest rider, giving a child about 0.05 g. The decided alloy front rim (GRR-DDR-002, D8) needs 56 N and gives about 0.14 g [F3]. Wet braking stays well below the dry figures, which riders need to be taught.
 - Stopping from 15 km/h takes 4.4 m at 0.2 g and 2.5 m at 0.35 g, plus 4.2 m in a 1 s reaction [F5].
 
 ## G. Puncture resistance (R8)
@@ -142,29 +146,30 @@ Chain, coaster hub internals, 1 in headset, 25.4 mm seat post, 22.2 mm handlebar
 
 ## J. Cost (R11)
 
-The 20-line BOM totals $281 for the bike (lines 1 to 19) and $293 with the $12 helmet, against the $300 budget [J1]; v0.1 had $243 and $255. The chromoly frame tubes (+$18), chromoly steerer, sleeve and quill (+$12), alloy bar and rear rim (+$4) and aluminium rack (+$4) add $38. The prototype is within the $300 budget, raised from $250 by Amish on 2026-09-26 (GRR-DDR-002, N1), with the helmet included. **R11 is at risk** until the production cost is estimated. The $120 production target at volume (D6) needs an estimate from a regional assembler.
+`budget_usd` is a hypothetical value-engineering target, not a spending limit (Amish, 2026-10-01). Value-engineering target: USD 300. Estimated cost of the constructable design: USD 299 for the bike, lines 1 to 19 (USD 1 under the target), and USD 311 with the USD 12 helmet (USD 11 over the target) [J1]. v0.3 had USD 281 and 293 and v0.1 USD 243 and 255. The chromoly frame tubes (+18), chromoly steerer, sleeve and quill (+12), alloy bar and rear rim (+4) and aluminium rack (+4) added USD 38 in v0.2; the parts added for construction add USD 18: dropouts, cross bar, bridge, kickstand plate and bosses (+6), the stem's head plate and clamp block (+6), a long-reach caliper (+2) and the stop-screw collars, arm clip and fixings (+4). **R11 is at risk** until the production cost is estimated. The USD 120 production target at volume (D6) needs an estimate from a regional assembler. The main cost drivers and savings worth trying are listed in the design decisions register (GRR-DEC-001, Value engineering).
 
 ## K. Strength screen (R12)
 
 A screen, not a fatigue analysis, for the largest rider (60 kg) at the largest setting.
 
-*Table 5. Section stresses [K1] to [K4].*
+*Table 5. Section stresses [K1] to [K4], [K6].*
 
 | Section | Load case | Stress | Screen |
 | --- | --- | --- | --- |
 | Seat post at the sleeve top, 25.4 x 1.8 mm steel | 1 g saddle load, 97 mm lever | 54 MPa (136 MPa at 2.5 g) | Passes (60 MPa) |
 | Sleeve at the seat tube top, 29.2 x 1.8 mm chromoly | 1 g, 148 mm lever | 61 MPa (153 MPa at 2.5 g) | Passes (90 MPa); 74 MPa in v0.1 |
 | Seat tube at its clamp, 31.8 x 1.2 mm chromoly | 1 g, 148 mm lever | 72 MPa (180 MPa at 2.5 g) | Passes (90 MPa); 59 MPa at 1.5 mm in v0.1 |
-| Quill at the steerer top, 22.2 x 2.0 mm chromoly | 300 N vertical and 200 N pull at the grips, full extension | 45 N m, 77 MPa | Passes (90 MPa) |
+| Quill at the steerer top, 22.0 x 2.0 mm chromoly | 300 N vertical and 200 N pull at the grips, full extension | 45 N m, 79 MPa | Passes (90 MPa); 77 MPa at 22.2 mm in v0.3 |
+| Head plate at its weld to the quill, 44 x 10 mm chromoly | 300 N at the grips, bar clamp in its back position, 175 mm lever | 71 MPa | Passes (90 MPa) |
 | Steerer at the crown, 25.4 x 1.6 mm chromoly | 0.41 g front braking, 589 N normal and 300 N brake force | 78 N m, 117 MPa | **Above 90 MPa** |
-| Fork blades at the crown | 2.5 g bump | 53 MPa (21 MPa at 1 g) | Passes (60 MPa) |
+| Fork blades at the crown | 2.5 g bump | 54 MPa (22 MPa at 1 g) | Passes (60 MPa) |
 
-With the decided chromoly sleeve, quill and steerer and the 1.8 mm sleeve wall (GRR-DDR-002, D10), one of six sections is above its screen, against three in v0.1; none reaches yield at the peak load [K5]. The remaining one is the standard 1 in steerer under an adult-scale rider braking hard: 117 MPa, and 98 MPa even with a 2.0 mm wall [K3]. It is proposed, awaiting Amish, to specify a 25.4 x 2.0 mm butted steerer and confirm it by the ISO 4210-2 fork tests (GRR-DDR-002, N2). The thinner chromoly seat tube raises its clamp stress from 59 to 72 MPa, inside the chromoly screen but with less margin. The chromoly screen is an assumption scaled from tensile strength; the brazed crown joint may deserve a lower value. Whether greased steel sleeves seize in dust and rain over ten years cannot be assessed by calculation. **R12 is at risk.**
+With the decided chromoly sleeve, quill and steerer and the 1.8 mm sleeve wall (GRR-DDR-002, D10), one of seven sections is above its screen, against three of six in v0.1; none reaches yield at the peak load [K5]. The stop slots in the sleeve and post lie on their sides, on the neutral axis of fore-and-aft bending, and lower the bending stiffness by under 1 % [K7]. The remaining one is the standard 1 in steerer under an adult-scale rider braking hard: 117 MPa, and 98 MPa even with a 2.0 mm wall [K3]. It is proposed, awaiting Amish, to specify a 25.4 x 2.0 mm butted steerer and confirm it by the ISO 4210-2 fork tests (GRR-DDR-002, N2). A 2.0 mm wall would leave a 21.4 mm bore, too small for any quill, so the thick butt can only lie below the quill's lowest point; at the lowest setting the quill reaches down to the crown (GRR-DEC-001). The thinner chromoly seat tube raises its clamp stress from 59 to 72 MPa, inside the chromoly screen but with less margin. The chromoly screen is an assumption scaled from tensile strength; the brazed crown joint may deserve a lower value. Whether greased steel sleeves seize in dust and rain over ten years cannot be assessed by calculation. **R12 is at risk.**
 
 ## L. Drive, power and trip time
 
 - 32/18 gives 2.79 m per crank turn, so 11 km/h is 66 rpm [L1]. The chain is 86 links [L2].
-- Power on the level at 11 km/h is 26, 34 and 51 W for the three riders; a 5 % climb at 7 km/h takes 46, 63 and 101 W. On that climb the smallest rider pushes a mean pedal force of 40 % of body weight [L3], so steep hills will be walked.
+- Power on the level at 11 km/h is 26, 34 and 51 W for the three riders; a 5 % climb at 7 km/h takes 47, 64 and 102 W. On that climb the smallest rider pushes a mean pedal force of 41 % of body weight [L3], so steep hills will be walked.
 - A 5 km trip takes 60 to 75 min walking and 25 to 30 min cycling [L4]. At the midpoints this returns about 79 min per day, about 249 h per 190-day school year [L5].
 
 ## M. Applicable standard
@@ -177,11 +182,11 @@ The maximum saddle height is 890 mm above the ground [M1]. ISO 8098:2023 covers 
 
 | ID | Requirement | Value | Target | Status |
 | --- | --- | --- | --- | --- |
-| R5 | Mass | 14.4 kg | 13 kg or less (production goal) | **Not met** |
-| R7 | Two independent brakes | Coaster 0.23 g, front 0.24 g, both 0.47 g (smallest rider, dry); wet alloy rim about 0.15 g | 0.2 g each, 0.35 g together, dry | At risk |
+| R5 | Mass | 15.1 kg | 13 kg or less (production goal) | **Not met** |
+| R7 | Two independent brakes | Coaster 0.22 g, front 0.24 g, both 0.46 g (smallest rider, dry); wet alloy rim about 0.14 g | 0.2 g each, 0.35 g together, dry | At risk |
 | R9 | Basic tools, 10 min fit change | Parent and mechanic tool lists met; fit change 10 min | R9a: 13 mm, screwdriver, 10 min; R9b: 13, 15, 32 mm, lockring spanner, screwdriver | At risk |
-| R11 | Cost | $281 bike, $293 with helmet; production not estimated | $300 prototype; $120 at volume | At risk |
-| R12 | Lasts across siblings | 1 of 6 sections above its screen (steerer); seizing not assessable | 10 years, 3 riders, 60 kg plus 10 kg | At risk |
+| R11 | Cost | USD 299 bike (USD 1 under the value-engineering target), USD 311 with helmet (USD 11 over); production not estimated | Value-engineering target USD 300 for the prototype; USD 120 at volume | At risk |
+| R12 | Lasts across siblings | 1 of 7 sections above its screen (steerer); seizing not assessable | 10 years, 3 riders, 60 kg plus 10 kg | At risk |
 | R8 | Puncture resistance | Solid tires, no punctures; life unknown | No punctures; 2,000 km | Not verifiable at TRL 3 |
 | R10 | Parts commonality | Chosen to match; no regional list | All wear parts but tires and rims | Not verifiable at TRL 3 |
 | R1 | Fit the riders | 1.10 to 1.65 m; standover 455 mm | 1.10 to 1.65 m; 470 mm or less | Met |
@@ -191,6 +196,10 @@ The maximum saddle height is 890 mm above the ground [M1]. ISO 8098:2023 covers 
 | R6 | Rack | 300 x 120 mm; 26 MPa at 2.5 g (aluminium) | 10 kg, marked; 300 x 140 mm or less | Met |
 
 Totals: 5 met, 1 not met, 4 at risk, 2 not verifiable at TRL 3 (v0.2: 5 met, 2 not met, 3 at risk; v0.1: 5 met, 1 not met, 4 at risk, 2 not verifiable).
+
+## Changes in v0.4
+
+Applied from GRR-DDR-003 (design for construction, made under Amish's 2026-09-30 instruction to make the design physically buildable; open for his review): mass 14.4 to 15.1 kg; cost USD 281 to 299 for the bike and USD 293 to 311 with the helmet, stated against the value-engineering target (Amish, 2026-10-01); quill 22.2 to 22.0 mm (79 MPa); head plate check added (71 MPa); stop slot effect added; crown clearance corrected from 26 to 22 mm (crown measured from its underside) and the front fender gap set at 12 mm; smallest rider's coaster braking 0.23 to 0.22 g and wet front braking 0.15 to 0.14 g because the bike is heavier. Fit, reach, bar height, steering, standover, rack stress and drive are unchanged; the rack is 30 mm lower, which does not change the rail stress. Requirement statuses are unchanged.
 
 ## Changes in v0.3
 

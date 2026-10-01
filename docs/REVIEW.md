@@ -257,3 +257,65 @@ This is an appearance model only: no tolerances, no fabrication detail and nothi
 - Kit 1.5.0 synced: STANDARDS v1.5 (sections 12 to 15: product renders, storefront images and image quality, public release, authorship and signing), `.kit/cards.py`, `.kit/image_qc.py`, `.kit/release_gate.py`, issue templates, and the `/render-product` and `/release` commands. `CLAUDE.md` now matches `.kit/CLAUDE.md`.
 - Every `media/render-*.png` recaptioned from its original render with the new layout: the title, concept label and repository sit in a band above the render and the view note in a band below it, each line wrapped to the image width, so no text overlaps other text or the render or runs off the image. `media/card.png` and `media/social-preview.png` regenerated with the same rules.
 - `python .kit/image_qc.py` and `python .kit/release_gate.py` pass. trl stays 3.
+
+## Session 2026-10-01: constructable design and prototype build plan (kit 1.7.0)
+
+Amish approved the build plan format on 2026-09-30 and asked for it on every repo, with the instruction "If you are realising that the design cannot be built as per concept - fix the design assumptions to match and be physically feasible as you draw the illustrations", and with open decisions kept out of the build plan. On 2026-10-01 he set `budget_usd` as a value-engineering target, not a limit. This session brings GrowRider to that standard. trl stays 3.
+
+### What was done
+
+- Kit 1.7.0 installed (`.kit/`, `.claude/commands/`); `CLAUDE.md` matches `.kit/CLAUDE.md`.
+- `cad/src/model.py` rebuilt as a constructable design: `build_components()` returns 41 made and bought components; `build_parts()` still groups them into the 17 modelled BOM lines for the concept media; `check()` runs 66 constructability checks with build123d (fits, stop positions, contacts, clearances); all pass (`python cad/src/model.py --check`). STEP and STL regenerated.
+- `docs/decisions/0003-design-for-construction.md` (GRR-DDR-003 v0.1, Draft): 17 changes, made under Amish's 2026-09-30 instruction to make the design physically buildable; open for his review; three items proposed, awaiting Amish.
+- `docs/05-build-plan.md` (GRR-BLD-001 v0.1) with `cad/src/build_plan_media.py`: overview, frame jig layout, 8 making sketches (GRR-DWG-101 to 108), 9 joint close-ups and 17 assembly step pictures in `docs/05-build-plan/`.
+- `docs/06-design-decisions.md` (GRR-DEC-001 v0.1): 11 open decisions, 12 items to confirm when parts are bought, a Value engineering section and the decisions made.
+- `bom/bom.csv` lines 1, 2, 3, 5, 6, 12, 14, 16 and 19 respecified; `bom/bom-notes.md` updated.
+- `docs/04-calcs/sizing.py` re-run with the new model; GRR-CAL-001 v0.4, GRR-PRC-001 v0.6 and GRR-REQ-001 v0.6 updated; cost stated against the value-engineering target throughout.
+- GRR-DWG-001 at Rev P4; concept media (`media/hero.png`, `exploded.png`, `flow.png`, `concept-blueprint.*`, `model.glb`, `viewer.html`) regenerated from the model.
+- `project.yaml`: `design_state: constructable`; GRR-DDR-003, the build plan and the register added to `trl_evidence`; `budget_usd` unchanged at 300. README: build plan and register links, "Building the prototype" section with the overview picture.
+
+### Design changes made for construction (GRR-DDR-003)
+
+| # | Change |
+| --- | --- |
+| P1 | Rear dropouts: 6 mm track-end plates, slot open to the rear, 110 mm apart, M5 eyelets (were plain blocks 105 mm apart) |
+| P2 | Fork specified with slotted fork ends 100 mm apart and eyelets (blades ended at the axle) |
+| P3 | Coaster brake arm held under the left chainstay by an arm clip and M6 bolt (it floated) |
+| P4 | Head tube 34 x 2.0 mm, 30.0 mm bore for 1 in press-in cups (was 31.0 mm) |
+| P5 | Quill 22.0 x 2.0 mm so it slides in the 22.2 mm steerer bore (22.2 mm could not) |
+| P6 | Stem head: welded 10 mm chromoly head plate and a bolt-on two-piece aluminium bar clamp block at 45 or 105 mm ahead of the axis; bar sweep 205 mm, rise 15 mm; quill lowest exposure 20 mm; grips within 2 mm of the concept |
+| P7 | Seat stays join a cross bar 235 mm up, clear of the seat tube collar (were at 260 mm, inside it) |
+| P8 | Positive stops: M5 stop screws in both clamp collars riding in side slots in the sleeve and post; 100 mm insertion at the stops |
+| P9 | Rack fixed by tabs to the dropout eyelets and to brazed bosses on the seat stays (ends floated) |
+| P10 | Seat stays 80 mm apart at the cross bar so the 64 mm rear fender passes; rear fender starts 10 deg above the axle line; fender bridge and wire stays |
+| P11 | Rack lowered from 575 to 545 mm so the saddle clears it at the lowest setting |
+| P12 | Kickstand plate under the chainstays with a centre-mount kickstand |
+| P13 | Fork crown 16 mm deep and front fender 12 mm off the tire; the crown clearance in GRR-CAL-001 was corrected from 26 to 22 mm |
+| P14 | Long-reach side-pull caliper (about 84 mm), fender bracket on the same crown bolt |
+| P15 | Down tube 5 mm higher on the head tube, clear of the lower cup |
+| P16 | Chain line 42 mm (was 48) and chainstays 21 mm each side at the BB; sprocket, chainring and chain clear the frame |
+| P17 | Chainguard mounted by a seat tube clip and a chainstay boss |
+
+### Key results
+
+- Mass 15.1 kg (was 14.4 kg); **R5 (13 kg production goal) not met**.
+- Value-engineering target: USD 300. Estimated cost of the constructable design: USD 299 for the bike (USD 1 under the target) and USD 311 with the helmet (USD 11 over).
+- Smallest rider's coaster braking 0.22 g (was 0.23 g), back-pedal margin 9 %; R7 still at risk.
+- Requirement statuses unchanged: 1 not met, 4 at risk, 2 not verifiable at TRL 3, 5 met.
+
+### Proposed, awaiting Amish
+
+All in GRR-DEC-001: accept GRR-DDR-003 (item 1); quill positive stop (item 2, recommendation: insertion mark only for the prototype); 0.7 kg mass increase (item 3, accept); steerer strength now interacting with the quill bore (item 4, let the fork test decide); and the earlier open items (helmet, partner, region, render setting, frame color, height scales, markings).
+
+### Safety
+
+- The quill has no positive stop; its minimum insertion mark is its only limit (safety stop S4 in the build plan). This departs from the concept's safety section and is item 2 in the register.
+- Brazed chromoly and welded aluminium need a trained builder; the build plan's safety stops S1 to S7 apply. Nobody may ride the prototype before the ISO 4210-2 tests.
+
+### Stale media
+
+The photoreal renders (`media/render-*.png`), `media/card.png` and `media/social-preview.png` show the concept stem head, dropouts and fittings and need regenerating on Amish's Mac; `cad/src/product_model.py` has not been re-run.
+
+### Recommended next step
+
+Amish reviews GRR-DDR-003 and the register. TRL 4 (building and testing to GRR-BLD-001) remains on hold by his instruction.

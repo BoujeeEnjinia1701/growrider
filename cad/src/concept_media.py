@@ -15,7 +15,7 @@ from concept import Part, render_all, human_figure
 from model import PARAMS, build_parts, derived  # noqa: E402
 
 # Media show the bike set for a 1.38 m rider (about age 10), beside a 1.35 m child.
-MID = {"saddle_h": 537.0, "stem_exp": 75.0, "ext": 0.0}
+MID = {"saddle_h": 537.0, "stem_exp": 75.0, "ext": 45.0}
 D = derived(PARAMS)
 WHEELBASE, R_WHEEL = PARAMS["wheelbase"], D["R"]
 
@@ -39,12 +39,12 @@ context = [child]
 
 if __name__ == "__main__":
     render_all(
-        parts, project="GrowRider", title="Adjustable child bicycle concept", dwg_no="GRR-DWG-010", date="2026-09-25",
+        parts, project="GrowRider", title="Adjustable child bicycle concept", dwg_no="GRR-DWG-010", date="2026-10-01",
         key_figures=["Rider height 1.10 to 1.65 m (ages about 6 to 14)",
                      "Saddle 400 to 670 mm from BB; 100 mm min. insertion",
                      "20 in wheels, 860 mm wheelbase, 455 mm standover",
                      "Coaster brake plus front rim brake",
-                     "Rack rated 10 kg; bike about 14.4 kg (target 13 kg)",
+                     "Rack rated 10 kg; bike about 15.1 kg (target 13 kg)",
                      "5 km school trip: 25 to 30 min vs 60 to 75 min walking"],
         scale_figure=False, context=context, cut=False,
         flow={"title": "growth and hand-down cycle (estimates)", "unit": "",
