@@ -3,9 +3,9 @@ doc_id: GRR-PRB-001
 title: GrowRider problem statement
 project: GrowRider
 doc_type: Problem statement
-version: "0.6"
+version: "0.7"
 status: Draft
-date: '2026-10-01'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -33,6 +33,10 @@ revisions:
   date: '2026-10-01'
   author: Amish Chadha
   change: Budget stated as a value-engineering target (Amish, 2026-10-01)
+- version: "0.7"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: First candidate partner (World Bicycle Relief) and first candidate region (Zambia), as decided by Amish on 2026-10-02
 ---
 
 # GrowRider problem statement
@@ -89,8 +93,8 @@ Context that shapes the design:
 
 ## Open questions
 
-- Which partner to work with first (a bicycle distribution NGO, a rural school network, or a regional bicycle assembler)? Proposed, awaiting Amish; community designs pick co-design partners per area later (GRR-DDR-001, O2).
-- Which region to design for first? The Buffalo parts ecosystem suggests Zambia, Kenya or Malawi. Proposed, awaiting Amish (GRR-DDR-001, O3).
+- Which partner to work with first (a bicycle distribution NGO, a rural school network, or a regional bicycle assembler)? Decided by Amish on 2026-10-02: World Bicycle Relief, through its school bicycle programs and field mechanics, is the first candidate to approach, as partner and co-design partner (GRR-DEC-001).
+- Which region to design for first? The Buffalo parts ecosystem suggests Zambia, Kenya or Malawi. Decided by Amish on 2026-10-02: Zambia is the first candidate region (GRR-DEC-001).
 - How common is carrying a sibling on the rack, and what design cues (rack size, marking, no footrests) discourage it best? To learn in co-design.
 - Would the smallest riders prefer a flat, low handlebar to the swept-back bar, whose grips sit 128 mm above the saddle at the smallest setting? A co-design question, decided by Amish on 2026-09-25 (GRR-DDR-002, D13).
 - Can local frame builders work chromoly tube and weld aluminium, as the decided materials require (GRR-DDR-002, D7)? To learn with the partner.

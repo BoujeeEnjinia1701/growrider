@@ -3,9 +3,9 @@ doc_id: GRR-DDR-002
 title: GrowRider recommendations accepted
 project: GrowRider
 doc_type: Design decision record
-version: "0.2"
+version: "0.3"
 status: Draft
-date: '2026-09-26'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -17,12 +17,16 @@ revisions:
   date: '2026-09-26'
   author: Amish Chadha
   change: Budget top-up to $300 decided by Amish (N1)
+- version: "0.3"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: Items O1 to O4 decided by Amish on 2026-10-02 as recommended; status line brings in N1 and N2 as already decided
 ---
 
 # 0002: Recommendations accepted
 
 - **Date:** 2026-09-25
-- **Status:** accepted for items D7 to D13; D1 to D6 confirmed; items O1 to O4 and N1 to N2 remain proposed
+- **Status:** accepted for items D7 to D13; D1 to D6 confirmed; N1 decided on 2026-09-26; N2 settled on 2026-10-01 (GRR-DDR-003, A3); O1 to O4 decided on 2026-10-02 as recommended (Amish, 2026-10-02: "i approve your recommendations for all 555 open decisions.")
 
 ## Context
 
@@ -51,10 +55,10 @@ The options for each item are those listed in `docs/REVIEW.md` (session 2026-09-
 
 | # | Item | Status |
 | --- | --- | --- |
-| O1 | Helmet funding (BOM line 20, $12) | Proposed, awaiting Amish (no recommendation was made). Since the 2026-09-26 top-up (N1), the $293 total with the helmet fits the $300 budget |
-| O2 | First partner | Proposed, awaiting Amish; community designs pick co-design partners per area later |
-| O3 | First region (Zambia, Kenya or Malawi suggested) | Proposed, awaiting Amish (no recommendation was made) |
-| O4 | Co-design partner for fit measurements and the regional parts list | Open; picked per area later |
+| O1 | Helmet funding (BOM line 20, $12) | Decided by Amish, 2026-10-02: "i approve your recommendations for all 555 open decisions." An adjustable, ventilated child helmet is supplied with every bike through the partner program and fitted at handover; its USD 12 stays in the bike's cost (GRR-DEC-001 v0.3). Total with the helmet now USD 311 (GRR-DDR-003) |
+| O2 | First partner | Decided by Amish, 2026-10-02: "i approve your recommendations for all 555 open decisions." World Bicycle Relief, through its school bicycle programs and field mechanics, is the first candidate to approach (GRR-DEC-001 v0.3) |
+| O3 | First region (Zambia, Kenya or Malawi suggested) | Decided by Amish, 2026-10-02: "i approve your recommendations for all 555 open decisions." Zambia is the first candidate region (GRR-DEC-001 v0.3) |
+| O4 | Co-design partner for fit measurements and the regional parts list | Decided by Amish, 2026-10-02: "i approve your recommendations for all 555 open decisions." World Bicycle Relief is also the first candidate co-design partner (GRR-DEC-001 v0.3) |
 | N1 | Prototype budget: D7 and D10 raise the bike to $281 ($293 with the helmet) against the $250 in `project.yaml` | New, proposed, awaiting Amish. Options: raise the budget to $300; keep $250 and build the first prototype in hi-tensile steel with the chromoly parts later; or keep $250 and treat R11 as not met. Recommendation: raise to $300, which also settles O1. Budget top-up to $300: decided by Amish, 2026-09-26. `budget_usd` is now $300; GRR-REQ-001 v0.5 and GRR-CAL-001 v0.3 record R11 as at risk (prototype $281, $293 with the helmet, within budget; production cost not estimated) |
 | N2 | Steerer at the crown still above its screen (117 MPa against 90 MPa; 98 MPa with a 25.4 x 2.0 mm steerer) | New, proposed, awaiting Amish. Recommendation: specify a 25.4 x 2.0 mm butted chromoly steerer and confirm against the ISO 4210-2 fork tests at TRL 4 |
 

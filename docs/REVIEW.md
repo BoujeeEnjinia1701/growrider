@@ -363,3 +363,34 @@ The quill still has no positive stop. For the prototype its limit is the minimum
 ### Recommended next step
 
 Regenerate the photoreal renders on Amish's Mac (the constructable stem head, dropouts and fittings, at the decided 1.30 m setting, in teal with the height scales and chainguard name). TRL 4 remains on hold by Amish's instruction.
+
+## Session 2026-10-02: open decisions decided
+
+Amish, 2026-10-02: "i approve your recommendations for all 555 open decisions." This approves the recommendation written for each open decision in the design decisions register (GRR-DEC-001 v0.2). trl stays 3; no build or test work was done, and the model, BOM quantities and prices, and pictures are unchanged.
+
+### Decisions recorded
+
+Three decisions, all moved to Decisions made in GRR-DEC-001, dated 2026-10-02:
+
+1. Helmet: an adjustable, ventilated child helmet is supplied with every bike through the partner program and fitted at handover; its USD 12 stays in the bike's cost, so USD 311 is the prototype figure (USD 11 over the USD 300 value-engineering target).
+2. First partner and co-design partner: World Bicycle Relief, through its school bicycle programs and field mechanics, is the first candidate to approach.
+3. First region: Zambia is the first candidate region.
+
+### Documents changed
+
+- `docs/06-design-decisions.md` (GRR-DEC-001 v0.3): open decisions moved to Decisions made; Value engineering reports USD 311 with the helmet as the prototype figure; confirm item 12 names Zambia.
+- `docs/decisions/0001-trl2-review-decisions.md` (GRR-DDR-001 v0.2): O1 to O4 recorded as decided.
+- `docs/decisions/0002-recommendations-accepted.md` (GRR-DDR-002 v0.3): O1 to O4 recorded as decided; status line updated.
+- `docs/02-concept.md` (GRR-PRC-001 v0.8): helmet safety note, cost row and the parts-stock open question.
+- `docs/01-problem.md` (GRR-PRB-001 v0.7): partner and region open questions answered.
+- `docs/03-requirements.md` (GRR-REQ-001 v0.7): R11 status reports USD 311 with the helmet (still at risk).
+- `README.md`, `bom/bom-notes.md` and the note text of `bom/bom.csv` line 20 (no quantity or price change).
+
+### Follow-up actions to carry approved decisions into the design
+
+1. Decision 1 (calculations): state USD 311 with the helmet as the prototype figure in GRR-CAL-001 (R11 row and the value-engineering paragraph) the next time `docs/04-calcs/sizing.py` is run.
+2. Decisions 2 and 3 (docs): approach World Bicycle Relief in Zambia for the regional parts list and fit measurements, then close the twelve items to confirm when parts are bought.
+
+### Points found in the review
+
+- The helmet line (USD 12) was excluded from the bike's USD 299 estimate while the value engineering section also quoted USD 311 with it; with decision 1 accepted, USD 311 is now reported as the prototype figure.

@@ -56,7 +56,7 @@ Rural children often walk more than an hour each way to school, and adult bicycl
 
 Rugged, repairable children's bicycle with an adjustable frame that fits ages 6 to 14, puncture-proof tires, a coaster brake and a small rated rack, built from parts common to regional adult bicycles.
 
-Full design precis: [docs/02-concept.md](docs/02-concept.md). The TRL 3 calculations ([GRR-CAL-001](docs/04-calcs/01-sizing.md)) find the fit range, reach, wheel size and rack meet their requirements on paper. With the recommendations Amish accepted on 2026-09-25 ([GRR-DDR-002](docs/decisions/0002-recommendations-accepted.md)), mass fell from 15.3 to 14.4 kg; with the parts added to make the design buildable ([GRR-DDR-003](docs/decisions/0003-design-for-construction.md)) it is 15.1 kg against the 13 kg production goal and still not met. Value-engineering target: USD 300. Estimated cost of the constructable design: USD 299 for the bike (USD 1 under the target), USD 311 with a helmet (USD 11 over). Braking margins for the smallest rider, the fit-change time and steerer strength are at risk.
+Full design precis: [docs/02-concept.md](docs/02-concept.md). The TRL 3 calculations ([GRR-CAL-001](docs/04-calcs/01-sizing.md)) find the fit range, reach, wheel size and rack meet their requirements on paper. With the recommendations Amish accepted on 2026-09-25 ([GRR-DDR-002](docs/decisions/0002-recommendations-accepted.md)), mass fell from 15.3 to 14.4 kg; with the parts added to make the design buildable ([GRR-DDR-003](docs/decisions/0003-design-for-construction.md)) it is 15.1 kg against the 13 kg production goal and still not met. Value-engineering target: USD 300. Estimated cost of the constructable design: USD 311 with the child helmet supplied with every bike (USD 11 over the target), USD 299 for the bike alone (USD 1 under). Braking margins for the smallest rider, the fit-change time and steerer strength are at risk.
 
 ## Key components
 
@@ -68,7 +68,7 @@ Full design precis: [docs/02-concept.md](docs/02-concept.md). The TRL 3 calculat
 - Aluminium rear rack, rated 10 kg
 - Reflectors and bell
 
-The priced bill of materials is in [bom/bom.csv](bom/bom.csv): USD 299 for the bike and USD 311 with a child helmet, against a USD 300 value-engineering target. The parametric model is [cad/src/model.py](cad/src/model.py), with STEP files in `cad/step/`.
+The priced bill of materials is in [bom/bom.csv](bom/bom.csv): USD 311 with the child helmet supplied with every bike and USD 299 for the bike alone, against a USD 300 value-engineering target. The parametric model is [cad/src/model.py](cad/src/model.py), with STEP files in `cad/step/`.
 
 ## Building the prototype
 

@@ -3,9 +3,9 @@ doc_id: GRR-DDR-001
 title: GrowRider TRL 2 review decisions
 project: GrowRider
 doc_type: Design decision record
-version: "0.1"
+version: "0.2"
 status: Draft
-date: '2026-09-25'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -13,12 +13,16 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: Record Amish's decisions on the TRL 2 review items and the items that remain open
+- version: "0.2"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: Items O1 to O4 decided by Amish on 2026-10-02 as recommended (helmet supplied with every bike; World Bicycle Relief as first candidate partner and co-design partner; Zambia as first candidate region)
 ---
 
 # 0001: TRL 2 review decisions
 
 - **Date:** 2026-09-25
-- **Status:** accepted for items D1 to D6; items O1 to O4 remain proposed
+- **Status:** accepted for items D1 to D6; items O1 to O4 decided on 2026-10-02 as recommended (Amish, 2026-10-02: "i approve your recommendations for all 555 open decisions.")
 
 ## Context
 
@@ -41,14 +45,14 @@ The options for each item are those listed in `docs/REVIEW.md` (session 2026-09-
 | D5 | Crank length | One 140 mm crank length for the prototype, with a possible 127 mm swap for the smallest riders later. Decided by Amish, 2026-09-25: go with recommendation. |
 | D6 | Production cost target | $120 or less per bike at volume (R11), as proposed. Decided by Amish, 2026-09-25: go with recommendation. The prototype budget stays at $250 in `project.yaml`. |
 
-*Table 2. Items that remain open (no recommendation was made).*
+*Table 2. Items that were left open (no recommendation was made); decided by Amish on 2026-10-02 as recommended.*
 
 | # | Item | Status |
 | --- | --- | --- |
-| O1 | Helmet funding (BOM line 20, $12): fund it from the $250 prototype budget ($5 over), fund it separately, or raise the budget to about $275 | Proposed, awaiting Amish |
-| O2 | First partner: a bicycle distribution NGO, a rural school network or a regional bicycle assembler | Proposed, awaiting Amish (to be picked per area later, as Amish directed for community designs) |
-| O3 | First region: Zambia, Kenya or Malawi were suggested by the Buffalo parts ecosystem, with no single recommendation | Proposed, awaiting Amish |
-| O4 | Co-design partner for fit measurements and the regional parts list | Open; community designs pick co-design partners per area later |
+| O1 | Helmet funding (BOM line 20, $12): fund it from the $250 prototype budget ($5 over), fund it separately, or raise the budget to about $275 | Decided by Amish, 2026-10-02: "i approve your recommendations for all 555 open decisions." An adjustable, ventilated child helmet is supplied with every bike through the partner program and fitted at handover; its USD 12 stays in the bike's cost (GRR-DEC-001 v0.3) |
+| O2 | First partner: a bicycle distribution NGO, a rural school network or a regional bicycle assembler | Decided by Amish, 2026-10-02: "i approve your recommendations for all 555 open decisions." World Bicycle Relief, through its school bicycle programs and field mechanics, is the first candidate to approach (GRR-DEC-001 v0.3) |
+| O3 | First region: Zambia, Kenya or Malawi were suggested by the Buffalo parts ecosystem, with no single recommendation | Decided by Amish, 2026-10-02: "i approve your recommendations for all 555 open decisions." Zambia is the first candidate region (GRR-DEC-001 v0.3) |
+| O4 | Co-design partner for fit measurements and the regional parts list | Decided by Amish, 2026-10-02: "i approve your recommendations for all 555 open decisions." World Bicycle Relief is also the first candidate co-design partner (GRR-DEC-001 v0.3) |
 
 ## Consequences
 

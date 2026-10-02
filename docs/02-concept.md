@@ -3,9 +3,9 @@ doc_id: GRR-PRC-001
 title: GrowRider design precis
 project: GrowRider
 doc_type: Design precis
-version: "0.7"
+version: "0.8"
 status: Draft
-date: '2026-10-01'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -37,6 +37,10 @@ revisions:
   date: '2026-10-01'
   author: Amish Chadha
   change: GRR-DDR-003 accepted by Amish; quill insertion mark with a bright painted band, painted height scales, frame color and chainguard name as decided
+- version: "0.8"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: Helmet supplied with every bike, World Bicycle Relief as first candidate partner and Zambia as first candidate region, as decided by Amish on 2026-10-02 (GRR-DEC-001 v0.3)
 ---
 
 # GrowRider design precis
@@ -123,7 +127,7 @@ Table 1. Saddle height across the fit range (GRR-CAL-001, Table 2).
 | Both brakes, dry | 0.46 to 0.57 g | Sum, capped by grip and pitch-over (0.57 to 0.81 g) | R7 target 0.35 g met on paper |
 | Rack | 10 kg; 26 MPa in the aluminium rails at 2.5 g (110 MPa welded 6061-T6) | 300 x 120 mm platform; front wheel load falls from 40 % to 32 % with 10 kg for the smallest rider | R6 met |
 | Strength screen | 1 of 7 sections above its screen: steerer at the crown in hard braking (117 MPa against 90 MPa for chromoly); sleeve 61 MPa, quill 79 MPa, head plate 71 MPa and seat tube 72 MPa pass (3 of 6 above before GRR-DDR-002) | Largest rider, largest setting | R12 at risk |
-| Prototype parts cost | USD 299 for the bike, USD 311 with helmet (USD 281 and 293 before GRR-DDR-003) | `bom/bom.csv` | Value-engineering target USD 300: bike USD 1 under, with helmet USD 11 over; R11 at risk until production cost is estimated |
+| Prototype parts cost | USD 311 with the helmet supplied with every bike, USD 299 for the bike alone (USD 293 and 281 before GRR-DDR-003) | `bom/bom.csv` | Value-engineering target USD 300: bike USD 1 under, with helmet USD 11 over; R11 at risk until production cost is estimated |
 
 **Commute time.** Assumptions: a 5 km trip each way; walking at 4 to 5 km/h; cycling at 10 to 12 km/h on dirt roads.
 
@@ -155,7 +159,7 @@ Table 2. School trip time, walking and cycling (estimates).
 - **Telescoping parts.** A seat post or stem raised past its minimum insertion can break or pull out. Every sliding part carries a permanent minimum insertion mark at 100 mm. On the sleeve and the seat post a stop screw in the clamp collar, riding in a slot, stops the part at that point (GRR-DDR-003, P8). The quill cannot take a stop of this kind inside a threaded steerer, so for the prototype its minimum insertion mark, with a bright painted band above it, is its only limit, checked at every fit change; a clamp-on stop collar is to be considered after the fit trials (decided by Amish, 2026-10-01, GRR-DEC-001). Painted height scales on the exposed sleeve and quill let a setting be noted and reset. At full extension the sleeve and quill are the most stressed sections (GRR-CAL-001, section K). Clamp slots are pinch points for fingers.
 - **Rack limit.** The rack is rated 10 kg and marked. It must not carry passengers, water containers or goods above the rating: a heavy load high over the rear wheel makes a light bike hard for a child to steer and can lift the front wheel. The rack is sized for a school bag, with no footrests.
 - **Road visibility.** School trips often start and end near dawn or dusk. Front white, rear red, spoke and pedal reflectors are fitted. The portfolio renders use the kit teal; the production frame color is settled in co-design, with a high-visibility option (decided by Amish, 2026-10-01). A light (for example a hub dynamo) is suggested for a later version.
-- **Helmet.** An adjustable, ventilated child helmet is proposed with each bike (BOM line 20). Hot-climate comfort will decide whether it is worn, so it needs to be discussed in co-design. Funding is proposed, awaiting Amish.
+- **Helmet.** An adjustable, ventilated child helmet is supplied with every bike through the partner program and fitted at handover (BOM line 20; decided by Amish, 2026-10-02, GRR-DEC-001). Hot-climate comfort will decide whether it is worn, so how it is worn is discussed in co-design.
 - **Aluminium rack.** Welded aluminium has a low fatigue strength and cracks without warning; the rack must pass static and fatigue tests before use, and the 10 kg rating marking matters more than before.
 - **Clothing and hot surfaces.** The chainguard keeps skirts and trousers out of the chain. A light saddle cover limits heating in the sun.
 - **Mass.** At about 15.1 kg, the bike is about 80 % of the weight of a 19 kg six-year-old. This makes pushing, lifting and controlling a fall harder for the smallest riders, and is the reason R5 matters.
@@ -167,7 +171,7 @@ Table 2. School trip time, walking and cycling (estimates).
 - Sliding joints in dust and rain: will greased steel sleeves seize over years of use? Would a split collar with a wiper seal or a plastic bushing help?
 - Crank length: one 140 mm length for the prototype was decided on 2026-09-25 (D5). It is 0.28 of a 1.10 m rider's inseam; the 127 mm swap remains a later option.
 - Standard: by maximum saddle height (890 mm) GrowRider falls under ISO 4210-2 (city and trekking). Its test loads assume adult riders; whether to also meet ISO 8098 limits for the small settings needs the standards' text.
-- Confirm with a partner which roadster parts are actually stocked in the target region, including coaster hubs and 20 in tires.
+- Confirm with a partner which roadster parts are actually stocked in the target region, including coaster hubs and 20 in tires. World Bicycle Relief is the first candidate partner to approach and Zambia the first candidate region (decided by Amish, 2026-10-02, GRR-DEC-001).
 - Test the anthropometric assumptions (inseam ratio, reach) with measurements of children in the target region, where average heights may be below global references.
 
 Concept media: [blueprint sheet](../media/concept-blueprint.pdf), [interactive 3D model](../media/viewer.html).

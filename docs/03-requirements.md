@@ -3,9 +3,9 @@ doc_id: GRR-REQ-001
 title: GrowRider requirements
 project: GrowRider
 doc_type: Requirements
-version: "0.6"
+version: "0.7"
 status: Draft
-date: '2026-10-01'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -33,6 +33,10 @@ revisions:
   date: '2026-10-01'
   author: Amish Chadha
   change: Status figures from GRR-CAL-001 v0.4 (constructable design, GRR-DDR-003); R11 stated against the value-engineering target
+- version: "0.7"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: R11 status reports USD 311 with the helmet, now supplied with every bike (decided by Amish, 2026-10-02), as the prototype figure
 ---
 
 # GrowRider requirements
@@ -51,7 +55,7 @@ These are the requirements for the concept. They were checked by calculation at 
 | R8 | Puncture resistance | No loss of use from thorn punctures; tire life 2,000 km or more (about one school year of 10 km per day) | Supplier data; later field trial | Not verifiable at TRL 3 (tire life) |
 | R9 | Serviceable with basic tools (split by GRR-DDR-002, D12) | R9a, parent or teacher: every fit adjustment with a 13 mm spanner and a screwdriver, and a fit change in 10 minutes or less. R9b, mechanic: all routine service, including headset and bottom bracket, with 13, 15 and 32 mm spanners, a bottom bracket lockring spanner and a screwdriver | Design review; later timed trial | At risk: both tool lists met; fit change 10 min, at the limit |
 | R10 | Parts commonality with regional adult roadsters | Every wear part except tires and rims interchangeable with regional roadster parts (chain, sprocket, coaster hub internals, bottom bracket, headset, pedals, seat post, handlebar, brake blocks) | BOM review against a regional parts list from the partner | Not verifiable at TRL 3 (no regional parts list) |
-| R11 | Low cost | Prototype parts cost reported against the USD 300 value-engineering target in `project.yaml` (a hypothetical control target, not a limit; Amish, 2026-10-01; raised from USD 250 on 2026-09-26, GRR-DDR-002, N1); production cost target USD 120 or less per bike at volume (decided 2026-09-25, GRR-DDR-001, D6) | Priced BOM; production estimate with a regional assembler | At risk: USD 299 for the bike (USD 1 under the target), USD 311 with helmet (USD 11 over); USD 120 production cost not yet estimated |
+| R11 | Low cost | Prototype parts cost reported against the USD 300 value-engineering target in `project.yaml` (a hypothetical control target, not a limit; Amish, 2026-10-01; raised from USD 250 on 2026-09-26, GRR-DDR-002, N1); production cost target USD 120 or less per bike at volume (decided 2026-09-25, GRR-DDR-001, D6) | Priced BOM; production estimate with a regional assembler | At risk: USD 311 with the helmet supplied with every bike (USD 11 over the target; decided by Amish, 2026-10-02), USD 299 for the bike alone (USD 1 under); USD 120 production cost not yet estimated |
 | R12 | Lasts across siblings | 10-year service life for at least three successive riders; frame and fork sized for a 60 kg rider plus a 10 kg rack load; sliding joints that do not seize in dust and rain | Fatigue calculation at TRL 3; later frame fatigue tests | At risk: 1 of 7 sections above the fatigue screen (steerer; 3 of 6 before GRR-DDR-002) |
 
 ## Assumptions

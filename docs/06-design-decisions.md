@@ -3,9 +3,9 @@ doc_id: GRR-DEC-001
 title: GrowRider design decisions register
 project: GrowRider
 doc_type: Design decisions register
-version: "0.2"
+version: "0.3"
 status: Draft
-date: '2026-10-01'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -17,6 +17,10 @@ revisions:
   date: '2026-10-01'
   author: Amish Chadha
   change: Amish accepted the recommendations of open items 1 to 4 and 8 to 11 (GRR-DDR-003 accepted); moved to decisions made; open items renumbered 1 to 3
+- version: "0.3"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: Amish approved the recommendations for open items 1 to 3 on 2026-10-02 (helmet supplied with every bike, World Bicycle Relief as first candidate partner, Zambia as first candidate region); moved to decisions made; USD 311 with the helmet reported as the prototype figure
 ---
 
 # GrowRider design decisions register
@@ -25,11 +29,7 @@ Every design decision still to be made, and every decision made, in one place. E
 
 ## Open decisions
 
-| # | Decision needed | Options | Recommendation | Affects in the build | Source |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Helmet: whether one is supplied with each bike (BOM line 20) | Supply with each bike; leave to families or schools; supply through the partner program | None made; a co-design question | Not part of the bike build | GRR-DDR-001, O1 |
-| 2 | First partner (a distribution NGO, a rural school network or a regional assembler) and co-design partner for fit measurements and the regional parts list | To be picked per area, as Amish directed for community designs | None yet | Parts confirmation (items 1 to 12 below) and fit trials | GRR-DDR-001, O2 and O4 |
-| 3 | First region | Zambia, Kenya or Malawi were suggested | None made | Which regional parts are stocked | GRR-DDR-001, O3 |
+None. All open decisions were decided on 2026-10-02.
 
 ## To confirm when parts are bought
 
@@ -46,11 +46,11 @@ Every design decision still to be made, and every decision made, in one place. E
 | 9 | 1 in JIS press-in headset (30.0 mm cups) and a 68 mm BSA bottom bracket are the regional standard | The head tube bore and BB shell are made to them | GRR-DDR-003, P4 |
 | 10 | A builder who can TIG weld 6061 aluminium for the rack, or a bought rack of the same size and rating | Welded aluminium needs skill and has low fatigue strength | GRR-DDR-002, D7 |
 | 11 | Masses of the tires, rims, hub and bought fittings | The mass estimate uses catalog values | GRR-CAL-001, D |
-| 12 | Which parts are actually stocked in the first region, including coaster hubs and 20 in solid tires | Parts commonality (R10) | GRR-REQ-001, R10 |
+| 12 | Which parts are actually stocked in the first region (Zambia, the first candidate), including coaster hubs and 20 in solid tires | Parts commonality (R10) | GRR-REQ-001, R10 |
 
 ## Value engineering
 
-Value-engineering target: USD 300 (a hypothetical control target, not a limit; Amish, 2026-10-01: "the budgets are a hypothethical control target to ensure we are thinking along a value engineering lens"). Estimated cost of the constructable design: USD 299 for the bike, BOM lines 1 to 19 (USD 1 under the target), and USD 311 with the helmet (USD 11 over the target). The concept was USD 281 and 293; the parts added for construction account for the USD 18 difference. Frame builder labor is not included.
+Value-engineering target: USD 300 (a hypothetical control target, not a limit; Amish, 2026-10-01: "the budgets are a hypothethical control target to ensure we are thinking along a value engineering lens"). Estimated cost of the constructable design: USD 311 for the bike with the helmet that is now supplied with every bike (decided 2026-10-02), BOM lines 1 to 20, USD 11 over the target; USD 299 for the bike alone, lines 1 to 19 (USD 1 under the target). The concept was USD 281 and 293; the parts added for construction account for the USD 18 difference. Frame builder labor is not included.
 
 Main cost drivers:
 
@@ -85,3 +85,6 @@ Savings worth trying:
 | 2026-10-01 | Frame color: kit teal for the portfolio renders; the production color is settled in co-design, with a high-visibility option | Amish: "i agree with your recommendations for both GrowRider and GravitySort" | `docs/REVIEW.md`, 2026-09-26, item 3 |
 | 2026-10-01 | Painted height scales on the exposed sleeve and quill: a band every 20 mm, a longer band every 60 mm | Amish: "i agree with your recommendations for both GrowRider and GravitySort" | `docs/REVIEW.md`, 2026-09-26, item 4 |
 | 2026-10-01 | Markings: the name "GrowRider" screen printed on the chainguard; no head badge | Amish: "i agree with your recommendations for both GrowRider and GravitySort" | `docs/REVIEW.md`, 2026-09-26, item 6 |
+| 2026-10-02 | Helmet (BOM line 20): an adjustable, ventilated child helmet is supplied with every bike through the partner program and fitted at handover; its USD 12 stays in the bike's cost, so USD 311 is the prototype figure | Amish: "i approve your recommendations for all 555 open decisions." | GRR-DDR-001, O1 |
+| 2026-10-02 | First partner and co-design partner: World Bicycle Relief, through its school bicycle programs and field mechanics, is the first candidate to approach for fit measurements and the regional parts list | Amish: "i approve your recommendations for all 555 open decisions." | GRR-DDR-001, O2 and O4 |
+| 2026-10-02 | First region: Zambia is the first candidate region, for checking the regional parts list (items 1 to 12 below) | Amish: "i approve your recommendations for all 555 open decisions." | GRR-DDR-001, O3 |
