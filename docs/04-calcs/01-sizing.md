@@ -3,9 +3,9 @@ doc_id: GRR-CAL-001
 title: GrowRider sizing calculations
 project: GrowRider
 doc_type: Calculation
-version: "0.4"
+version: "0.5"
 status: Draft
-date: '2026-10-01'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -25,6 +25,10 @@ revisions:
   date: '2026-10-01'
   author: Amish Chadha
   change: Constructable design (GRR-DDR-003); crown clearance corrected; budget stated as a value-engineering target
+- version: "0.5"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: "Cost stated as USD 311 with the helmet supplied with every bike (decided 2026-10-02), the prototype figure; sizing.py wording and R11 row brought into line; no figure changed"
 ---
 
 # GrowRider sizing calculations
@@ -146,7 +150,7 @@ Chain, coaster hub internals, 1 in headset, 25.4 mm seat post, 22.2 mm handlebar
 
 ## J. Cost (R11)
 
-`budget_usd` is a hypothetical value-engineering target, not a spending limit (Amish, 2026-10-01). Value-engineering target: USD 300. Estimated cost of the constructable design: USD 299 for the bike, lines 1 to 19 (USD 1 under the target), and USD 311 with the USD 12 helmet (USD 11 over the target) [J1]. v0.3 had USD 281 and 293 and v0.1 USD 243 and 255. The chromoly frame tubes (+18), chromoly steerer, sleeve and quill (+12), alloy bar and rear rim (+4) and aluminium rack (+4) added USD 38 in v0.2; the parts added for construction add USD 18: dropouts, cross bar, bridge, kickstand plate and bosses (+6), the stem's head plate and clamp block (+6), a long-reach caliper (+2) and the stop-screw collars, arm clip and fixings (+4). **R11 is at risk** until the production cost is estimated. The USD 120 production target at volume (D6) needs an estimate from a regional assembler. The main cost drivers and savings worth trying are listed in the design decisions register (GRR-DEC-001, Value engineering).
+`budget_usd` is a hypothetical value-engineering target, not a spending limit (Amish, 2026-10-01). Value-engineering target: USD 300. Estimated cost of the constructable design: USD 311, the prototype figure, with the USD 12 helmet that is supplied with every bike (USD 11 over the target); the bike alone, lines 1 to 19, is USD 299 (USD 1 under the target) [J1]. v0.3 had USD 281 and 293 and v0.1 USD 243 and 255. The chromoly frame tubes (+18), chromoly steerer, sleeve and quill (+12), alloy bar and rear rim (+4) and aluminium rack (+4) added USD 38 in v0.2; the parts added for construction add USD 18: dropouts, cross bar, bridge, kickstand plate and bosses (+6), the stem's head plate and clamp block (+6), a long-reach caliper (+2) and the stop-screw collars, arm clip and fixings (+4). **R11 is at risk** until the production cost is estimated. The USD 120 production target at volume (D6) needs an estimate from a regional assembler. The main cost drivers and savings worth trying are listed in the design decisions register (GRR-DEC-001, Value engineering).
 
 ## K. Strength screen (R12)
 
@@ -185,7 +189,7 @@ The maximum saddle height is 890 mm above the ground [M1]. ISO 8098:2023 covers 
 | R5 | Mass | 15.1 kg | 13 kg or less (production goal) | **Not met** |
 | R7 | Two independent brakes | Coaster 0.22 g, front 0.24 g, both 0.46 g (smallest rider, dry); wet alloy rim about 0.14 g | 0.2 g each, 0.35 g together, dry | At risk |
 | R9 | Basic tools, 10 min fit change | Parent and mechanic tool lists met; fit change 10 min | R9a: 13 mm, screwdriver, 10 min; R9b: 13, 15, 32 mm, lockring spanner, screwdriver | At risk |
-| R11 | Cost | USD 299 bike (USD 1 under the value-engineering target), USD 311 with helmet (USD 11 over); production not estimated | Value-engineering target USD 300 for the prototype; USD 120 at volume | At risk |
+| R11 | Cost | USD 311 prototype with the helmet supplied with every bike (USD 11 over the value-engineering target; bike alone USD 299, USD 1 under); production not estimated | Value-engineering target USD 300 for the prototype; USD 120 at volume | At risk |
 | R12 | Lasts across siblings | 1 of 7 sections above its screen (steerer); seizing not assessable | 10 years, 3 riders, 60 kg plus 10 kg | At risk |
 | R8 | Puncture resistance | Solid tires, no punctures; life unknown | No punctures; 2,000 km | Not verifiable at TRL 3 |
 | R10 | Parts commonality | Chosen to match; no regional list | All wear parts but tires and rims | Not verifiable at TRL 3 |

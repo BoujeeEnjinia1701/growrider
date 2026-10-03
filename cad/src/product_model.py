@@ -27,7 +27,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / ".kit"))
 from build123d import (Axis, Box, Compound, Cylinder, Location, Plane, Polyline, Pos,
                        RectangleRounded, RegularPolygon, Rot, SlotOverall, Solid, Sphere, Text,
                        Vector, extrude, fillet, make_face, revolve, Spline, sweep, Circle)
-from model import PARAMS, derived, seat_pt, steer_pt, split_saddle
+from model import PARAMS, build_components, derived, seat_pt, steer_pt, split_saddle
 
 TITLE = "GrowRider: adjustable children's bicycle that grows from age 6 to 14"
 
@@ -45,8 +45,8 @@ RENDER_VIEWS = [
 ]
 
 # Rider setting shown in the renders: a 1.30 m child (about age 8). Saddle 505 mm from the BB
-# (between fit rules A and B of GRR-CAL-001), stem raised 45 mm, short stem head position.
-SETTING = {"saddle_h": 505.0, "stem_exp": 45.0, "ext": 0.0}
+# (between fit rules A and B of GRR-CAL-001), stem raised 45 mm, short stem head position (45 mm ahead of the axis).
+SETTING = {"saddle_h": 505.0, "stem_exp": 45.0, "ext": 45.0}
 RIDER_H = 1300.0
 CRANK_ANG = 20.0            # drive-side crank angle above horizontal, forward (as model.py)
 
@@ -803,6 +803,24 @@ def product_parts(P=PARAMS):
         add("Child rider, 1.30 m (scale)", rider, C_CLAY, "clay", None, "context", (0, 0, 0))
     except Exception as e:  # keep the bike renderable if the mannequin cannot be built
         print("rider not built:", e)
+
+    # ================================================================ constructable design (GRR-DDR-003)
+    # Frame, stem head, clamp block, kickstand and chainguard mounts come straight from model.py for this
+    # rider setting: 6 mm track-end dropouts, cross bar, fender bridge, rack bosses, kickstand plate,
+    # welded head plate with a two-piece bar clamp block, centre-mount kickstand.
+    M = build_components(P, setting=S)
+    drop = {"Stem head", "Stem bolts, 13 mm", "Kickstand foot"}
+    out[:] = [q for q in out if q["name"] not in drop]
+    for q in out:
+        if q["name"] == "Step-through chromoly frame":
+            q["shape"] = M["frame"].shape
+        elif q["name"] == "Kickstand":
+            q["shape"] = M["kickstand"].shape + M["kick_bolt"].shape
+    add("Head plate, welded chromoly", M["head_plate"].shape, C_GRAPHITE, "painted", 5, "shell", ex_steer(200))
+    add("Bar clamp block, lower half", M["clamp_lo"].shape, C_ALLOY, "metal", 5, "shell", ex_steer(230))
+    add("Bar clamp block, cap", M["clamp_hi"].shape, C_ALLOY, "metal", 5, "shell", ex_steer(260))
+    add("Clamp and expander bolts, 13 mm", M["clamp_bolts"].shape + M["exp_bolt"].shape, C_STEEL, "metal", 19, "shell", ex_steer(290))
+    add("Chainguard tab and seat tube clip", M["guard_mounts"].shape, C_STEEL, "metal", 19, "shell", (0, -330, 80))
     return out
 
 

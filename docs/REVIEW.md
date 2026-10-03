@@ -314,7 +314,7 @@ All in GRR-DEC-001: accept GRR-DDR-003 (item 1); quill positive stop (item 2, re
 
 ### Stale media
 
-The photoreal renders (`media/render-*.png`), `media/card.png` and `media/social-preview.png` show the concept stem head, dropouts and fittings and need regenerating on Amish's Mac; `cad/src/product_model.py` has not been re-run.
+The appearance model was rebuilt on 2026-10-02 (see "Approved follow-ups carried out"). The photoreal renders (`media/render-*.png`), `media/card.png` and `media/social-preview.png` are made on Amish's Mac next and are not in this working copy.
 
 ### Recommended next step
 
@@ -394,3 +394,26 @@ Three decisions, all moved to Decisions made in GRR-DEC-001, dated 2026-10-02:
 ### Points found in the review
 
 - The helmet line (USD 12) was excluded from the bike's USD 299 estimate while the value engineering section also quoted USD 311 with it; with decision 1 accepted, USD 311 is now reported as the prototype figure.
+
+## Approved follow-ups carried out (2026-10-02)
+
+Amish approved all follow-up actions from the open-decision sign-off on 2026-10-02. Results for GrowRider:
+
+1. Decision 1, calculations: done. `docs/04-calcs/sizing.py` now states the cost in the approved wording and leads with USD 311 with the helmet supplied with every bike as the prototype figure; R11 row and the cost paragraph of GRR-CAL-001 (now v0.5) match. Value-engineering target: USD 300. Estimated cost of the constructable design: USD 311 (USD 11 over the target); the bike alone is USD 299. No figure changed and R11 stays at risk. `budget_usd` is unchanged. README headline cost now USD 311.
+2. Decisions 2 and 3, World Bicycle Relief in Zambia: not done, outreach by Amish.
+3. Appearance model (carried from the stale-media note): done. `cad/src/product_model.py` now takes the frame (6 mm track-end dropouts, cross bar, fender bridge, rack bosses, kickstand plate), the welded head plate with two-piece bar clamp block and bolts, the centre-mount kickstand with its bolt and the chainguard tab and clip straight from `cad/src/model.py`, and the rider setting uses the 45 mm stem head position. Render scenes exported to `/home/claude/renders/growrider`; the photoreal renders, card and social preview are made on Amish's Mac.
+
+Model, BOM, mass and drawings are unchanged, so the general arrangement, concept media and build plan pictures were not regenerated. No requirement status changed.
+
+### Cross-repo actions
+
+None.
+
+### Documents changed
+
+`docs/04-calcs/01-sizing.md` GRR-CAL-001 v0.5; `docs/04-calcs/sizing.py`; `cad/src/product_model.py`; `README.md`; this review note.
+
+
+## 2026-10-02: photoreal renders redone on the constructable design
+
+Rendered with Blender Cycles on Amish's Mac from the updated appearance model; captioned with `.kit/photo_caption.py`; `media/card.png` and `media/social-preview.png` regenerated with `.kit/cards.py`. Views: hero, exploded, detail. image_qc passes. Appearance deviations are those logged above as proposed, awaiting Amish.

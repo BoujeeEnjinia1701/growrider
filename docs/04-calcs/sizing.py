@@ -331,10 +331,12 @@ helmet = sum(float(r["qty"]) * float(r["unit_cost_usd"]) for r in rows if "helme
 bike = tot - helmet
 ou = lambda v: f"USD {abs(v):.0f} {'over' if v > 0 else 'under'}"   # noqa: E731
 out("J1", f"BOM lines {len(rows)}; bike (lines 1 to 19) USD {bike:.0f}; helmet USD {helmet:.0f}; total USD {tot:.0f}. "
-          f"Value-engineering target USD {BUDGET:.0f}: bike {ou(bike - BUDGET)}, with helmet {ou(tot - BUDGET)} the target "
+          f"Value-engineering target: USD {BUDGET:.0f}. Estimated cost of the constructable design: USD {tot:.0f} with the helmet "
+          f"supplied with every bike (USD {abs(tot - BUDGET):.0f} {'over' if tot > BUDGET else 'under'} the target); bike alone USD {bike:.0f} "
+          f"({ou(bike - BUDGET)} the target) "
           f"(concept before GRR-DDR-003: USD {CONCEPT_V02['bike_usd']} and {CONCEPT_V02['total_usd']})")
-status("R11", f"USD {bike:.0f} bike ({ou(bike - BUDGET)} the value-engineering target), USD {tot:.0f} with helmet "
-       f"({ou(tot - BUDGET)}); production cost not estimated",
+status("R11", f"USD {tot:.0f} prototype with the helmet supplied with every bike ({ou(tot - BUDGET)} the value-engineering target; "
+       f"bike alone USD {bike:.0f}, {ou(bike - BUDGET)}); production cost not estimated",
        f"value-engineering target USD {BUDGET:.0f} prototype; USD 120 at volume", "At risk")
 
 # ------------------------------------------------------------------ K. strength screen (R12)
